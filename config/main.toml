@@ -123,6 +123,9 @@ ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Micros
 group = "🤖 OpenAi"
 ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/OpenAi.list"
 [[rulesets]]
+group = "🚧 GitHub ssh git"
+ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/GitSSH.list"
+[[rulesets]]
 group = "🍎 苹果服务"
 ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list"
 [[rulesets]]

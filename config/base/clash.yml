@@ -13,7 +13,7 @@ dns:
 script:
   engine: expr # or starlark (10x to 20x slower)
   shortcuts:
-    git-ssh-github: (resolve_process_name() in ['ssh.exe', 'git.exe']) and host.endswith('github.com')
+    git-ssh-github: (resolve_process_name() in ['ssh.exe', 'git.exe', 'ssh', 'git']) and host.endswith('github.com')
 
 rules:
   - SCRIPT,git-ssh-github,🚧 GitHub,no-resolve
