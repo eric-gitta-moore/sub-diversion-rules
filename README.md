@@ -14,21 +14,31 @@
 | JamesCurtis_Online_Full_MultiMode_OpenAi_GitHub_mini.ini | 精简版规则 |
 | main.toml | 精简版规则（推荐，支持分流 git ssh） |
 
-> **git ssh 分流方法**
-> 
-> 在配置文件rules代码块顶部添加一条规则：
-> 
-> `SCRIPT,git-ssh-github,🚧 GitHub,no-resolve`
-> 
-> 添加完成后类似下文
-> 
-> ```yaml
-> ...
-> rules:
->  - SCRIPT,git-ssh-github,🚧 GitHub,no-resolve
->  - ...
-> ```
-> 
+## git ssh 分流方法
+
+（推荐）在混合配置中选择 `JavaScript`，并写入以下内容
+```js
+module.exports.parse = ({ content, name, url }, { yaml, axios, notify }) => {
+  content.rules.unshift(`SCRIPT,git-ssh-github,🚧 GitHub ssh git,no-resolve`)
+  return content
+}
+```
+
+**或者**
+
+在配置文件rules代码块顶部添加一条规则：
+
+`SCRIPT,git-ssh-github,🚧 GitHub ssh git,no-resolve`
+
+添加完成后类似下文
+
+```yaml
+...
+rules:
+ - SCRIPT,git-ssh-github,🚧 GitHub ssh git,no-resolve
+ - ...
+```
+
 
 
 # 使用示例
