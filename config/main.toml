@@ -1,6 +1,6 @@
 version = 1
 [custom]
-enable_rule_generator = false
+enable_rule_generator = true
 overwrite_original_rules = true
 
 clash_rule_base = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/config/base/clash.yml"
@@ -116,55 +116,55 @@ rule = ["(NF|奈飞|解锁|Netflix|NETFLIX|Media)"]
 
 
 
-# [[rulesets]]
-# group = "Ⓜ️ 微软服务"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list"
-# [[rulesets]]
-# group = "🤖 OpenAi"
-# ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/OpenAi.list"
+[[rulesets]]
+group = "Ⓜ️ 微软服务"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list"
+[[rulesets]]
+group = "🤖 OpenAi"
+ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/OpenAi.list"
 # [[rulesets]]
 # group = "🚧 GitHub ssh git"
 # ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/GitSSH.list"
-# [[rulesets]]
-# group = "🍎 苹果服务"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list"
-# [[rulesets]]
-# group = "🎥 奈飞视频"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list"
+[[rulesets]]
+group = "🍎 苹果服务"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list"
+[[rulesets]]
+group = "🎥 奈飞视频"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list"
 
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list"
-# [[rulesets]]
-# group = "🛑 全球拦截"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
-# [[rulesets]]
-# group = "🛑 全球拦截"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list"
-# [[rulesets]]
-# group = "🚀 节点选择"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list"
-# [[rulesets]]
-# group = "🚀 节点选择"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list"
-# [[rulesets]]
-# group = "🚀 节点选择"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list"
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
-# [[rulesets]]
-# group = "🎯 全球直连"
-# ruleset = "[]GEOIP,CN"
-# [[rulesets]]
-# group = "🐟 漏网之鱼"
-# ruleset = "[]FINAL"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list"
+[[rulesets]]
+group = "🛑 全球拦截"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+[[rulesets]]
+group = "🛑 全球拦截"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list"
+[[rulesets]]
+group = "🚀 节点选择"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list"
+[[rulesets]]
+group = "🚀 节点选择"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list"
+[[rulesets]]
+group = "🚀 节点选择"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+[[rulesets]]
+group = "🎯 全球直连"
+ruleset = "[]GEOIP,CN"
+[[rulesets]]
+group = "🐟 漏网之鱼"
+ruleset = "[]FINAL"
