@@ -1,6 +1,6 @@
 version = 1
 [custom]
-enable_rule_generator = true
+enable_rule_generator = false
 overwrite_original_rules = true
 
 clash_rule_base = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/config/base/clash.yml"
