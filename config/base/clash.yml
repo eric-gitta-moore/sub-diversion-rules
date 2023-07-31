@@ -13,4 +13,4 @@ dns:
 script:
   engine: starlark # or starlark (10x to 20x slower)
   shortcuts:
-    git-ssh-github: (resolve_process_name() in ['ssh.exe', 'git.exe', 'ssh', 'git']) and host.endswith('github.com')
+    git-ssh-github: dst_port == 22 and host.endswith('github.com')
