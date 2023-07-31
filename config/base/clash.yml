@@ -11,6 +11,6 @@ dns:
 
 # git ssh 连接 github 分流规则
 script:
-  engine: expr # or starlark (10x to 20x slower)
+  engine: starlark # or starlark (10x to 20x slower)
   shortcuts:
     git-ssh-github: (resolve_process_name() in ['ssh.exe', 'git.exe', 'ssh', 'git']) and host.endswith('github.com')
