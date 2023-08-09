@@ -44,6 +44,10 @@ name = "🤖 OpenAi"
 type = "select"
 rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
 [[custom_groups]]
+name = "🍍 谷歌翻译"
+type = "select"
+rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
+[[custom_groups]]
 name = "🚧 GitHub ssh git"
 type = "select"
 rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
@@ -122,6 +126,9 @@ ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Micros
 [[rulesets]]
 group = "🤖 OpenAi"
 ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/OpenAi.list"
+[[rulesets]]
+group = "🍍 谷歌翻译"
+ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/TranslateGoogle.list"
 # [[rulesets]]
 # group = "🚧 GitHub ssh git"
 # ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/GitSSH.list"
