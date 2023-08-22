@@ -225,12 +225,12 @@ proxy-groups:
     }
 
   - { name: Google, <<: *pr }
-  - { name: google-scholar, <<: *pr }
-  - { name: github, <<: *pr }
-  - { name: docker, <<: *pr }
+  - { name: Google Scholar, <<: *pr }
+  - { name: GitHub, <<: *pr }
+  - { name: Docker, <<: *pr }
 
-  - { name: microsoft, <<: *pr }
-  - { name: apple, <<: *pr }
+  - { name: Microsoft, <<: *pr }
+  - { name: Apple, <<: *pr }
   - { name: Telegram, <<: *pr }
   - { name: Twitter, <<: *pr }
 
@@ -283,11 +283,11 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
   - GEOSITE,biliintl, 哔哩东南亚
   - GEOSITE,ehentai,ehentai
-  - GEOSITE,github,github
-  - GEOSITE,microsoft,microsoft
-  - GEOSITE,apple,apple
-  - GEOSITE,google-scholar,google-scholar
-  - GEOSITE,docker,docker
+  - GEOSITE,github,GitHub
+  - GEOSITE,microsoft,Microsoft
+  - GEOSITE,apple,Apple
+  - GEOSITE,google-scholar,Google Scholar
+  - GEOSITE,docker,Docker
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
