@@ -225,28 +225,22 @@ proxy-groups:
     }
 
   - { name: Google, <<: *pr }
+  - { name: google-scholar, <<: *pr }
+  - { name: github, <<: *pr }
+  - { name: docker, <<: *pr }
 
+  - { name: microsoft, <<: *pr }
+  - { name: apple, <<: *pr }
   - { name: Telegram, <<: *pr }
-
   - { name: Twitter, <<: *pr }
 
   - { name: ehentai, <<: *pr }
-
   - { name: 哔哩哔哩, <<: *pr }
-
   - { name: 哔哩东南亚, <<: *pr }
-
   - { name: 巴哈姆特, <<: *pr }
-
   - { name: YouTube, <<: *pr }
-
   - { name: NETFLIX, <<: *pr }
-
   - { name: Spotify, <<: *pr }
-
-  - { name: github, <<: *pr }
-
-  - { name: docker, <<: *pr }
 
   - {
       name: 国内,
@@ -290,6 +284,9 @@ rules:
   - GEOSITE,biliintl, 哔哩东南亚
   - GEOSITE,ehentai,ehentai
   - GEOSITE,github,github
+  - GEOSITE,microsoft,microsoft
+  - GEOSITE,apple,apple
+  - GEOSITE,google-scholar,google-scholar
   - GEOSITE,docker,docker
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
