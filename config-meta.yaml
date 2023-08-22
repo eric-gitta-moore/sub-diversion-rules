@@ -22,6 +22,27 @@ pr:
       ],
   }
 
+# proxy 相关 cn
+prcn:
+  &prcn {
+    type: select,
+    proxies:
+      [
+        DIRECT,
+        默认,
+        香港,
+        台湾,
+        日本,
+        新加坡,
+        美国,
+        其它地区,
+        手动选择,
+        自动选择,
+        负载均衡,
+        故障转移,
+      ],
+  }
+
 #这里是订阅更新和延迟测试相关的
 p:
   &p {
@@ -204,25 +225,7 @@ proxy-groups:
   - { name: 故障转移, <<: *use, type: fallback, interval: 300, lazy: true }
 
   # - {name: dns, type: select, proxies: [DIRECT, WARP, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 自动选择]}  # 加入 WARP
-  - {
-      name: dns,
-      type: select,
-      proxies:
-        [
-          DIRECT,
-          默认,
-          手动选择,
-          自动选择,
-          负载均衡,
-          故障转移,
-          香港,
-          台湾,
-          日本,
-          新加坡,
-          美国,
-          其它地区,
-        ],
-    }
+  - { name: dns, <<: *prcn }
 
   - { name: Google, <<: *pr }
   - { name: Google Scholar, <<: *pr }
@@ -230,12 +233,12 @@ proxy-groups:
   - { name: Docker, <<: *pr }
 
   - { name: Microsoft, <<: *pr }
-  - { name: Apple, <<: *pr }
   - { name: Telegram, <<: *pr }
   - { name: Twitter, <<: *pr }
+  - { name: Apple, <<: *prcn }
 
   - { name: ehentai, <<: *pr }
-  - { name: 哔哩哔哩, <<: *pr }
+  - { name: 哔哩哔哩, <<: *prcn }
   - { name: 哔哩东南亚, <<: *pr }
   - { name: 巴哈姆特, <<: *pr }
   - { name: YouTube, <<: *pr }
