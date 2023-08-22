@@ -133,7 +133,7 @@ dns:
   enable: true
   listen: :1053
   ipv6: true
-  enhanced-mode: fake-ip
+  enhanced-mode: fake-ip # redir-host
   fake-ip-range: 28.0.0.1/8
   fake-ip-filter:
     - "*"
@@ -188,6 +188,10 @@ proxy-groups:
         ],
     }
 
+  - { name: 自动选择, <<: *use }
+
+  - { name: 手动选择, <<: *use, type: select }
+
   - {
       name: 负载均衡,
       <<: *use,
@@ -198,10 +202,6 @@ proxy-groups:
     }
 
   - { name: 故障转移, <<: *use, type: fallback, interval: 300, lazy: true }
-
-  - { name: 手动选择, <<: *use, type: select }
-
-  - { name: 自动选择, <<: *use }
 
   # - {name: dns, type: select, proxies: [DIRECT, WARP, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 自动选择]}  # 加入 WARP
   - {
@@ -230,13 +230,9 @@ proxy-groups:
 
   - { name: Twitter, <<: *pr }
 
-  - { name: pixiv, <<: *pr }
-
   - { name: ehentai, <<: *pr }
 
   - { name: 哔哩哔哩, <<: *pr }
-
-  - { name: 哔哩哔哩 api, <<: *pr }
 
   - { name: 哔哩东南亚, <<: *pr }
 
@@ -249,6 +245,8 @@ proxy-groups:
   - { name: Spotify, <<: *pr }
 
   - { name: github, <<: *pr }
+
+  - { name: docker, <<: *pr }
 
   - {
       name: 国内,
@@ -292,6 +290,7 @@ rules:
   - GEOSITE,biliintl, 哔哩东南亚
   - GEOSITE,ehentai,ehentai
   - GEOSITE,github,github
+  - GEOSITE,docker,docker
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
