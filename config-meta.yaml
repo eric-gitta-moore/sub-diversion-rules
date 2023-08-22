@@ -38,18 +38,54 @@ use: &use
   use:
     - provider1
     - provider2
+    - provider3
+    - provider4
+    - provider5
+    - provider6
+    - provider7
+    - provider8
+    - provider9
 
 ######### 锚点 end #######
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
-  provider1:
+  provider1: # 1. 一元机场.com
     <<: *p
-    url: ""
+    url: "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=25f5c0ab285718aa7bb60dc0292ad222"
 
-  provider2:
+  provider2: # 2. dash.fscloud.cc
     <<: *p
-    url: ""
+    url: "https://sub.fscloud.cc/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8"
+
+  provider3: # 3. 一元者也.com
+    <<: *p
+    url: "https://dy.v-too.cloud/api/v1/client/subscribe?token=19e23419d0d49cfdb4238ac7fe34367f"
+
+  provider4: # 4. bai.ee
+    <<: *p
+    url: "https://dy.zzjq.xyz/api/v1/client/subscribe?token=236d4c6786b708626c13b3242d29be82"
+
+  provider5: # 5. www.eevpn.com
+    <<: *p
+    url: "https://api.ejiasu.net/api/v1/client/subscribe?token=554a1dc8e56be01a10d4d619840c7ed9"
+
+  provider6: # 6. hiclouda.com
+    <<: *p
+    url: "https://subscr.b-cdn.net/api/v2/subscr?scrid=7eebd037ae7a4cd9aad2ccd616997a42"
+
+  provider7: # 7. 慈善机场.xyz
+    <<: *p
+    url: "https://www.csyyds.xyz/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
+
+  provider8: # 8. www.三毛机场.shop
+    <<: *p
+    url: "https://dy.jimaoyun.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e"
+
+  provider9: # 9. cf.1air.xyz
+    <<: *p
+    url: "https://1air.393636.xyz/api/v1/client/subscribe?token=244ec3582cea80099539db6f87aaafdf&flag=clash"
+
 
 mode: rule
 ipv6: true
@@ -224,7 +260,7 @@ proxy-groups:
   - { name: 自动选择, <<: *use, tolerance: 2, type: url-test }
 
 rules:
-  # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
   - GEOSITE,biliintl, 哔哩东南亚
   - GEOSITE,ehentai,ehentai
   - GEOSITE,github,github
