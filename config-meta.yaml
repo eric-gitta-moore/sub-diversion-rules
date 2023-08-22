@@ -71,6 +71,14 @@ use: &use
     - www.三毛机场.shop
     - cf.1air.xyz
 
+# 公司内可翻大概是有自有dns
+use-dns: &use-dns
+  default-nameserver:
+    - 223.5.5.5
+  nameserver:
+    - "tls://8.8.4.4#dns"
+    - "tls://1.0.0.1#dns"
+
 ######### 锚点 end #######
 
 # url 里填写自己的订阅,名称不能重复
@@ -151,6 +159,7 @@ tun:
   auto-detect-interface: true
 
 dns:
+  <<: *use-dns
   enable: true
   listen: :1053
   ipv6: true
@@ -160,11 +169,6 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
-  default-nameserver:
-    - 223.5.5.5
-  nameserver:
-    - "tls://8.8.4.4#dns"
-    - "tls://1.0.0.1#dns"
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   nameserver-policy:
