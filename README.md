@@ -9,12 +9,12 @@
 3. `https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/config/main.toml`
 4. `https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/config/main-meta.toml`
 
-| 规则名称                                                 | 说明                                       |
-| -------------------------------------------------------- | ------------------------------------------ |
-| JamesCurtis_Online_Full_MultiMode_OpenAi_GitHub.ini      | 完整版规则（分流规则计算比较消耗cpu）      |
-| JamesCurtis_Online_Full_MultiMode_OpenAi_GitHub_mini.ini | 精简版规则                                 |
-| main.toml                                                | 精简版规则（推荐，支持分流 git ssh）       |
-| main-meta.toml                                           | 精简版 Meta 规则（推荐，支持分流 git ssh） |
+| 规则名称                                                 | 说明                                  |
+| -------------------------------------------------------- | ------------------------------------- |
+| JamesCurtis_Online_Full_MultiMode_OpenAi_GitHub.ini      | 完整版规则（分流规则计算比较消耗cpu） |
+| JamesCurtis_Online_Full_MultiMode_OpenAi_GitHub_mini.ini | 精简版规则                            |
+| main.toml                                                | 精简版规则（推荐，支持分流 git ssh）  |
+| main-meta.toml                                           | 精简版 Meta 规则（支持分流 git ssh）  |
 
 ## git ssh 分流方法
 
