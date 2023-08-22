@@ -14,8 +14,10 @@ pr:
         新加坡,
         美国,
         其它地区,
-        全部节点,
+        手动选择,
         自动选择,
+        负载均衡,
+        故障转移,
         DIRECT,
       ],
   }
@@ -33,8 +35,10 @@ p:
       },
   }
 
+# 地区分组引用
 use: &use
-  type: select
+  type: url-test
+  tolerance: 2
   use:
     - 一元机场.com
     - dash.fscloud.cc
@@ -85,7 +89,6 @@ proxy-providers:
   cf.1air.xyz:
     <<: *p
     url: "https://1air.393636.xyz/api/v1/client/subscribe?token=244ec3582cea80099539db6f87aaafdf&flag=clash"
-
 
 mode: rule
 ipv6: true
@@ -170,25 +173,54 @@ proxy-groups:
       name: 默认,
       type: select,
       proxies:
-        [DIRECT, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择],
-    }
-
-  # - {name: dns, type: select, proxies: [DIRECT, WARP, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 全部节点, 自动选择]}  # 加入 WARP
-  - {
-      name: dns,
-      type: select,
-      proxies:
         [
-          DIRECT,
           自动选择,
-          默认,
+          负载均衡,
+          故障转移,
+          手动选择,
           香港,
           台湾,
           日本,
           新加坡,
           美国,
           其它地区,
-          全部节点,
+          DIRECT,
+        ],
+    }
+
+  - {
+      name: 负载均衡,
+      <<: *use,
+      type: load-balance,
+      interval: 300,
+      lazy: true,
+      strategy: consistent-hashing,
+    }
+
+  - { name: 故障转移, <<: *use, type: fallback, interval: 300, lazy: true }
+
+  - { name: 手动选择, <<: *use, type: select }
+
+  - { name: 自动选择, <<: *use }
+
+  # - {name: dns, type: select, proxies: [DIRECT, WARP, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 自动选择]}  # 加入 WARP
+  - {
+      name: dns,
+      type: select,
+      proxies:
+        [
+          DIRECT,
+          默认,
+          手动选择,
+          自动选择,
+          负载均衡,
+          故障转移,
+          香港,
+          台湾,
+          日本,
+          新加坡,
+          美国,
+          其它地区,
         ],
     }
 
@@ -231,7 +263,7 @@ proxy-groups:
           新加坡,
           美国,
           其它地区,
-          全部节点,
+          手动选择,
           自动选择,
         ],
     }
@@ -254,10 +286,6 @@ proxy-groups:
       <<: *use,
       filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
     }
-
-  - { name: 全部节点, <<: *use }
-
-  - { name: 自动选择, <<: *use, tolerance: 2, type: url-test }
 
 rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
