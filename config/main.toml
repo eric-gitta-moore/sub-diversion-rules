@@ -60,6 +60,10 @@ name = "🚧 依赖仓库"
 type = "select"
 rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
 [[custom_groups]]
+name = "🚧 Docker Hub"
+type = "select"
+rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
+[[custom_groups]]
 name = "Ⓜ️ 微软服务"
 type = "select"
 rule = ["[]🚀 节点选择", "[]🇺🇲 美国节点", "[]🇭🇰 香港节点", "[]🇨🇳 台湾节点", "[]🇸🇬 狮城节点", "[]🇯🇵 日本节点", "[]🇰🇷 韩国节点", "[]🚀 手动切换", "[]DIRECT"]
@@ -131,7 +135,7 @@ type = "select"
 rule = ["(NF|奈飞|解锁|Netflix|NETFLIX|Media)"]
 
 
-
+# 自定义规则
 [[rulesets]]
 group = "Ⓜ️ 微软服务"
 ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list"
@@ -154,15 +158,16 @@ ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/ma
 group = "🚧 依赖仓库"
 ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/CodeDep.list"
 [[rulesets]]
+group = "🚧 Docker Hub"
+ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Docker.list"
+[[rulesets]]
 group = "🍎 苹果服务"
 ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list"
 [[rulesets]]
 group = "🎥 奈飞视频"
 ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list"
-[[rulesets]]
-group = "🎯 全球直连"
-ruleset = "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/DevSourceSite.list"
 
+# 系统规则
 [[rulesets]]
 group = "🎯 全球直连"
 ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
