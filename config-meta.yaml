@@ -2,8 +2,8 @@
 
 ######### 锚点 start #######
 # proxy 相关
-pr:
-  &pr {
+use-pg:
+  &use-pg {
     type: select,
     proxies:
       [
@@ -23,8 +23,8 @@ pr:
   }
 
 # proxy 相关 cn
-prcn:
-  &prcn {
+use-pg-cn:
+  &use-pg-cn {
     type: select,
     proxies:
       [
@@ -229,7 +229,7 @@ proxy-groups:
   - { name: 故障转移, <<: *use, type: fallback, interval: 300, lazy: true }
 
   # - {name: dns, type: select, proxies: [DIRECT, WARP, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 自动选择]}  # 加入 WARP
-  - { name: dns, <<: *prcn }
+  - { name: dns, <<: *use-pg-cn }
 
   - { name: Google, <<: *pr }
   - { name: OpenAI, <<: *pr }
@@ -240,10 +240,10 @@ proxy-groups:
   - { name: Microsoft, <<: *pr }
   - { name: Telegram, <<: *pr }
   - { name: Twitter, <<: *pr }
-  - { name: Apple, <<: *prcn }
+  - { name: Apple, <<: *use-pg-cn }
 
   - { name: ehentai, <<: *pr }
-  - { name: 哔哩哔哩, <<: *prcn }
+  - { name: 哔哩哔哩, <<: *use-pg-cn }
   - { name: 哔哩东南亚, <<: *pr }
   - { name: 巴哈姆特, <<: *pr }
   - { name: YouTube, <<: *pr }
