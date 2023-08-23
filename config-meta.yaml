@@ -162,7 +162,7 @@ sniffer:
 
 # tun:
 #   enable: true
-#   stack: gvisor #system
+#   stack: system #gvisor
 #   dns-hijack:
 #     - "any:53"
 #   auto-route: true
@@ -191,15 +191,15 @@ dns:
 
   nameserver-policy:
     "geosite:cn,private":
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
+      - "https://doh.pub/dns-query#dns"
+      - "https://dns.alidns.com/dns-query#dns"
   fallback:
-    - tls://8.8.4.4#dns
-    - tls://1.1.1.1#dns
-    - https://doh.dns.sb/dns-query
-    - https://dns.cloudflare.com/dns-query
+    - "tls://8.8.4.4#dns"
+    - "tls://1.1.1.1#dns"
+    - "https://doh.dns.sb/dns-query#dns"
+    - "https://dns.cloudflare.com/dns-query#dns"
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
+    - "https://doh.pub/dns-query#dns"
   fallback-filter:
     geoip: true
     geoip-code: CN
