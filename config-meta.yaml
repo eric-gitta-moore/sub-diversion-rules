@@ -44,22 +44,17 @@ use-pg-cn:
   }
 
 #这里是订阅更新和延迟测试相关的
-use-health-check:
-  &use-health-check {
+use-health-check: &use-health-check {
     type: http,
-    interval: 86400,
+    interval: 86400, # 单位秒，86400s = 1d
     health-check:
-      {
-        enable: true,
-        url: https://www.gstatic.com/generate_204,
-        interval: 300,
-      },
+      { enable: true, url: https://www.gstatic.com/generate_204, interval: 60 },
   }
 
 # 地区分组引用
 use-all-proxy: &use-all-proxy
   type: url-test
-  interval: 300
+  interval: 60
   use:
     - 一元机场.com
     - dash.fscloud.cc
@@ -78,47 +73,47 @@ proxy-providers:
   一元机场.com:
     <<: *use-health-check
     url: "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=25f5c0ab285718aa7bb60dc0292ad222"
-    path: ./proxy_providers/一元机场.com.yaml
+    path: ./proxy-providers/一元机场.com.yaml
 
   dash.fscloud.cc:
     <<: *use-health-check
     url: "https://sub.fscloud.cc/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8"
-    path: ./proxy_providers/dash.fscloud.cc.yaml
+    path: ./proxy-providers/dash.fscloud.cc.yaml
 
   一元者也.com:
     <<: *use-health-check
     url: "https://dy.v-too.cloud/api/v1/client/subscribe?token=19e23419d0d49cfdb4238ac7fe34367f"
-    path: ./proxy_providers/一元者也.com.yaml
+    path: ./proxy-providers/一元者也.com.yaml
 
   bai.ee:
     <<: *use-health-check
     url: "https://dy.zzjq.xyz/api/v1/client/subscribe?token=236d4c6786b708626c13b3242d29be82"
-    path: ./proxy_providers/bai.ee.yaml
+    path: ./proxy-providers/bai.ee.yaml
 
   www.eevpn.com:
     <<: *use-health-check
     url: "https://api.ejiasu.net/api/v1/client/subscribe?token=554a1dc8e56be01a10d4d619840c7ed9"
-    path: ./proxy_providers/www.eevpn.com.yaml
+    path: ./proxy-providers/www.eevpn.com.yaml
 
   hiclouda.com:
     <<: *use-health-check
     url: "https://subscr.b-cdn.net/api/v2/subscr?scrid=7eebd037ae7a4cd9aad2ccd616997a42"
-    path: ./proxy_providers/hiclouda.com.yaml
+    path: ./proxy-providers/hiclouda.com.yaml
 
   慈善机场.xyz:
     <<: *use-health-check
     url: "https://www.csyyds.xyz/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
-    path: ./proxy_providers/慈善机场.xyz.yaml
+    path: ./proxy-providers/慈善机场.xyz.yaml
 
   www.三毛机场.shop:
     <<: *use-health-check
     url: "https://dy.jimaoyun.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e"
-    path: ./proxy_providers/www.三毛机场.shop.yaml
+    path: ./proxy-providers/www.三毛机场.shop.yaml
 
   cf.1air.xyz:
     <<: *use-health-check
     url: "https://1air.393636.xyz/api/v1/client/subscribe?token=244ec3582cea80099539db6f87aaafdf&flag=clash"
-    path: ./proxy_providers/cf.1air.xyz.yaml
+    path: ./proxy-providers/cf.1air.xyz.yaml
 
 rule-providers:
   LocalAreaNetwork:
@@ -127,7 +122,7 @@ rule-providers:
     format: yaml
     path: ./rule-providers/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
-    interval: 259200
+    interval: 86400 # 单位秒，86400s = 1d
 
 geodata-mode: true
 geox-url:
