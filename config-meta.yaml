@@ -130,9 +130,9 @@ proxy-providers:
     path: ./proxy_providers/cf.1air.xyz.yaml
 
 mode: rule
-ipv6: true
+ipv6: false
 log-level: info
-allow-lan: true
+allow-lan: false
 mixed-port: 7890
 unified-delay: false
 tcp-concurrent: true
@@ -171,8 +171,8 @@ sniffer:
 dns:
   <<: *use-dns
   enable: true
-  listen: :1053
-  ipv6: true
+  listen: 0.0.0.0:1053
+  ipv6: false
   enhanced-mode: fake-ip # redir-host
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
