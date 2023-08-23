@@ -75,6 +75,7 @@ use-dns: &use-dns
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
+    - 8.8.8.8
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -152,7 +153,7 @@ sniffer:
 
 tun:
   enable: true
-  stack: system
+  stack: gvisor #system
   dns-hijack:
     - "any:53"
   auto-route: true
@@ -169,6 +170,15 @@ dns:
     - "+.lan"
     - "+.local"
     - localhost.ptlogin2.qq.com
+    - +.stun.*.*
+    - +.stun.*.*.*
+    - +.stun.*.*.*.*
+    - +.stun.*.*.*.*.*
+    - "*.n.n.srv.nintendo.net"
+    - +.stun.playstation.net
+    - xbox.*.*.microsoft.com
+    - "*.*.xboxlive.com"
+    - apps.apple.com
 
   nameserver-policy:
     "geosite:cn,private":
@@ -177,6 +187,8 @@ dns:
   fallback:
     - tls://8.8.4.4#dns
     - tls://1.1.1.1#dns
+    - https://doh.dns.sb/dns-query
+    - https://dns.cloudflare.com/dns-query
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   fallback-filter:
