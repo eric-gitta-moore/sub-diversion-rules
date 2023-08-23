@@ -71,6 +71,7 @@ use-all-proxy: &use-all-proxy
     - www.三毛机场.shop
     - cf.1air.xyz
 
+# 配置 DNS
 use-dns: &use-dns
   default-nameserver:
     - 223.5.5.5
@@ -78,6 +79,9 @@ use-dns: &use-dns
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+  fallback:
+    - "https://doh.dns.sb/dns-query"
+    - "https://dns.cloudflare.com/dns-query"
 
 ######### 锚点 end #######
 
@@ -200,9 +204,6 @@ dns:
     - "*.*.xboxlive.com"
     - apps.apple.com
 
-  fallback:
-    - "https://doh.dns.sb/dns-query"
-    - "https://dns.cloudflare.com/dns-query"
   fallback-filter:
     geoip: true
     geoip-code: CN
