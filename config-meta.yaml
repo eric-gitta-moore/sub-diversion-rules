@@ -129,6 +129,15 @@ proxy-providers:
     url: "https://1air.393636.xyz/api/v1/client/subscribe?token=244ec3582cea80099539db6f87aaafdf&flag=clash"
     path: ./proxy_providers/cf.1air.xyz.yaml
 
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule-providers/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
+    interval: 259200
+
 mode: rule
 ipv6: false
 log-level: info
@@ -304,6 +313,8 @@ proxy-groups:
     }
 
 rules:
+  - RULE-SET,LocalAreaNetwork,DIRECT
+
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
   - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,openai,OpenAI
