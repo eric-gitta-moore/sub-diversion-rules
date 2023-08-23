@@ -278,19 +278,14 @@ proxy-groups:
 
   #分隔,下面是地区分组
   - { name: 香港, <<: *use-all-proxy, filter: "(?i)港|hk|hongkong|hong kong" }
-
   - { name: 台湾, <<: *use-all-proxy, filter: "(?i)台|tw|taiwan" }
-
   - { name: 日本, <<: *use-all-proxy, filter: "(?i)日本|jp|japan" }
-
   - {
       name: 美国,
       <<: *use-all-proxy,
       filter: "(?i)美|us|unitedstates|united states",
     }
-
   - { name: 新加坡, <<: *use-all-proxy, filter: "(?i)(新|sg|singapore)" }
-
   - {
       name: 其它地区,
       <<: *use-all-proxy,
