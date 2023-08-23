@@ -180,9 +180,12 @@ sniffer:
 dns:
   <<: *use-dns
   enable: true
-  listen: 0.0.0.0:1053
+  prefer-h3: true # 开启 DoH 支持 HTTP/3，将并发尝试
+  listen: 0.0.0.0:53 # 开启 DNS 服务器监听
   ipv6: false
   enhanced-mode: fake-ip # redir-host
+  use-hosts: true # 查询 hosts
+
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "+.lan"
