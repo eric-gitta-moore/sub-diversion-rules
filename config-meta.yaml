@@ -71,20 +71,6 @@ use-all-proxy: &use-all-proxy
     - www.三毛机场.shop
     - cf.1air.xyz
 
-# 配置 DNS
-use-dns: &use-dns
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  nameserver:
-    - system
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-  fallback:
-    - system
-    - "https://doh.dns.sb/dns-query"
-    - "https://dns.cloudflare.com/dns-query"
-
 ######### 锚点 end #######
 
 # url 里填写自己的订阅,名称不能重复
@@ -143,28 +129,20 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 259200
 
-mode: rule
-ipv6: false
-log-level: info
-allow-lan: false
-mixed-port: 7890
-unified-delay: false
-tcp-concurrent: true
-external-controller: 127.0.0.1:9090
-
 geodata-mode: true
 geox-url:
   geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
   geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
   mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
 
-find-process-mode: strict
-global-client-fingerprint: chrome
-
-profile:
-  store-selected: true
-  store-fake-ip: true
-
+mode: rule
+mixed-port: 7890
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: redir-host
+  nameserver:
+    - system
 sniffer:
   enable: true
   sniff:
@@ -173,50 +151,6 @@ sniffer:
     HTTP:
       ports: [80, 8080-8880]
       override-destination: true
-
-# tun:
-#   enable: true
-#   stack: system #gvisor
-#   dns-hijack:
-#     - "any:53"
-#   auto-route: true
-#   auto-detect-interface: true
-
-dns:
-  <<: *use-dns
-  enable: true
-  prefer-h3: true # 开启 DoH 支持 HTTP/3，将并发尝试
-  listen: 0.0.0.0:53 # 开启 DNS 服务器监听
-  ipv6: false
-  enhanced-mode: fake-ip # redir-host
-  use-hosts: true # 查询 hosts
-
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - "+.lan"
-    - "+.local"
-    - localhost.ptlogin2.qq.com
-    - +.stun.*.*
-    - +.stun.*.*.*
-    - +.stun.*.*.*.*
-    - +.stun.*.*.*.*.*
-    - "*.n.n.srv.nintendo.net"
-    - +.stun.playstation.net
-    - xbox.*.*.microsoft.com
-    - "*.*.xboxlive.com"
-    - apps.apple.com
-
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    geosite:
-      - gfw
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      - "+.google.com"
-      - "+.facebook.com"
-      - "+.youtube.com"
 
 proxies:
 
