@@ -136,6 +136,7 @@ dns:
   enhanced-mode: redir-host
   nameserver:
     - system
+    - 223.5.5.5
   proxy-server-nameserver:
     - https://doh.pub/dns-query
 tun:
