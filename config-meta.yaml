@@ -124,19 +124,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 86400 # 单位秒，86400s = 1d
 
-geodata-mode: true
-geox-url:
-  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
-
 dns:
   enable: true
   listen: 0.0.0.0:53
   enhanced-mode: redir-host
   nameserver:
     - system
-    - 223.5.5.5
   proxy-server-nameserver:
     - https://doh.pub/dns-query
 tun:
