@@ -166,7 +166,7 @@ proxy-groups:
         ],
     }
   - { name: 自动选择, <<: *use-all-proxy, tolerance: 2 }
-  - { name: 手动选择, <<: *use-all-proxy, type: select }
+  - { name: 手动选择, <<: *use-pg, <<: *use-all-proxy, type: select }
   - {
       name: 负载均衡,
       <<: *use-all-proxy,
@@ -175,20 +175,20 @@ proxy-groups:
     }
   - { name: 故障转移, <<: *use-all-proxy, type: fallback }
 
-  - { name: Google, <<: *use-pg }
   - { name: GitHub SSH, <<: *use-pg }
-  - { name: OpenAI, <<: *use-pg }
+  - { name: Google, <<: *use-pg }
   - { name: Google Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
   - { name: Docker, <<: *use-pg }
-
   - { name: Microsoft, <<: *use-pg }
+
+  - { name: Apple, <<: *use-pg-cn }
+  - { name: 哔哩哔哩, <<: *use-pg-cn }
+
+  - { name: OpenAI, <<: *use-pg }
   - { name: Telegram, <<: *use-pg }
   - { name: Twitter, <<: *use-pg }
-  - { name: Apple, <<: *use-pg-cn }
-
   - { name: ehentai, <<: *use-pg }
-  - { name: 哔哩哔哩, <<: *use-pg-cn }
   - { name: 哔哩东南亚, <<: *use-pg }
   - { name: 巴哈姆特, <<: *use-pg }
   - { name: YouTube, <<: *use-pg }
