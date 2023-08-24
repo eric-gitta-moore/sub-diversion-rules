@@ -133,7 +133,6 @@ dns:
   proxy-server-nameserver:
     - https://doh.pub/dns-query
 tun:
-  enable: false
   stack: system
 sniffer:
   enable: true
