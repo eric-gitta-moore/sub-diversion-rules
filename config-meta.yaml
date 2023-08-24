@@ -166,7 +166,7 @@ proxy-groups:
         ],
     }
   - { name: 自动选择, <<: *use-all-proxy, tolerance: 2 }
-  - { name: 手动选择, <<: *use-pg, <<: *use-all-proxy, type: select }
+  - { name: 手动选择, <<: *use-all-proxy, type: select }
   - {
       name: 负载均衡,
       <<: *use-all-proxy,
