@@ -124,6 +124,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 86400 # 单位秒，86400s = 1d
 
+# ==================== 配置开始 ======================
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -141,6 +142,7 @@ sniffer:
       ports: [443, 8443]
     HTTP:
       ports: [80, 8080-8880]
+# ==================== 配置结束 ======================
 
 proxies:
 
