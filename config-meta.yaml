@@ -136,6 +136,11 @@ dns:
   enhanced-mode: redir-host
   nameserver:
     - system
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+tun:
+  enable: false
+  stack: system
 sniffer:
   enable: true
   sniff:
