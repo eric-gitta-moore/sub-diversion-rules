@@ -176,6 +176,7 @@ proxy-groups:
   - { name: 故障转移, <<: *use-all-proxy, type: fallback }
 
   - { name: Google, <<: *use-pg }
+  - { name: GitHub SSH, <<: *use-pg }
   - { name: OpenAI, <<: *use-pg }
   - { name: Google Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
@@ -217,6 +218,7 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),GitHub SSH
   - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,openai,OpenAI
   - GEOSITE,ehentai,ehentai
