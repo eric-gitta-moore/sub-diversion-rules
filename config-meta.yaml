@@ -239,6 +239,7 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
   - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,openai,OpenAI
   - GEOSITE,ehentai,ehentai
