@@ -183,7 +183,6 @@ proxy-groups:
       proxies:
         [
           默认,
-          选择机场,
           香港,
           台湾,
           日本,
