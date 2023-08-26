@@ -58,15 +58,15 @@ use-all-proxy: &use-all-proxy
   type: url-test
   interval: 600
   use:
-    - 一元机场.com
-    - dash.fscloud.cc
-    - 一元者也.com
-    - bai.ee
     - www.eevpn.com
     - hiclouda.com
     - 慈善机场.xyz
-    - www.三毛机场.shop
     - cf.1air.xyz
+    - www.三毛机场.shop
+    - dash.fscloud.cc
+    - bai.ee
+    - 一元机场.com
+    - 一元者也.com
 
 ######### 锚点 end #######
 
