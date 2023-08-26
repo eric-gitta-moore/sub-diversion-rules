@@ -50,13 +50,13 @@ use-health-check: &use-health-check {
     type: http,
     interval: 86400, # 单位秒，86400s = 1d
     health-check:
-      { enable: true, url: https://www.gstatic.com/generate_204, interval: 60 },
+      { enable: true, url: https://www.gstatic.com/generate_204, interval: 600 },
   }
 
 # 地区分组引用
 use-all-proxy: &use-all-proxy
   type: url-test
-  interval: 60
+  interval: 600
   use:
     - 一元机场.com
     - dash.fscloud.cc
@@ -169,7 +169,7 @@ proxy-groups:
           DIRECT,
         ],
     }
-  - { name: 自动选择, <<: *use-all-proxy, tolerance: 2 }
+  - { name: 自动选择, <<: *use-all-proxy, tolerance: 10 }
   - { name: 手动选择, <<: *use-all-proxy, type: select }
   - {
       name: 手动选择2,
