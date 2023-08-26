@@ -8,6 +8,7 @@ use-pg:
     proxies:
       [
         默认,
+        选择机场,
         香港,
         台湾,
         日本,
@@ -31,6 +32,7 @@ use-pg-cn:
       [
         DIRECT,
         默认,
+        选择机场,
         香港,
         台湾,
         日本,
@@ -67,6 +69,10 @@ use-all-proxy: &use-all-proxy
     - bai.ee
     - 一元机场.com
     - 一元者也.com
+
+use-url-test: &use-url-test
+  type: url-test
+  interval: 600
 
 ######### 锚点 end #######
 
@@ -177,6 +183,7 @@ proxy-groups:
       proxies:
         [
           默认,
+          选择机场,
           香港,
           台湾,
           日本,
@@ -190,6 +197,19 @@ proxy-groups:
           DIRECT,
         ],
     }
+  - 
+    name: 选择机场,
+    type: select,
+    proxies:
+      - www.eevpn.com
+      - hiclouda.com
+      - 慈善机场.xyz
+      - cf.1air.xyz
+      - www.三毛机场.shop
+      - dash.fscloud.cc
+      - bai.ee
+      - 一元机场.com
+      - 一元者也.com
   - {
       name: 负载均衡,
       <<: *use-all-proxy,
@@ -226,6 +246,17 @@ proxy-groups:
       <<: *use-all-proxy,
       filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
     }
+
+  #分隔,下面是地区分组
+  - { name: www.eevpn.com, <<: *use-url-test, use: [www.eevpn.com] }
+  - { name: hiclouda.com, <<: *use-url-test, use: [hiclouda.com] }
+  - { name: 慈善机场.xyz, <<: *use-url-test, use: [慈善机场.xyz] }
+  - { name: cf.1air.xyz, <<: *use-url-test, use: [cf.1air.xyz] }
+  - { name: www.三毛机场.shop, <<: *use-url-test, use: [www.三毛机场.shop] }
+  - { name: dash.fscloud.cc, <<: *use-url-test, use: [dash.fscloud.cc] }
+  - { name: bai.ee, <<: *use-url-test, use: [bai.ee] }
+  - { name: 一元机场.com, <<: *use-url-test, use: [一元机场.com] }
+  - { name: 一元者也.com, <<: *use-url-test, use: [一元者也.com] }
 
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
