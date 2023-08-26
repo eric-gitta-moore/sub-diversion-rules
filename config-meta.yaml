@@ -143,8 +143,6 @@ dns:
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
-tun:
-  stack: system
 sniffer:
   enable: true
   sniff:
@@ -250,7 +248,7 @@ proxy-groups:
       filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
     }
 
-  #分隔,下面是地区分组
+  #分隔,下面是机场分组
   - { name: www.eevpn.com, <<: *use-url-test, use: [www.eevpn.com] }
   - { name: hiclouda.com, <<: *use-url-test, use: [hiclouda.com] }
   - { name: 慈善机场.xyz, <<: *use-url-test, use: [慈善机场.xyz] }
