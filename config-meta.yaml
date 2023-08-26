@@ -202,21 +202,11 @@ proxy-groups:
   - { name: Google, <<: *use-pg }
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
-  - { name: Docker, <<: *use-pg }
-  - { name: Microsoft, <<: *use-pg }
 
   - { name: Apple, <<: *use-pg-cn }
-  - { name: 哔哩哔哩, <<: *use-pg-cn }
 
   - { name: OpenAI, <<: *use-pg }
-  - { name: Telegram, <<: *use-pg }
-  - { name: Twitter, <<: *use-pg }
-  - { name: ehentai, <<: *use-pg }
-  - { name: 哔哩东南亚, <<: *use-pg }
-  - { name: 巴哈姆特, <<: *use-pg }
-  - { name: YouTube, <<: *use-pg }
   - { name: NETFLIX, <<: *use-pg }
-  - { name: Spotify, <<: *use-pg }
 
   - { name: 国内, <<: *use-pg-cn }
   - { name: 漏网之鱼, <<: *use-pg }
@@ -241,32 +231,20 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
-  - GEOSITE,CN,国内
-  - GEOSITE,google@cn,国内
 
   - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
-  - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,openai,OpenAI
-  - GEOSITE,ehentai,ehentai
   - GEOSITE,github,GitHub
-  - GEOSITE,microsoft,Microsoft
   - GEOSITE,apple,Apple
-  - GEOSITE,category-scholar-!cn,Scholar
-  - GEOSITE,docker,Docker
-  - GEOSITE,twitter,Twitter
-  - GEOSITE,youtube,YouTube
-  - GEOSITE,google,Google
-  - GEOSITE,telegram,Telegram
   - GEOSITE,netflix,NETFLIX
-  - GEOSITE,bilibili,哔哩哔哩
-  - GEOSITE,bahamut,巴哈姆特
-  - GEOSITE,spotify,Spotify
+  - GEOSITE,category-scholar-!cn,Scholar
   - GEOSITE,geolocation-!cn,漏网之鱼
+  - GEOSITE,google@cn,国内
+  - GEOSITE,google,Google
 
+  - GEOSITE,CN,国内
   - GEOIP,google,Google
   - GEOIP,netflix,NETFLIX
-  - GEOIP,telegram,Telegram
-  - GEOIP,twitter,Twitter
   - GEOIP,CN,国内
   - DST-PORT,22,Abroad SSH
   - MATCH,漏网之鱼
