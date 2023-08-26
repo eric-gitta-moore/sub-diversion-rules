@@ -197,19 +197,22 @@ proxy-groups:
           DIRECT,
         ],
     }
-  - 
-    name: 选择机场,
-    type: select,
-    proxies:
-      - www.eevpn.com
-      - hiclouda.com
-      - 慈善机场.xyz
-      - cf.1air.xyz
-      - www.三毛机场.shop
-      - dash.fscloud.cc
-      - bai.ee
-      - 一元机场.com
-      - 一元者也.com
+  - {
+      name: 选择机场,
+      type: select,
+      proxies:
+        [
+          www.eevpn.com,
+          hiclouda.com,
+          慈善机场.xyz,
+          cf.1air.xyz,
+          www.三毛机场.shop,
+          dash.fscloud.cc,
+          bai.ee,
+          一元机场.com,
+          一元者也.com,
+        ],
+    }
   - {
       name: 负载均衡,
       <<: *use-all-proxy,
