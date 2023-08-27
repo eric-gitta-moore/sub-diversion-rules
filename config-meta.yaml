@@ -270,11 +270,13 @@ rules:
   - GEOSITE,apple,Apple
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,category-scholar-!cn,Scholar
-  - GEOSITE,geolocation-!cn,漏网之鱼
+
+  - GEOSITE,category-games@cn,国内
   - GEOSITE,google@cn,国内
   - GEOSITE,google,Google
-
   - GEOSITE,CN,国内
+  - GEOSITE,geolocation-!cn,漏网之鱼
+
   - GEOIP,google,Google
   - GEOIP,netflix,NETFLIX
   - GEOIP,CN,国内
