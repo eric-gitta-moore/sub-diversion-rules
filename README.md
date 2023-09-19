@@ -54,3 +54,12 @@ rules:
 - 一元机场.com
 - bai.ee
 - 一元者也.com
+
+# 安装包国内直连
+
+clash-verge
+- [Windows x64](https://ghproxy.com/https://github.com/zzzgydi/clash-verge/releases/download/v1.3.7/Clash.Verge_1.3.7_x64_en-US.msi)
+- [macOS intel](https://ghproxy.com/https://github.com/zzzgydi/clash-verge/releases/download/v1.3.7/Clash.Verge_1.3.7_x64.dmg)
+- [macOS arm](https://ghproxy.com/https://github.com/zzzgydi/clash-verge/releases/download/v1.3.7/Clash.Verge_1.3.7_aarch64.dmg)
+
+镜像代理 `https://ghproxy.com/`
