@@ -1,0 +1,287 @@
+# https://wiki.metacubex.one/example/#meta
+
+######### 锚点 start #######
+# proxy 相关
+use-pg:
+  &use-pg {
+    type: select,
+    proxies:
+      [
+        默认,
+        选择机场,
+        香港,
+        台湾,
+        日本,
+        新加坡,
+        美国,
+        其它地区,
+        手动选择,
+        手动选择2,
+        自动选择,
+        负载均衡,
+        故障转移,
+        DIRECT,
+      ],
+  }
+
+# proxy 相关 cn
+use-pg-cn:
+  &use-pg-cn {
+    type: select,
+    proxies:
+      [
+        DIRECT,
+        默认,
+        选择机场,
+        香港,
+        台湾,
+        日本,
+        新加坡,
+        美国,
+        其它地区,
+        手动选择,
+        手动选择2,
+        自动选择,
+        负载均衡,
+        故障转移,
+      ],
+  }
+
+#这里是订阅更新和延迟测试相关的
+use-health-check: &use-health-check {
+    type: http,
+    interval: 86400, # 单位秒，86400s = 1d
+    health-check:
+      { enable: true, url: https://www.gstatic.com/generate_204, interval: 600 },
+  }
+
+# 地区分组引用
+use-all-proxy: &use-all-proxy
+  type: url-test
+  interval: 600
+  use:
+    - 一元机场.com
+    - dash.fscloud.cc
+    - www.eevpn.com
+    - 慈善机场.xyz
+    - www.三毛机场.shop
+    - 大熊云.com
+    - www.xingsu.club
+    - dash.spcloud.info
+    - 一号机场.net
+    - www.极速机场.me
+
+use-url-test: &use-url-test
+  type: url-test
+  interval: 600
+
+######### 锚点 end #######
+
+# url 里填写自己的订阅,名称不能重复
+proxy-providers:
+  一元机场.com:
+    <<: *use-health-check
+    url: "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=25f5c0ab285718aa7bb60dc0292ad222"
+    path: ./proxy-providers/一元机场.com.yaml
+
+  dash.fscloud.cc:
+    <<: *use-health-check
+    url: "https://asdas.fscloud.cc/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8"
+    path: ./proxy-providers/dash.fscloud.cc.yaml
+
+  www.eevpn.com:
+    <<: *use-health-check
+    url: "https://api.eehk.net/api/v1/client/subscribe?token=554a1dc8e56be01a10d4d619840c7ed9"
+    path: ./proxy-providers/www.eevpn.com.yaml
+
+  慈善机场.xyz:
+    <<: *use-health-check
+    url: "https://csjc.xyz/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
+    path: ./proxy-providers/慈善机场.xyz.yaml
+
+  www.三毛机场.shop:
+    <<: *use-health-check
+    url: "https://smjc.shop/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e"
+    path: ./proxy-providers/www.三毛机场.shop.yaml
+
+  大熊云.com:
+    <<: *use-health-check
+    url: "https://vpn.209966.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63"
+    path: ./proxy-providers/大熊云.com.yaml
+
+  www.xingsu.club:
+    <<: *use-health-check
+    url: "https://www.xingsu.lol/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05"
+    path: ./proxy-providers/www.xingsu.club.yaml
+
+  dash.spcloud.info:
+    <<: *use-health-check
+    url: "https://dash.spcloud.info/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd"
+    path: ./proxy-providers/dash.spcloud.info.yaml
+
+  一号机场.net:
+    <<: *use-health-check
+    url: "https://sub.yihaojichang.xyz/api/v1/client/subscribe?token=6b11edd2d409a07065cb8d5247320eb0"
+    path: ./proxy-providers/一号机场.net.yaml
+
+  www.极速机场.me:
+    <<: *use-health-check
+    url: "https://dy1.jdkys75.co/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc"
+    path: ./proxy-providers/www.极速机场.me.yaml
+
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule-providers/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
+    interval: 86400 # 单位秒，86400s = 1d
+
+# ==================== 配置开始 ======================
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: redir-host
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  proxy-server-nameserver:
+    - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
+sniffer:
+  enable: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+# ==================== 配置结束 ======================
+
+proxies:
+
+proxy-groups:
+  - {
+      name: 默认,
+      type: select,
+      proxies:
+        [
+          自动选择,
+          负载均衡,
+          故障转移,
+          手动选择,
+          选择机场,
+          香港,
+          台湾,
+          日本,
+          新加坡,
+          美国,
+          其它地区,
+          DIRECT,
+        ],
+    }
+  - { name: 自动选择, <<: *use-all-proxy, tolerance: 10 }
+  - { name: 手动选择, <<: *use-all-proxy, type: select }
+  - {
+      name: 手动选择2,
+      type: select,
+      proxies:
+        [
+          默认,
+          香港,
+          台湾,
+          日本,
+          新加坡,
+          美国,
+          其它地区,
+          手动选择,
+          自动选择,
+          负载均衡,
+          故障转移,
+          DIRECT,
+        ],
+    }
+  - {
+      name: 选择机场,
+      type: select,
+      proxies:
+        [
+          www.eevpn.com,
+          慈善机场.xyz,
+          www.三毛机场.shop,
+          dash.fscloud.cc,
+          一元机场.com,
+        ],
+    }
+  - {
+      name: 负载均衡,
+      <<: *use-all-proxy,
+      type: load-balance,
+      strategy: consistent-hashing,
+    }
+  - { name: 故障转移, <<: *use-all-proxy, type: fallback }
+
+  - { name: Abroad SSH, <<: *use-pg }
+  - { name: Google, <<: *use-pg }
+  - { name: Scholar, <<: *use-pg }
+  - { name: GitHub, <<: *use-pg }
+
+  - { name: Apple, <<: *use-pg-cn }
+
+  - { name: OpenAI, <<: *use-pg }
+  - { name: NETFLIX, <<: *use-pg }
+
+  - { name: 国内, <<: *use-pg-cn }
+  - { name: 漏网之鱼, <<: *use-pg }
+
+  #分隔,下面是地区分组
+  - { name: 香港, <<: *use-all-proxy, filter: "(?i)港|hk|hongkong|hong kong" }
+  - { name: 台湾, <<: *use-all-proxy, filter: "(?i)台|tw|taiwan" }
+  - { name: 日本, <<: *use-all-proxy, filter: "(?i)日本|jp|japan" }
+  - {
+      name: 美国,
+      <<: *use-all-proxy,
+      filter: "(?i)美|us|unitedstates|united states",
+    }
+  - { name: 新加坡, <<: *use-all-proxy, filter: "(?i)(新|sg|singapore)" }
+  - {
+      name: 其它地区,
+      <<: *use-all-proxy,
+      filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
+    }
+
+  #分隔,下面是机场分组
+  - { name: 一元机场.com, <<: *use-url-test, use: [一元机场.com] }
+  - { name: dash.fscloud.cc, <<: *use-url-test, use: [dash.fscloud.cc] }
+  - { name: www.eevpn.com, <<: *use-url-test, use: [www.eevpn.com] }
+  - { name: 慈善机场.xyz, <<: *use-url-test, use: [慈善机场.xyz] }
+  - { name: www.三毛机场.shop, <<: *use-url-test, use: [www.三毛机场.shop] }
+  - { name: 大熊云.com, <<: *use-url-test, use: [大熊云.com] }
+  - { name: www.xingsu.club, <<: *use-url-test, use: [www.xingsu.club] }
+  - { name: dash.spcloud.info, <<: *use-url-test, use: [dash.spcloud.info] }
+  - { name: 一号机场.net, <<: *use-url-test, use: [一号机场.net] }
+  - { name: www.极速机场.me, <<: *use-url-test, use: [www.极速机场.me] }
+
+rules:
+  - RULE-SET,LocalAreaNetwork,DIRECT
+
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+
+  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
+  - GEOSITE,openai,OpenAI
+  - GEOSITE,github,GitHub
+  - GEOSITE,apple,Apple
+  - GEOSITE,netflix,NETFLIX
+  - GEOSITE,category-scholar-!cn,Scholar
+
+  - GEOSITE,category-games@cn,国内
+  - GEOSITE,google@cn,国内
+  - GEOSITE,google,Google
+  - GEOSITE,cn,国内
+  - GEOSITE,geolocation-!cn,漏网之鱼
+
+  - GEOIP,google,Google
+  - GEOIP,netflix,NETFLIX
+  - GEOIP,cn,国内
+  - DST-PORT,22,Abroad SSH
+  - MATCH,漏网之鱼
