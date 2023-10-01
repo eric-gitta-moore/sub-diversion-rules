@@ -52,7 +52,7 @@ use-health-check: &use-health-check {
     type: http,
     interval: 86400, # 单位秒，86400s = 1d
     health-check:
-      { enable: true, url: https://www.gstatic.com/generate_204, interval: 600 },
+      { enable: true, url: https://youtu.be/, interval: 600 },
   }
 
 # 地区分组引用
@@ -60,16 +60,18 @@ use-all-proxy: &use-all-proxy
   type: url-test
   interval: 600
   use:
-    - 一元机场.com
-    - dash.fscloud.cc
-    - www.eevpn.com
-    - 慈善机场.xyz
-    - www.三毛机场.shop
-    - 大熊云.com
-    - www.xingsu.club
-    - dash.spcloud.info
-    - 一号机场.net
-    - www.极速机场.me
+    [
+      一元机场.com,
+      dash.fscloud.cc,
+      www.eevpn.com,
+      慈善机场.xyz,
+      www.三毛机场.shop,
+      大熊云.com,
+      www.xingsu.club,
+      dash.spcloud.info,
+      一号机场.net,
+      www.极速机场.me,
+    ]
 
 use-url-test: &use-url-test
   type: url-test
@@ -205,11 +207,16 @@ proxy-groups:
       type: select,
       proxies:
         [
+          一元机场.com,
+          dash.fscloud.cc,
           www.eevpn.com,
           慈善机场.xyz,
           www.三毛机场.shop,
-          dash.fscloud.cc,
-          一元机场.com,
+          大熊云.com,
+          www.xingsu.club,
+          dash.spcloud.info,
+          一号机场.net,
+          www.极速机场.me,
         ],
     }
   - {
