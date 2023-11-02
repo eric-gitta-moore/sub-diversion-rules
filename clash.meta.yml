@@ -240,6 +240,7 @@ proxy-groups:
   - { name: Microsoft, <<: *use-pg }
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
+  - { name: Dev, <<: *use-pg }
 
   - { name: Apple, <<: *use-pg-cn }
 
@@ -290,6 +291,7 @@ rules:
   - GEOSITE,microsoft,Microsoft
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,category-scholar-!cn,Scholar
+  - GEOSITE,category-dev,Dev
 
   - GEOSITE,category-games@cn,国内
   - GEOSITE,google@cn,国内
