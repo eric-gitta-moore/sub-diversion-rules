@@ -76,6 +76,24 @@ use-all-proxy: &use-all-proxy
       www.极速.net,
     ]
 
+use-proxies: &use-proxies
+  proxies:
+    [
+      一元机场.com,
+      dash.fscloud.cc,
+      www.eevpn.com,
+      慈善机场.xyz,
+      www.三毛机场.shop,
+      大熊云.com,
+      www.xingsu.club,
+      dash.spcloud.info,
+      一号机场.net,
+      www.极速机场.me,
+      www.zou666.top,
+      juanwang.store,
+      www.极速.net,
+    ]
+
 use-url-test: &use-url-test
   type: url-test
   interval: 600
@@ -228,23 +246,7 @@ proxy-groups:
           DIRECT,
         ],
     }
-  # - {
-  #     name: 选择机场,
-  #     type: select,
-  #     proxies:
-  #       [
-  #         一元机场.com,
-  #         dash.fscloud.cc,
-  #         www.eevpn.com,
-  #         慈善机场.xyz,
-  #         www.三毛机场.shop,
-  #         大熊云.com,
-  #         www.xingsu.club,
-  #         dash.spcloud.info,
-  #         一号机场.net,
-  #         www.极速机场.me,
-  #       ],
-  #   }
+  - { name: 选择机场, type: select, <<: *use-proxies }
   - {
       name: 负载均衡,
       <<: *use-all-proxy,
@@ -287,17 +289,20 @@ proxy-groups:
       filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
     }
 
-  # #分隔,下面是机场分组
-  # - { name: 一元机场.com, <<: *use-url-test, use: [一元机场.com] }
-  # - { name: dash.fscloud.cc, <<: *use-url-test, use: [dash.fscloud.cc] }
-  # - { name: www.eevpn.com, <<: *use-url-test, use: [www.eevpn.com] }
-  # - { name: 慈善机场.xyz, <<: *use-url-test, use: [慈善机场.xyz] }
-  # - { name: www.三毛机场.shop, <<: *use-url-test, use: [www.三毛机场.shop] }
-  # - { name: 大熊云.com, <<: *use-url-test, use: [大熊云.com] }
-  # - { name: www.xingsu.club, <<: *use-url-test, use: [www.xingsu.club] }
-  # - { name: dash.spcloud.info, <<: *use-url-test, use: [dash.spcloud.info] }
-  # - { name: 一号机场.net, <<: *use-url-test, use: [一号机场.net] }
-  # - { name: www.极速机场.me, <<: *use-url-test, use: [www.极速机场.me] }
+  #分隔,下面是机场分组
+  - { name: 一元机场.com, <<: *use-url-test, use: [一元机场.com] }
+  - { name: dash.fscloud.cc, <<: *use-url-test, use: [dash.fscloud.cc] }
+  - { name: www.eevpn.com, <<: *use-url-test, use: [www.eevpn.com] }
+  - { name: 慈善机场.xyz, <<: *use-url-test, use: [慈善机场.xyz] }
+  - { name: www.三毛机场.shop, <<: *use-url-test, use: [www.三毛机场.shop] }
+  - { name: 大熊云.com, <<: *use-url-test, use: [大熊云.com] }
+  - { name: www.xingsu.club, <<: *use-url-test, use: [www.xingsu.club] }
+  - { name: dash.spcloud.info, <<: *use-url-test, use: [dash.spcloud.info] }
+  - { name: 一号机场.net, <<: *use-url-test, use: [一号机场.net] }
+  - { name: www.极速机场.me, <<: *use-url-test, use: [www.极速机场.me] }
+  - { name: www.zou666.top, <<: *use-url-test, use: [www.zou666.top] }
+  - { name: juanwang.store, <<: *use-url-test, use: [juanwang.store] }
+  - { name: www.极速.net, <<: *use-url-test, use: [www.极速.net] }
 
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
