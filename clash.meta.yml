@@ -238,6 +238,9 @@ proxy-groups:
   - { name: Abroad SSH, <<: *use-pg }
   - { name: Google, <<: *use-pg }
   - { name: Microsoft, <<: *use-pg }
+  - { name: YouTube, <<: *use-pg }
+  - { name: Twitter, <<: *use-pg }
+  - { name: Facebook, <<: *use-pg }
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
   - { name: Dev, <<: *use-pg }
@@ -285,6 +288,9 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
 
   - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,twitter,Twitter
+  - GEOSITE,facebook,Facebook
   - GEOSITE,openai,OpenAI
   - GEOSITE,github,GitHub
   - GEOSITE,apple,Apple
