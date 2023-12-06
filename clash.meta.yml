@@ -261,6 +261,7 @@ proxy-groups:
   - { name: YouTube, <<: *use-pg }
   - { name: Twitter, <<: *use-pg }
   - { name: Facebook, <<: *use-pg }
+  - { name: Zoom, <<: *use-pg }
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
   - { name: Dev, <<: *use-pg }
@@ -317,6 +318,7 @@ rules:
   - GEOSITE,openai,OpenAI
   - GEOSITE,github,GitHub
   - GEOSITE,apple,Apple
+  - GEOSITE,zoom,Zoom
   - GEOSITE,microsoft,Microsoft
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,category-scholar-!cn,Scholar
