@@ -52,13 +52,13 @@ use-health-check: &use-health-check {
     type: http,
     interval: 86400, # 单位秒，86400s = 1d
     health-check:
-      { enable: true, url: https://youtu.be/, interval: 600 },
+      { enable: true, url: https://youtu.be/, interval: 3600 },
   }
 
 # 地区分组引用
 use-all-proxy: &use-all-proxy
   type: url-test
-  interval: 600
+  interval: 3600
   use:
     [
       一元机场.com,
@@ -96,7 +96,7 @@ use-proxies: &use-proxies
 
 use-url-test: &use-url-test
   type: url-test
-  interval: 600
+  interval: 3600
 
 ######### 锚点 end #######
 
