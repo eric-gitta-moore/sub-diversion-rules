@@ -69,11 +69,11 @@ use-all-proxy: &use-all-proxy
       大熊云.com,
       www.xingsu.club,
       dash.spcloud.info,
-      一号机场.net,
-      www.极速机场.me,
-      www.zou666.top,
+      # 一号机场.net,
+      www.极速云.xyz,
+      # www.zou666.top,
       juanwang.store,
-      www.极速.net,
+      # www.极速.net,
     ]
 
 use-proxies: &use-proxies
@@ -87,11 +87,11 @@ use-proxies: &use-proxies
       大熊云.com,
       www.xingsu.club,
       dash.spcloud.info,
-      一号机场.net,
-      www.极速机场.me,
-      www.zou666.top,
+      # 一号机场.net,
+      www.极速云.xyz,
+      # www.zou666.top,
       juanwang.store,
-      www.极速.net,
+      # www.极速.net,
     ]
 
 use-url-test: &use-url-test
@@ -104,7 +104,7 @@ use-url-test: &use-url-test
 proxy-providers:
   一元机场.com:
     <<: *use-health-check
-    url: "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=25f5c0ab285718aa7bb60dc0292ad222"
+    url: "https://sub3.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2"
     path: ./proxy-providers/一元机场.com.yaml
 
   dash.fscloud.cc:
@@ -119,12 +119,12 @@ proxy-providers:
 
   慈善机场.xyz:
     <<: *use-health-check
-    url: "https://csjc.xyz/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
+    url: "https://dy.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
     path: ./proxy-providers/慈善机场.xyz.yaml
 
   www.三毛机场.shop:
     <<: *use-health-check
-    url: "https://smjc.shop/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e"
+    url: "https://dy.smjc.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e"
     path: ./proxy-providers/www.三毛机场.shop.yaml
 
   大熊云.com:
@@ -139,33 +139,33 @@ proxy-providers:
 
   dash.spcloud.info:
     <<: *use-health-check
-    url: "https://dash.spcloud.info/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd"
+    url: "https://miaosu111.1234567890spcloud.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd"
     path: ./proxy-providers/dash.spcloud.info.yaml
 
-  一号机场.net:
-    <<: *use-health-check
-    url: "https://sub.yihaojichang.xyz/api/v1/client/subscribe?token=6b11edd2d409a07065cb8d5247320eb0"
-    path: ./proxy-providers/一号机场.net.yaml
+  # 一号机场.net:
+  #   <<: *use-health-check
+  #   url: "https://sub.yihaojichang.xyz/api/v1/client/subscribe?token=6b11edd2d409a07065cb8d5247320eb0"
+  #   path: ./proxy-providers/一号机场.net.yaml
 
-  www.极速机场.me:
+  www.极速云.xyz:
     <<: *use-health-check
-    url: "https://dy1.jdkys75.co/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc"
-    path: ./proxy-providers/www.极速机场.me.yaml
+    url: "https://jcool.cool/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc"
+    path: ./proxy-providers/www.极速云.xyz.yaml
 
-  www.zou666.top:
-    <<: *use-health-check
-    url: "https://dy.zou666.xyz/api/v1/client/subscribe?token=aa98e2b588a1da089fc4601057ef1e77"
-    path: ./proxy-providers/www.zou666.top.yaml
+  # www.zou666.top:
+  #   <<: *use-health-check
+  #   url: "https://dy.zou666.xyz/api/v1/client/subscribe?token=aa98e2b588a1da089fc4601057ef1e77"
+  #   path: ./proxy-providers/www.zou666.top.yaml
 
   juanwang.store:
     <<: *use-health-check
     url: "https://juanwang.site/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5"
     path: ./proxy-providers/juanwang.store.yaml
 
-  www.极速.net:
-    <<: *use-health-check
-    url: "https://4.jdy1027ue.lol/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc"
-    path: ./proxy-providers/www.极速.net.yaml
+  # www.极速.net:
+  #   <<: *use-health-check
+  #   url: "https://4.jdy1027ue.lol/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc"
+  #   path: ./proxy-providers/www.极速.net.yaml
 
 rule-providers:
   LocalAreaNetwork:
@@ -299,11 +299,11 @@ proxy-groups:
   - { name: 大熊云.com, <<: *use-url-test, use: [大熊云.com] }
   - { name: www.xingsu.club, <<: *use-url-test, use: [www.xingsu.club] }
   - { name: dash.spcloud.info, <<: *use-url-test, use: [dash.spcloud.info] }
-  - { name: 一号机场.net, <<: *use-url-test, use: [一号机场.net] }
-  - { name: www.极速机场.me, <<: *use-url-test, use: [www.极速机场.me] }
-  - { name: www.zou666.top, <<: *use-url-test, use: [www.zou666.top] }
+  # - { name: 一号机场.net, <<: *use-url-test, use: [一号机场.net] }
+  - { name: www.极速云.xyz, <<: *use-url-test, use: [www.极速云.xyz] }
+  # - { name: www.zou666.top, <<: *use-url-test, use: [www.zou666.top] }
   - { name: juanwang.store, <<: *use-url-test, use: [juanwang.store] }
-  - { name: www.极速.net, <<: *use-url-test, use: [www.极速.net] }
+  # - { name: www.极速.net, <<: *use-url-test, use: [www.极速.net] }
 
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
