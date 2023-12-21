@@ -257,6 +257,7 @@ proxy-groups:
 
   - { name: Abroad SSH, <<: *use-pg }
   - { name: Google, <<: *use-pg }
+  - { name: AWS, <<: *use-pg }
   - { name: Microsoft, <<: *use-pg }
   - { name: YouTube, <<: *use-pg }
   - { name: Twitter, <<: *use-pg }
@@ -327,6 +328,7 @@ rules:
   - GEOSITE,category-games@cn,国内
   - GEOSITE,google@cn,国内
   - GEOSITE,google,Google
+  - GEOSITE,aws,AWS
   - GEOSITE,cn,国内
   - GEOSITE,geolocation-!cn,漏网之鱼
 
