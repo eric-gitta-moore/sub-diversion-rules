@@ -265,6 +265,7 @@ proxy-groups:
   - { name: Zoom, <<: *use-pg }
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
+  - { name: OneDrive, <<: *use-pg }
   - { name: Dev, <<: *use-pg }
 
   - { name: Apple, <<: *use-pg-cn }
@@ -318,6 +319,7 @@ rules:
   - GEOSITE,facebook,Facebook
   - GEOSITE,openai,OpenAI
   - GEOSITE,github,GitHub
+  - GEOSITE,onedrive,OneDrive
   - GEOSITE,apple,Apple
   - GEOSITE,zoom,Zoom
   - GEOSITE,microsoft,Microsoft
