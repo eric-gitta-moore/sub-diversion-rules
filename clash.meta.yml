@@ -266,6 +266,7 @@ proxy-groups:
   - { name: Scholar, <<: *use-pg }
   - { name: GitHub, <<: *use-pg }
   - { name: OneDrive, <<: *use-pg }
+  - { name: Xbox, <<: *use-pg }
   - { name: Dev, <<: *use-pg }
 
   - { name: Apple, <<: *use-pg-cn }
@@ -320,6 +321,7 @@ rules:
   - GEOSITE,openai,OpenAI
   - GEOSITE,github,GitHub
   - GEOSITE,onedrive,OneDrive
+  - GEOSITE,xbox,Xbox
   - GEOSITE,apple,Apple
   - GEOSITE,zoom,Zoom
   - GEOSITE,microsoft,Microsoft
