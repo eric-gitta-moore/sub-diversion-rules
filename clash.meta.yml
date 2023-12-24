@@ -173,14 +173,14 @@ rule-providers:
     behavior: classical
     format: yaml
     path: ./rule-providers/LocalAreaNetwork.yaml
-    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
     interval: 86400 # 单位秒，86400s = 1d
   AboardNetwork:
     type: http
     behavior: classical
     format: yaml
     path: ./rule-providers/AboardNetwork.yaml
-    url: https://ghproxy.com/https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
+    url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
     interval: 86400
 
 # ==================== 配置开始 ======================
