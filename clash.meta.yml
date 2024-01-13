@@ -313,6 +313,7 @@ rules:
   - RULE-SET,AboardNetwork,漏网之鱼
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+  - GEOSITE,google@cn,国内
 
   - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
   - GEOSITE,youtube,YouTube
@@ -330,7 +331,6 @@ rules:
   - GEOSITE,category-dev,Dev
 
   - GEOSITE,category-games@cn,国内
-  - GEOSITE,google@cn,国内
   - GEOSITE,google,Google
   - GEOSITE,aws,AWS
   - GEOSITE,cn,国内
