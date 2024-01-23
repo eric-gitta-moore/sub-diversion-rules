@@ -73,7 +73,7 @@ use-all-proxy: &use-all-proxy
       www.极速云.xyz,
       # www.zou666.top,
       juanwang.store,
-      # 顶级机场.com,
+      顶级机场.com,
     ]
 
 use-proxies: &use-proxies
@@ -91,7 +91,7 @@ use-proxies: &use-proxies
       www.极速云.xyz,
       # www.zou666.top,
       juanwang.store,
-      # 顶级机场.com,
+      顶级机场.com,
     ]
 
 use-url-test: &use-url-test
