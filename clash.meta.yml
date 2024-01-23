@@ -306,7 +306,7 @@ proxy-groups:
   - { name: www.极速云.xyz, <<: *use-url-test, use: [www.极速云.xyz] }
   # - { name: www.zou666.top, <<: *use-url-test, use: [www.zou666.top] }
   - { name: juanwang.store, <<: *use-url-test, use: [juanwang.store] }
-  # - { name: 顶级机场.com, <<: *use-url-test, use: [顶级机场.com] }
+  - { name: 顶级机场.com, <<: *use-url-test, use: [顶级机场.com] }
 
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
