@@ -104,12 +104,12 @@ use-url-test: &use-url-test
 proxy-providers:
   一元机场.com:
     <<: *use-health-check
-    url: "https://sub3.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2"
+    url: "https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2"
     path: ./proxy-providers/一元机场.com.yaml
 
   dash.fscloud.cc:
     <<: *use-health-check
-    url: "https://asdas.fscloud.cc/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8"
+    url: "http://fsc.cdn.22.jiacdnd123456789.com/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8"
     path: ./proxy-providers/dash.fscloud.cc.yaml
 
   www.eevpn.com:
@@ -119,7 +119,7 @@ proxy-providers:
 
   慈善机场.xyz:
     <<: *use-health-check
-    url: "https://dy.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
+    url: "https://dydz.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493"
     path: ./proxy-providers/慈善机场.xyz.yaml
 
   www.三毛机场.shop:
@@ -129,17 +129,17 @@ proxy-providers:
 
   大熊云.com:
     <<: *use-health-check
-    url: "https://vpn.209966.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63"
+    url: "https://vpn.956256.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63"
     path: ./proxy-providers/大熊云.com.yaml
 
   www.xingsu.club:
     <<: *use-health-check
-    url: "https://www.xingsu.lol/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05"
+    url: "https://www.xingsu.shop/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05"
     path: ./proxy-providers/www.xingsu.club.yaml
 
   dash.spcloud.info:
     <<: *use-health-check
-    url: "https://miaosu111.1234567890spcloud.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd"
+    url: "http://miaosu.shun.cdn.sg.jiacdnd123456789.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd"
     path: ./proxy-providers/dash.spcloud.info.yaml
 
   # 一号机场.net:
@@ -159,12 +159,12 @@ proxy-providers:
 
   juanwang.store:
     <<: *use-health-check
-    url: "https://juanwang.site/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5"
+    url: "https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5"
     path: ./proxy-providers/juanwang.store.yaml
 
   顶级机场.com:
     <<: *use-health-check
-    url: "https://login.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345"
+    url: "https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345"
     path: ./proxy-providers/顶级机场.com.yaml
 
 rule-providers:
