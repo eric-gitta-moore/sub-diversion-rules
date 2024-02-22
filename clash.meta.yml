@@ -266,6 +266,7 @@ proxy-groups:
   - { name: Google, <<: *use-pg }
   - { name: AWS, <<: *use-pg }
   - { name: Microsoft, <<: *use-pg }
+  - { name: TikTok, <<: *use-pg }
   - { name: YouTube, <<: *use-pg }
   - { name: Twitter, <<: *use-pg }
   - { name: Facebook, <<: *use-pg }
@@ -318,6 +319,7 @@ proxy-groups:
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,AboardNetwork,漏网之鱼
+  - RULE-SET,TikTok,TikTok
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
   - GEOSITE,google@cn,国内
