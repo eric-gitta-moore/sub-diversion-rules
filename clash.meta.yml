@@ -320,7 +320,6 @@ proxy-groups:
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,AboardNetwork,漏网之鱼
-  - RULE-SET,TikTok,TikTok
 
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
   - GEOSITE,google@cn,国内
@@ -337,6 +336,7 @@ rules:
   - GEOSITE,zoom,Zoom
   - GEOSITE,microsoft,Microsoft
   - GEOSITE,netflix,NETFLIX
+  - RULE-SET,TikTok,TikTok
   - GEOSITE,category-scholar-!cn,Scholar
   - GEOSITE,jetbrains,JetBrains
   - GEOSITE,category-dev,Dev
