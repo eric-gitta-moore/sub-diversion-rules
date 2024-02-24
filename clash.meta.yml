@@ -275,6 +275,7 @@ proxy-groups:
   - { name: GitHub, <<: *use-pg }
   - { name: OneDrive, <<: *use-pg }
   - { name: Xbox, <<: *use-pg }
+  - { name: JetBrains, <<: *use-pg }
   - { name: Dev, <<: *use-pg }
 
   - { name: Apple, <<: *use-pg-cn }
@@ -337,6 +338,7 @@ rules:
   - GEOSITE,microsoft,Microsoft
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,category-scholar-!cn,Scholar
+  - GEOSITE,jetbrains,JetBrains
   - GEOSITE,category-dev,Dev
 
   - GEOSITE,category-games@cn,国内
