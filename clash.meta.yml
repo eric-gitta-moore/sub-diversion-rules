@@ -167,28 +167,27 @@ proxy-providers:
     url: "https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345"
     path: ./proxy-providers/顶级机场.com.yaml
 
+# ==================== rule-providers ======================
+
+use-rule-providers: &use-rule-providers
+  type: http
+  behavior: classical
+  format: yaml
+  interval: 86400 # 单位秒，86400s = 1d
+
 rule-providers:
   LocalAreaNetwork:
-    type: http
-    behavior: classical
-    format: yaml
+    <<: *use-rule-providers
     path: ./rule-providers/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
-    interval: 86400 # 单位秒，86400s = 1d
   AboardNetwork:
-    type: http
-    behavior: classical
-    format: yaml
+    <<: *use-rule-providers
     path: ./rule-providers/AboardNetwork.yaml
     url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
-    interval: 86400
   TikTok:
-    type: http
-    behavior: classical
-    format: yaml
+    <<: *use-rule-providers
     path: ./rule-providers/TikTok.yaml
     url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml
-    interval: 86400
 
 # ==================== 配置开始 ======================
 dns:
