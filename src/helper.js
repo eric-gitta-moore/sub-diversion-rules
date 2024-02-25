@@ -139,7 +139,7 @@ function useGenGroupHelper() {
     let idx = 1;
     return () => {
       return {
-        name: `🔜====分割线 ${idx++}====🔚`,
+        name: `⭕⭕====分割线 ${idx++}====⭕⭕`,
         type: "select",
         proxies: [...useGroupConfig().direct],
       };
