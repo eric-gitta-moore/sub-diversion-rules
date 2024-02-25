@@ -101,7 +101,7 @@ function useGenGroupHelper() {
       };
     }
 
-    return [
+    const list = [
       genAriaGroup(`香港`),
       genAriaGroup(`台湾`),
       genAriaGroup(`日本`),
@@ -118,11 +118,15 @@ function useGenGroupHelper() {
       genAriaGroup(`土耳其`),
       genAriaGroup(`阿根廷`),
       genAriaGroup(`荷兰`),
+    ];
+    list.push(
       genAriaGroup(
         `其它地区`,
-        "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
+        `(?i)^(?!.*(?:(${list.map((e) => e.name).join("|")}))).*`,
       ),
-    ].map((e) => ({ ...e, type: "url-test" }));
+    );
+
+    return list.map((e) => ({ ...e, type: "url-test" }));
   }
   function useProviderGroup() {
     return Object.entries(proxyProvider).map(([name, _]) => {
