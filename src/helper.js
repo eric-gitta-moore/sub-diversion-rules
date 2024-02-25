@@ -145,7 +145,7 @@ export function useAllProxy() {
 
 export function useProxiesArray() {
   return {
-    use: [
+    proxies: [
       ...useGroupConfig().default,
       ...useGroupConfig().country,
       ...useGroupConfig().manual,
@@ -158,7 +158,7 @@ export function useProxiesArray() {
 
 export function useProxiesArrayCN() {
   return {
-    use: [
+    proxies: [
       ...useGroupConfig().direct,
       ...useGroupConfig().default,
       ...useGroupConfig().country,

@@ -47,24 +47,24 @@ proxy-groups:
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 故障转移, type: fallback, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: '====分割线 1====', type: select, proxies: []}
-    - {name: 'Abroad SSH', use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Google, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: AWS, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Microsoft, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: TikTok, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: YouTube, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Twitter, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Facebook, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Zoom, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Scholar, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: GitHub, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: OneDrive, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Xbox, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: JetBrains, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Dev, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Apple, use: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
-    - {name: OpenAI, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: NETFLIX, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Google, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: AWS, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Microsoft, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: TikTok, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: YouTube, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Twitter, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Facebook, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Scholar, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: GitHub, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: OneDrive, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Xbox, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: JetBrains, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Dev, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: Apple, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
+    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: NETFLIX, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: '====分割线 2====', type: select, proxies: []}
     - {name: 香港, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)港|hk|hongkong|hong kong', type: url-test}
     - {name: 台湾, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)台|tw|taiwan', type: url-test}
@@ -85,8 +85,8 @@ proxy-groups:
     - {name: juanwang.store, type: url-test, use: [juanwang.store]}
     - {name: 顶级机场.com, type: url-test, use: [顶级机场.com]}
     - {name: '====分割线 4====', type: select, proxies: []}
-    - {name: 国内, use: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
-    - {name: 漏网之鱼, use: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
+    - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
 rule-providers:
     LocalAreaNetwork: {path: ./rule-providers/LocalAreaNetwork.yaml, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml', type: http, behavior: classical, format: yaml}
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
