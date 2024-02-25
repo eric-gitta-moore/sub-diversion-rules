@@ -1,0 +1,15 @@
+{
+  "name": "sub-diversion-rules",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node src/index.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "json-to-pretty-yaml": "^1.2.2",
+    "yamljs": "^0.3.0"
+  }
+}
