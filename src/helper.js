@@ -120,7 +120,7 @@ export function useProxyGroups() {
   }
 
   function useDivider() {
-    return { name: "====分割线====", type: "select" };
+    return { name: "====分割线====", type: "select", proxies: [] };
   }
 
   return [
