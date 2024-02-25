@@ -46,7 +46,7 @@ proxy-groups:
     - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 故障转移, type: fallback, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
-    - {name: '====分割线 1====', type: select, proxies: []}
+    - {name: '====分割线 1====', type: select, proxies: [DIRECT]}
     - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: Google, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: AWS, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
@@ -65,14 +65,14 @@ proxy-groups:
     - {name: Apple, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
     - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: NETFLIX, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: '====分割线 2====', type: select, proxies: []}
+    - {name: '====分割线 2====', type: select, proxies: [DIRECT]}
     - {name: 香港, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)港|hk|hongkong|hong kong', type: url-test}
     - {name: 台湾, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)台|tw|taiwan', type: url-test}
     - {name: 日本, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)日本|jp|japan', type: url-test}
     - {name: 美国, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)美|us|unitedstates|united states', type: url-test}
     - {name: 新加坡, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)(新|sg|singapore)', type: url-test}
     - {name: 其它地区, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com], filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*', type: url-test}
-    - {name: '====分割线 3====', type: select, proxies: []}
+    - {name: '====分割线 3====', type: select, proxies: [DIRECT]}
     - {name: 一元机场.com, type: url-test, use: [一元机场.com]}
     - {name: dash.fscloud.cc, type: url-test, use: [dash.fscloud.cc]}
     - {name: www.eevpn.com, type: url-test, use: [www.eevpn.com]}
@@ -84,7 +84,7 @@ proxy-groups:
     - {name: www.极速云.xyz, type: url-test, use: [www.极速云.xyz]}
     - {name: juanwang.store, type: url-test, use: [juanwang.store]}
     - {name: 顶级机场.com, type: url-test, use: [顶级机场.com]}
-    - {name: '====分割线 4====', type: select, proxies: []}
+    - {name: '====分割线 4====', type: select, proxies: [DIRECT]}
     - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
     - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
 rule-providers:
