@@ -82,7 +82,7 @@ export function useProxyGroups() {
       { name: "Apple", ...useProxiesArrayCN() },
       { name: "OpenAI", ...useProxiesArray() },
       { name: "NETFLIX", ...useProxiesArray() },
-    ].map((e) => ({ type: "select", ...e }));
+    ].map((e) => ({ ...e, type: "select" }));
   }
   function useAriaGroup() {
     return [
@@ -105,7 +105,7 @@ export function useProxyGroups() {
         filter:
           "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
       },
-    ].map((e) => ({ type: "url-test", ...e }));
+    ].map((e) => ({ ...e, type: "url-test" }));
   }
   function useProviderGroup() {
     return Object.entries(proxyProvider).map(([name, _]) => {
@@ -116,13 +116,22 @@ export function useProxyGroups() {
     return [
       { name: "国内", ...useProxiesArrayCN() },
       { name: "漏网之鱼", ...useProxiesArray() },
-    ].map((e) => ({ type: "select", ...e }));
+    ].map((e) => ({ ...e, type: "select" }));
   }
+
+  function useDivider() {
+    return { name: "====分割线====" };
+  }
+
   return [
     ...useCommonGroup(),
+    useDivider(),
     ...useCustomGroup(),
+    useDivider(),
     ...useAriaGroup(),
+    useDivider(),
     ...useProviderGroup(),
+    useDivider(),
     ...useCommonGroupAfter(),
   ];
 }
