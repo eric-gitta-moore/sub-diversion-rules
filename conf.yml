@@ -42,7 +42,7 @@ proxy-groups:
     - {name: 默认, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 手动选择, 手动选择2, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, DIRECT]}
     - {name: 自动选择, type: url-test, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 手动选择, type: select, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
-    - {name: 手动选择2, type: select, proxies: [默认, 自动选择, 负载均衡, 故障转移, 选择机场, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, DIRECT]}
+    - {name: 手动选择2, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 香港, 台湾, 日本, 新加坡, 美国, 其它地区, DIRECT]}
     - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
     - {name: 故障转移, type: fallback, use: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com]}
