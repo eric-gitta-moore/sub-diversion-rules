@@ -15,17 +15,26 @@ export function useInterval() {
 }
 
 export function useGroupConfig() {
+  const {
+    useCommonGroup,
+    useCustomGroup,
+    useAriaGroup,
+    useProviderGroup,
+    useCommonGroupAfter,
+    useDividerGen,
+  } = useGenGroupHelper();
   return {
     auto: ["自动选择"],
     default: ["默认"],
     direct: ["DIRECT"],
     manual: [`手动选择`, `手动选择2`],
     basic: ["负载均衡", "故障转移", "选择机场"],
-    country: ["香港", "台湾", "日本", "新加坡", "美国", "其它地区"],
+    // country: ["香港", "台湾", "日本", "新加坡", "美国", "其它地区"],
+    country: useAriaGroup().map((e) => e.name),
   };
 }
 
-export function useProxyGroups() {
+function useGenGroupHelper() {
   function useCommonGroup() {
     return [
       {
@@ -84,26 +93,35 @@ export function useProxyGroups() {
     ].map((e) => ({ ...e, type: "select" }));
   }
   function useAriaGroup() {
+    function genAriaGroup(name, filter = null) {
+      return {
+        name,
+        ...useAllProxy(),
+        filter: !filter ? `(?i)(${name})` : filter,
+      };
+    }
+
     return [
-      {
-        name: "香港",
-        ...useAllProxy(),
-        filter: "(?i)港|hk|hongkong|hong kong",
-      },
-      { name: "台湾", ...useAllProxy(), filter: "(?i)台|tw|taiwan" },
-      { name: "日本", ...useAllProxy(), filter: "(?i)日本|jp|japan" },
-      {
-        name: "美国",
-        ...useAllProxy(),
-        filter: "(?i)美|us|unitedstates|united states",
-      },
-      { name: "新加坡", ...useAllProxy(), filter: "(?i)(新|sg|singapore)" },
-      {
-        name: "其它地区",
-        ...useAllProxy(),
-        filter:
-          "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
-      },
+      genAriaGroup(`香港`),
+      genAriaGroup(`台湾`),
+      genAriaGroup(`日本`),
+      genAriaGroup(`美国`, `(?i)美|us|unitedstates|united states`),
+      genAriaGroup(`新加坡`),
+      genAriaGroup(`澳大利亚`),
+      genAriaGroup(`德国`),
+      genAriaGroup(`印度`),
+      genAriaGroup(`巴西`),
+      genAriaGroup(`加拿大`),
+      genAriaGroup(`韩国`),
+      genAriaGroup(`英国`),
+      genAriaGroup(`智利`),
+      genAriaGroup(`土耳其`),
+      genAriaGroup(`阿根廷`),
+      genAriaGroup(`荷兰`),
+      genAriaGroup(
+        `其它地区`,
+        "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
+      ),
     ].map((e) => ({ ...e, type: "url-test" }));
   }
   function useProviderGroup() {
@@ -117,7 +135,6 @@ export function useProxyGroups() {
       { name: "漏网之鱼", ...useProxiesArray() },
     ].map((e) => ({ ...e, type: "select" }));
   }
-
   function useDividerGen() {
     let idx = 1;
     return () => {
@@ -128,6 +145,25 @@ export function useProxyGroups() {
       };
     };
   }
+  return {
+    useCommonGroup,
+    useCustomGroup,
+    useAriaGroup,
+    useProviderGroup,
+    useCommonGroupAfter,
+    useDividerGen,
+  };
+}
+
+export function useProxyGroups() {
+  const {
+    useCommonGroup,
+    useCustomGroup,
+    useAriaGroup,
+    useProviderGroup,
+    useCommonGroupAfter,
+    useDividerGen,
+  } = useGenGroupHelper();
   const useDivider = useDividerGen();
 
   return [
