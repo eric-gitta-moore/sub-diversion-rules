@@ -119,9 +119,13 @@ export function useProxyGroups() {
     ].map((e) => ({ ...e, type: "select" }));
   }
 
-  function useDivider() {
-    return { name: "====分割线====", type: "select", proxies: [] };
+  function useDividerGen() {
+    let idx = 1;
+    return () => {
+      return { name: `====分割线 ${idx++}====`, type: "select", proxies: [] };
+    };
   }
+  const useDivider = useDividerGen();
 
   return [
     ...useCommonGroup(),
