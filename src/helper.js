@@ -45,7 +45,6 @@ export function useProxyGroups() {
         name: "手动选择2",
         type: "select",
         proxies: [
-          ...useGroupConfig().default,
           ...useGroupConfig().auto,
           ...useGroupConfig().basic,
           ...useGroupConfig().country,
