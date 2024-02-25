@@ -7,7 +7,7 @@ export const proxyProvider = {
     '大熊云.com': 'https://vpn.956256.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63',
     'www.xingsu.club': 'https://www.xingsu.shop/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05',
     'dash.spcloud.info': 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd',
-    'www.极速云.xyz': 'https://jcool.cool/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc',
+    'www.极速云.xyz': 'https://jsysub.ayvupt.com/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc',
     'juanwang.store': 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5',
     '顶级机场.com': 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345',
 };
