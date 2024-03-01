@@ -28,6 +28,7 @@ rules:
     - 'GEOSITE,category-scholar-!cn,Scholar'
     - 'GEOSITE,jetbrains,JetBrains'
     - 'GEOSITE,category-dev,Dev'
+    - 'RULE-SET,GoogleOneVPN,GoogleOneVPN'
     - 'GEOSITE,category-games@cn,国内'
     - 'GEOSITE,google,Google'
     - 'GEOSITE,aws,AWS'
@@ -49,6 +50,7 @@ proxy-groups:
     - {name: '⭕⭕====分割线 1====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: Google, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: GoogleOneVPN, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: AWS, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: Microsoft, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: TikTok, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
@@ -101,6 +103,7 @@ proxy-groups:
 rule-providers:
     LocalAreaNetwork: {path: ./rule-providers/LocalAreaNetwork.yaml, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml', type: http, behavior: classical, format: yaml}
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
+    GoogleOneVPN: {path: ./rule-providers/GoogleOneVPN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPN.yaml', type: http, behavior: classical, format: yaml}
     TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
 proxy-providers:
     一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http}
