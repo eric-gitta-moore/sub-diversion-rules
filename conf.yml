@@ -10,7 +10,7 @@ sniffer:
 rules:
     - 'RULE-SET,LocalAreaNetwork,DIRECT'
     - 'RULE-SET,AboardNetwork,漏网之鱼'
-    - 'AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT'
+    - 'AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,youtube),REJECT'
     - 'GEOSITE,google@cn,国内'
     - 'AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH'
     - 'GEOSITE,youtube,YouTube'

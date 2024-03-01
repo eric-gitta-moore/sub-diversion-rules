@@ -21,7 +21,7 @@ rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,AboardNetwork,漏网之鱼
 
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,geolocation-!cn),REJECT # quic
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,youtube),REJECT # youtube quic
   - GEOSITE,google@cn,国内
 
   - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
