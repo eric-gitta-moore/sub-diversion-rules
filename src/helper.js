@@ -74,7 +74,8 @@ function useGenGroupHelper() {
     return [
       { name: "Abroad SSH", ...useProxiesArray() },
       { name: "Google", ...useProxiesArray() },
-      { name: "GoogleOneVPN", ...useProxiesArray() },
+      { name: "GoogleOneVPNCheckPoint", ...useProxiesArray() },
+      { name: "GoogleOneVPNTun", ...useProxiesArray() },
       { name: "AWS", ...useProxiesArray() },
       { name: "Microsoft", ...useProxiesArray() },
       { name: "TikTok", ...useProxiesArray() },
