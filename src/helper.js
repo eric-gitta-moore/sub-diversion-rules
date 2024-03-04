@@ -62,6 +62,16 @@ function useGenGroupHelper() {
         "include-all": true,
       },
       { name: "故障转移", type: "fallback", "include-all": true },
+      {
+        name: "前置代理组",
+        type: "select",
+        proxies: ["手动选择", "手动选择2"],
+      },
+      // {
+      //   name: "前置代理组2",
+      //   type: "select",
+      //   "include-all": true,
+      // },
     ];
   }
   function useCustomGroup() {

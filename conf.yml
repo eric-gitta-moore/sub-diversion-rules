@@ -44,6 +44,10 @@ rules:
     - 'GEOIP,cn,国内,no-resolve'
     - 'DST-PORT,22,Abroad SSH'
     - 'MATCH,漏网之鱼'
+proxies:
+    - {name: 'G1 VPN relay 01', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
+    - {name: 'G1 VPN relay 02', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
+    - {name: 'G1 VPN relay 03', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
 proxy-groups:
     - {name: 默认, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 手动选择, 手动选择2, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
     - {name: 自动选择, type: url-test, include-all: true}
@@ -52,6 +56,7 @@ proxy-groups:
     - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling, 'Google One VPN']}
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, include-all: true}
     - {name: 故障转移, type: fallback, include-all: true}
+    - {name: 前置代理组, type: select, proxies: [手动选择, 手动选择2]}
     - {name: '⭕⭕====分割线 1====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: Google, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
