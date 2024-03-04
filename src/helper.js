@@ -102,7 +102,7 @@ function useGenGroupHelper() {
     function genAriaGroup(name, filter = null) {
       return {
         name,
-        "include-all-proxies": true,
+        "include-all-providers": true,
         filter: !filter ? `(?i)(${name})` : filter,
       };
     }

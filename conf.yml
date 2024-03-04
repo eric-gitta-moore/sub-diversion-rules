@@ -79,25 +79,25 @@ proxy-groups:
     - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: NETFLIX, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择, 手动选择2, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 香港, include-all-proxies: true, filter: '(?i)(香港)', type: url-test}
-    - {name: 台湾, include-all-proxies: true, filter: '(?i)(台湾)', type: url-test}
-    - {name: 日本, include-all-proxies: true, filter: '(?i)(日本)', type: url-test}
-    - {name: 美国, include-all-proxies: true, filter: '(?i)美|us|unitedstates|united states', type: url-test}
-    - {name: 新加坡, include-all-proxies: true, filter: '(?i)(新加坡)', type: url-test}
-    - {name: 澳大利亚, include-all-proxies: true, filter: '(?i)(澳大利亚)', type: url-test}
-    - {name: 德国, include-all-proxies: true, filter: '(?i)(德国)', type: url-test}
-    - {name: 印度, include-all-proxies: true, filter: '(?i)(印度)', type: url-test}
-    - {name: 巴西, include-all-proxies: true, filter: '(?i)(巴西)', type: url-test}
-    - {name: 加拿大, include-all-proxies: true, filter: '(?i)(加拿大)', type: url-test}
-    - {name: 韩国, include-all-proxies: true, filter: '(?i)(韩国)', type: url-test}
-    - {name: 英国, include-all-proxies: true, filter: '(?i)(英国)', type: url-test}
-    - {name: 智利, include-all-proxies: true, filter: '(?i)(智利)', type: url-test}
-    - {name: 土耳其, include-all-proxies: true, filter: '(?i)(土耳其)', type: url-test}
-    - {name: 阿根廷, include-all-proxies: true, filter: '(?i)(阿根廷)', type: url-test}
-    - {name: 荷兰, include-all-proxies: true, filter: '(?i)(荷兰)', type: url-test}
-    - {name: 法国, include-all-proxies: true, filter: '(?i)(法国)', type: url-test}
-    - {name: CN, include-all-proxies: true, filter: '(?i)cn|中国', type: url-test}
-    - {name: 其它地区, include-all-proxies: true, filter: '(?i)^(?!.*(?:(香港|台湾|日本|美国|新加坡|澳大利亚|德国|印度|巴西|加拿大|韩国|英国|智利|土耳其|阿根廷|荷兰|法国|CN))).*', type: url-test}
+    - {name: 香港, include-all-providers: true, filter: '(?i)(香港)', type: url-test}
+    - {name: 台湾, include-all-providers: true, filter: '(?i)(台湾)', type: url-test}
+    - {name: 日本, include-all-providers: true, filter: '(?i)(日本)', type: url-test}
+    - {name: 美国, include-all-providers: true, filter: '(?i)美|us|unitedstates|united states', type: url-test}
+    - {name: 新加坡, include-all-providers: true, filter: '(?i)(新加坡)', type: url-test}
+    - {name: 澳大利亚, include-all-providers: true, filter: '(?i)(澳大利亚)', type: url-test}
+    - {name: 德国, include-all-providers: true, filter: '(?i)(德国)', type: url-test}
+    - {name: 印度, include-all-providers: true, filter: '(?i)(印度)', type: url-test}
+    - {name: 巴西, include-all-providers: true, filter: '(?i)(巴西)', type: url-test}
+    - {name: 加拿大, include-all-providers: true, filter: '(?i)(加拿大)', type: url-test}
+    - {name: 韩国, include-all-providers: true, filter: '(?i)(韩国)', type: url-test}
+    - {name: 英国, include-all-providers: true, filter: '(?i)(英国)', type: url-test}
+    - {name: 智利, include-all-providers: true, filter: '(?i)(智利)', type: url-test}
+    - {name: 土耳其, include-all-providers: true, filter: '(?i)(土耳其)', type: url-test}
+    - {name: 阿根廷, include-all-providers: true, filter: '(?i)(阿根廷)', type: url-test}
+    - {name: 荷兰, include-all-providers: true, filter: '(?i)(荷兰)', type: url-test}
+    - {name: 法国, include-all-providers: true, filter: '(?i)(法国)', type: url-test}
+    - {name: CN, include-all-providers: true, filter: '(?i)cn|中国', type: url-test}
+    - {name: 其它地区, include-all-providers: true, filter: '(?i)^(?!.*(?:(香港|台湾|日本|美国|新加坡|澳大利亚|德国|印度|巴西|加拿大|韩国|英国|智利|土耳其|阿根廷|荷兰|法国|CN))).*', type: url-test}
     - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 一元机场.com, type: url-test, use: [一元机场.com]}
     - {name: dash.fscloud.cc, type: url-test, use: [dash.fscloud.cc]}
