@@ -22,7 +22,7 @@ export function useGroupConfig() {
     auto: ["自动选择"],
     default: ["默认"],
     direct: ["DIRECT"],
-    manual: [`手动选择`, `手动选择2`],
+    manual: ["手动选择1", "手动选择2", "手动选择3"],
     basic: ["负载均衡", "故障转移", "选择机场"],
     country: useAriaGroup().map((e) => e.name),
   };
@@ -43,9 +43,8 @@ function useGenGroupHelper() {
         ],
       },
       { name: "自动选择", type: "url-test", "include-all": true },
-      { name: "手动选择", type: "select", "include-all": true },
       {
-        name: "手动选择2",
+        name: "手动选择1",
         type: "select",
         proxies: [
           ...useGroupConfig().auto,
@@ -54,6 +53,8 @@ function useGenGroupHelper() {
           ...useGroupConfig().direct,
         ],
       },
+      { name: "手动选择2", type: "select", "include-all": true },
+      { name: "手动选择3", type: "select", "include-all": true },
       { name: "选择机场", type: "select", proxies: Object.keys(proxyProvider) },
       {
         name: "负载均衡",
@@ -65,7 +66,7 @@ function useGenGroupHelper() {
       {
         name: "前置代理组",
         type: "select",
-        proxies: ["手动选择", "手动选择2"],
+        proxies: ["手动选择1", "手动选择2", "手动选择3"],
       },
       // {
       //   name: "前置代理组2",
