@@ -13,10 +13,11 @@ import url from "node:url";
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 function getConf() {
-  const baseYaml = yaml.load(path.join(__dirname, `./base.yml`));
+  const baseYaml = yaml.load(path.join(__dirname, `./base.yaml`));
+  const presetProxies = yaml.load(path.join(__dirname, `./proxies.yaml`));
   return {
     ...baseYaml,
-    "proxy-groups": useProxyGroups(),
+    "proxy-groups": useProxyGroups({ proxies: presetProxies?.proxies }),
     "rule-providers": useRuleProviders(ruleProvider),
     "proxy-providers": useProxyProviders(proxyProvider),
   };

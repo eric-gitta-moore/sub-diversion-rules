@@ -6,6 +6,8 @@ import { proxyProvider } from "./proxy-provider.js";
 // export const INTERVAL = 86400;
 export const INTERVAL = false;
 
+let proxies = [];
+
 export function useInterval() {
   return INTERVAL
     ? {
@@ -15,21 +17,13 @@ export function useInterval() {
 }
 
 export function useGroupConfig() {
-  const {
-    useCommonGroup,
-    useCustomGroup,
-    useAriaGroup,
-    useProviderGroup,
-    useCommonGroupAfter,
-    useDividerGen,
-  } = useGenGroupHelper();
+  const { useAriaGroup } = useGenGroupHelper();
   return {
     auto: ["自动选择"],
     default: ["默认"],
     direct: ["DIRECT"],
-    manual: [`手动选择`, `手动选择2`, `relay1`, `relay2`],
+    manual: [`手动选择`, `手动选择2`],
     basic: ["负载均衡", "故障转移", "选择机场"],
-    // country: ["香港", "台湾", "日本", "新加坡", "美国", "其它地区"],
     country: useAriaGroup().map((e) => e.name),
   };
 }
@@ -48,8 +42,8 @@ function useGenGroupHelper() {
           ...useGroupConfig().direct,
         ],
       },
-      { name: "自动选择", type: "url-test", ...useAllProxy() },
-      { name: "手动选择", type: "select", ...useAllProxy() },
+      { name: "自动选择", type: "url-test", "include-all": true },
+      { name: "手动选择", type: "select", "include-all": true },
       {
         name: "手动选择2",
         type: "select",
@@ -65,19 +59,9 @@ function useGenGroupHelper() {
         name: "负载均衡",
         type: "load-balance",
         strategy: "consistent-hashing",
-        ...useAllProxy(),
+        "include-all": true,
       },
-      { name: "故障转移", type: "fallback", ...useAllProxy() },
-    ];
-  }
-  function useRelayGroup() {
-    return [
-      { name: "中继选择1", type: "select", ...useAllProxy() },
-      { name: "中继选择2", type: "select", ...useAllProxy() },
-      { name: `relay1`, type: `relay`, proxies: [`中继选择1`, `中继选择2`] },
-      { name: "中继选择3", type: "select", ...useAllProxy() },
-      { name: "中继选择4", type: "select", ...useAllProxy() },
-      { name: `relay2`, type: `relay`, proxies: [`中继选择3`, `中继选择4`] },
+      { name: "故障转移", type: "fallback", "include-all": true },
     ];
   }
   function useCustomGroup() {
@@ -108,7 +92,7 @@ function useGenGroupHelper() {
     function genAriaGroup(name, filter = null) {
       return {
         name,
-        ...useAllProxy(),
+        "include-all": true,
         filter: !filter ? `(?i)(${name})` : filter,
       };
     }
@@ -130,6 +114,8 @@ function useGenGroupHelper() {
       genAriaGroup(`土耳其`),
       genAriaGroup(`阿根廷`),
       genAriaGroup(`荷兰`),
+      genAriaGroup(`法国`),
+      genAriaGroup(`CN`, `(?i)cn|中国`),
     ];
     list.push(
       genAriaGroup(
@@ -168,11 +154,11 @@ function useGenGroupHelper() {
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
-    useRelayGroup,
   };
 }
 
-export function useProxyGroups() {
+export function useProxyGroups({ proxies: presetProxies } = { proxies: [] }) {
+  proxies = presetProxies;
   const {
     useCommonGroup,
     useCustomGroup,
@@ -180,14 +166,11 @@ export function useProxyGroups() {
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
-    useRelayGroup,
   } = useGenGroupHelper();
   const useDivider = useDividerGen();
 
   return [
     ...useCommonGroup(),
-    useDivider(),
-    ...useRelayGroup(),
     useDivider(),
     ...useCustomGroup(),
     useDivider(),
@@ -200,7 +183,7 @@ export function useProxyGroups() {
 }
 
 export function useAllProxy() {
-  return { use: Object.keys(proxyProvider) };
+  return { use: Object.keys(proxyProvider), proxies };
 }
 
 export function useProxiesArray() {
