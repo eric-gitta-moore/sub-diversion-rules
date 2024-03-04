@@ -27,7 +27,7 @@ export function useGroupConfig() {
     auto: ["自动选择"],
     default: ["默认"],
     direct: ["DIRECT"],
-    manual: [`手动选择`, `手动选择2`],
+    manual: [`手动选择`, `手动选择2`, `relay1`, `relay2`],
     basic: ["负载均衡", "故障转移", "选择机场"],
     // country: ["香港", "台湾", "日本", "新加坡", "美国", "其它地区"],
     country: useAriaGroup().map((e) => e.name),
@@ -68,6 +68,16 @@ function useGenGroupHelper() {
         ...useAllProxy(),
       },
       { name: "故障转移", type: "fallback", ...useAllProxy() },
+    ];
+  }
+  function useRelayGroup() {
+    return [
+      { name: "中继选择1", type: "select", ...useAllProxy() },
+      { name: "中继选择2", type: "select", ...useAllProxy() },
+      { name: `relay1`, type: `relay`, proxies: [`中继选择1`, `中继选择2`] },
+      { name: "中继选择3", type: "select", ...useAllProxy() },
+      { name: "中继选择4", type: "select", ...useAllProxy() },
+      { name: `relay2`, type: `relay`, proxies: [`中继选择3`, `中继选择4`] },
     ];
   }
   function useCustomGroup() {
@@ -158,6 +168,7 @@ function useGenGroupHelper() {
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
+    useRelayGroup,
   };
 }
 
@@ -169,11 +180,14 @@ export function useProxyGroups() {
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
+    useRelayGroup,
   } = useGenGroupHelper();
   const useDivider = useDividerGen();
 
   return [
     ...useCommonGroup(),
+    useDivider(),
+    ...useRelayGroup(),
     useDivider(),
     ...useCustomGroup(),
     useDivider(),
