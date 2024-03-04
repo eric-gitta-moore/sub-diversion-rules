@@ -17,10 +17,10 @@ function getConf() {
   const presetProxies = yaml.load(path.join(__dirname, `./proxies.yaml`));
   return {
     ...baseYaml,
-    ...presetProxies,
     "proxy-groups": useProxyGroups({proxies: presetProxies?.proxies}),
     "rule-providers": useRuleProviders(ruleProvider),
     "proxy-providers": useProxyProviders(proxyProvider),
+    ...presetProxies,
   };
 }
 

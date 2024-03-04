@@ -44,10 +44,6 @@ rules:
     - 'GEOIP,cn,国内,no-resolve'
     - 'DST-PORT,22,Abroad SSH'
     - 'MATCH,漏网之鱼'
-proxies:
-    - {name: 'G1 VPN relay 01', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
-    - {name: 'G1 VPN relay 02', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
-    - {name: 'G1 VPN relay 03', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
 proxy-groups:
     - {name: 默认, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
     - {name: 自动选择, type: url-test, include-all: true}
@@ -136,3 +132,7 @@ proxy-providers:
     顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http}
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
     'Google One VPN': {path: './proxy-providers/Google One VPN.yaml', url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http}
+proxies:
+    - {name: 'G1 VPN relay 01', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
+    - {name: 'G1 VPN relay 02', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
+    - {name: 'G1 VPN relay 03', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
