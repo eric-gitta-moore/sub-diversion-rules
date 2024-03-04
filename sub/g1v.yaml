@@ -1,0 +1,4 @@
+proxies:
+  - { name: 'Google One VPN - 01', server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
+  - { name: 'Google One VPN - 02', server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
+  - { name: 'Google One VPN - 03', server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
