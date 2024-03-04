@@ -11,5 +11,5 @@ export const proxyProvider = {
     'juanwang.store': 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5',
     '顶级机场.com': 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345',
     'dash.spcloud.info-yunling': 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5',
-    'g1v': 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml',
+    'Google One VPN': 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml',
 };
