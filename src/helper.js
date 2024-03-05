@@ -17,18 +17,67 @@ export function useInterval() {
 }
 
 export function useGroupConfig() {
-  const { useAriaGroup } = useGenGroupHelper();
+  const { useAriaGroup, useManualGroup, useRelayGroup } = useGenGroupHelper();
   return {
     auto: ["自动选择"],
     default: ["默认"],
     direct: ["DIRECT"],
-    manual: ["手动选择1", "手动选择2", "手动选择3"],
-    basic: ["负载均衡", "故障转移", "选择机场"],
+    manual: [
+      ...useManualGroup({ useConfig: null }).map((e) => e.name),
+      ...useRelayGroup().choose.map((e) => e.name),
+    ],
+    basic: ["负载均衡", "故障转移"],
     country: useAriaGroup().map((e) => e.name),
+    //
+    relay: [...useRelayGroup().choose.map((e) => e.name)],
   };
 }
 
 function useGenGroupHelper() {
+  function useManualGroup({ useConfig } = { useConfig: useGroupConfig }) {
+    return [
+      {
+        name: "手动选择1",
+        type: "select",
+        proxies: useConfig
+          ? [
+              ...useConfig().auto,
+              ...useConfig().basic,
+              ...useConfig().relay,
+              ...useConfig().country,
+              ...useConfig().direct,
+            ]
+          : [],
+      },
+      { name: "手动选择2", type: "select", "include-all": true },
+      { name: "手动选择3", type: "select", "include-all": true },
+      { name: "选择机场", type: "select", proxies: Object.keys(proxyProvider) },
+    ];
+  }
+  function useRelayGroup() {
+    const all = [
+      { name: "中继前置1", type: "select", "include-all": true },
+      { name: "中继后继1", type: "select", "include-all": true },
+      { name: "中继组1", type: "relay", proxies: ["中继前置1", "中继后继1"] },
+    ];
+    return {
+      all,
+      // 可以选择的组别
+      choose: all.filter((e) => e.name.startsWith("中继组")),
+      configure: all.filter(
+        (e) => e.name.startsWith("中继前置") || e.name.startsWith("中继后继"),
+      ),
+    };
+  }
+  function useDialerGroup() {
+    return [
+      {
+        name: "前置代理组",
+        type: "select",
+        proxies: ["手动选择1", "手动选择2", "手动选择3"],
+      },
+    ];
+  }
   function useCommonGroup() {
     return [
       {
@@ -44,35 +93,12 @@ function useGenGroupHelper() {
       },
       { name: "自动选择", type: "url-test", "include-all": true },
       {
-        name: "手动选择1",
-        type: "select",
-        proxies: [
-          ...useGroupConfig().auto,
-          ...useGroupConfig().basic,
-          ...useGroupConfig().country,
-          ...useGroupConfig().direct,
-        ],
-      },
-      { name: "手动选择2", type: "select", "include-all": true },
-      { name: "手动选择3", type: "select", "include-all": true },
-      { name: "选择机场", type: "select", proxies: Object.keys(proxyProvider) },
-      {
         name: "负载均衡",
         type: "load-balance",
         strategy: "consistent-hashing",
         "include-all": true,
       },
       { name: "故障转移", type: "fallback", "include-all": true },
-      {
-        name: "前置代理组",
-        type: "select",
-        proxies: ["手动选择1", "手动选择2", "手动选择3"],
-      },
-      // {
-      //   name: "前置代理组2",
-      //   type: "select",
-      //   "include-all": true,
-      // },
     ];
   }
   function useCustomGroup() {
@@ -160,11 +186,14 @@ function useGenGroupHelper() {
   }
   return {
     useCommonGroup,
+    useDialerGroup,
+    useManualGroup,
     useCustomGroup,
     useAriaGroup,
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
+    useRelayGroup,
   };
 }
 
@@ -177,11 +206,19 @@ export function useProxyGroups({ proxies: presetProxies } = { proxies: [] }) {
     useProviderGroup,
     useCommonGroupAfter,
     useDividerGen,
+    useDialerGroup,
+    useManualGroup,
+    useRelayGroup,
   } = useGenGroupHelper();
   const useDivider = useDividerGen();
 
   return [
     ...useCommonGroup(),
+    useDivider(),
+    ...useManualGroup(),
+    useDivider(),
+    ...useDialerGroup(),
+    ...useRelayGroup().all,
     useDivider(),
     ...useCustomGroup(),
     useDivider(),
@@ -191,10 +228,6 @@ export function useProxyGroups({ proxies: presetProxies } = { proxies: [] }) {
     useDivider(),
     ...useCommonGroupAfter(),
   ];
-}
-
-export function useAllProxy() {
-  return { use: Object.keys(proxyProvider), proxies };
 }
 
 export function useProxiesArray() {
@@ -238,62 +271,4 @@ export function useHealthCheck(
         },
       }
     : {};
-}
-
-/**
- *
- * @param {Record<string,string>} ruleSet
- * @param pathFormater
- * @returns {Object}
- */
-export function useRuleProviders(
-  ruleSet,
-  { pathFormater } = {
-    pathFormater: (name) => `./rule-providers/${name}.yaml`,
-  },
-) {
-  const ruleProvidersDefaultConf = {
-    type: "http",
-    behavior: "classical",
-    format: "yaml",
-    ...useInterval(),
-  };
-
-  return Object.fromEntries(
-    Object.entries(ruleSet).map(([ruleName, ruleLink]) => {
-      const ruleVal = {
-        ...{ path: pathFormater(ruleName), url: ruleLink },
-        ...ruleProvidersDefaultConf,
-      };
-      return [ruleName, ruleVal];
-    }),
-  );
-}
-
-/**
- *
- * @param {Record<string,string>} proxySet
- * @param pathFormater
- */
-export function useProxyProviders(
-  proxySet,
-  { pathFormater } = {
-    pathFormater: (name) => `./proxy-providers/${name}.yaml`,
-  },
-) {
-  const ruleProvidersDefaultConf = {
-    type: "http",
-    ...useInterval(),
-    ...useHealthCheck(),
-  };
-
-  return Object.fromEntries(
-    Object.entries(proxySet).map(([ruleName, ruleLink]) => {
-      const ruleVal = {
-        ...{ path: pathFormater(ruleName), url: ruleLink },
-        ...ruleProvidersDefaultConf,
-      };
-      return [ruleName, ruleVal];
-    }),
-  );
 }

@@ -45,37 +45,42 @@ rules:
     - 'DST-PORT,22,Abroad SSH'
     - 'MATCH,漏网之鱼'
 proxy-groups:
-    - {name: 默认, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
+    - {name: 默认, type: select, proxies: [自动选择, 负载均衡, 故障转移, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
     - {name: 自动选择, type: url-test, include-all: true}
-    - {name: 手动选择1, type: select, proxies: [自动选择, 负载均衡, 故障转移, 选择机场, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
-    - {name: 手动选择2, type: select, include-all: true}
-    - {name: 手动选择3, type: select, include-all: true}
-    - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling, 'Google One VPN']}
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, include-all: true}
     - {name: 故障转移, type: fallback, include-all: true}
-    - {name: 前置代理组, type: select, proxies: [手动选择1, 手动选择2, 手动选择3]}
     - {name: '⭕⭕====分割线 1====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Google, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: GoogleOneVPNCheckPoint, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: GoogleOneVPNTun, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: AWS, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Microsoft, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: TikTok, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: YouTube, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Twitter, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Facebook, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Scholar, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: GitHub, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: OneDrive, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Xbox, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: JetBrains, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Dev, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: Apple, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
-    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
-    - {name: NETFLIX, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: 手动选择1, type: select, proxies: [自动选择, 负载均衡, 故障转移, 中继组1, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
+    - {name: 手动选择2, type: select, include-all: true}
+    - {name: 手动选择3, type: select, include-all: true}
+    - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling, G1VPN]}
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: 前置代理组, type: select, proxies: [手动选择1, 手动选择2, 手动选择3]}
+    - {name: 中继前置1, type: select, include-all: true}
+    - {name: 中继后继1, type: select, include-all: true}
+    - {name: 中继组1, type: relay, proxies: [中继前置1, 中继后继1]}
+    - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: 'Abroad SSH', proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Google, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: GoogleOneVPNCheckPoint, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: GoogleOneVPNTun, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: AWS, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Microsoft, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: TikTok, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: YouTube, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Twitter, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Facebook, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Scholar, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: GitHub, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: OneDrive, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Xbox, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: JetBrains, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Dev, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: Apple, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移], type: select}
+    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: NETFLIX, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
+    - {name: '⭕⭕====分割线 4====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 香港, include-all-providers: true, filter: '(?i)(香港)', type: url-test}
     - {name: 台湾, include-all-providers: true, filter: '(?i)(台湾)', type: url-test}
     - {name: 日本, include-all-providers: true, filter: '(?i)(日本)', type: url-test}
@@ -95,7 +100,7 @@ proxy-groups:
     - {name: 法国, include-all-providers: true, filter: '(?i)(法国)', type: url-test}
     - {name: CN, include-all-providers: true, filter: '(?i)cn|中国', type: url-test}
     - {name: 其它地区, include-all-providers: true, filter: '(?i)^(?!.*(?:(香港|台湾|日本|美国|新加坡|澳大利亚|德国|印度|巴西|加拿大|韩国|英国|智利|土耳其|阿根廷|荷兰|法国|CN))).*', type: url-test}
-    - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: '⭕⭕====分割线 5====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 一元机场.com, type: url-test, use: [一元机场.com]}
     - {name: dash.fscloud.cc, type: url-test, use: [dash.fscloud.cc]}
     - {name: www.eevpn.com, type: url-test, use: [www.eevpn.com]}
@@ -108,10 +113,10 @@ proxy-groups:
     - {name: juanwang.store, type: url-test, use: [juanwang.store]}
     - {name: 顶级机场.com, type: url-test, use: [顶级机场.com]}
     - {name: dash.spcloud.info-yunling, type: url-test, use: [dash.spcloud.info-yunling]}
-    - {name: 'Google One VPN', type: url-test, use: ['Google One VPN']}
-    - {name: '⭕⭕====分割线 4====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场], type: select}
-    - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, 负载均衡, 故障转移, 选择机场, DIRECT], type: select}
+    - {name: G1VPN, type: url-test, use: [G1VPN]}
+    - {name: '⭕⭕====分割线 6====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移], type: select}
+    - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
 rule-providers:
     LocalAreaNetwork: {path: ./rule-providers/LocalAreaNetwork.yaml, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml', type: http, behavior: classical, format: yaml}
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
@@ -131,8 +136,8 @@ proxy-providers:
     juanwang.store: {path: ./proxy-providers/juanwang.store.yaml, url: 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5', type: http}
     顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http}
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
-    'Google One VPN': {path: './proxy-providers/Google One VPN.yaml', url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http}
+    G1VPN: {path: ./proxy-providers/G1VPN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http}
 proxies:
-    - {name: 'G1 VPN relay 01', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
-    - {name: 'G1 VPN relay 02', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
-    - {name: 'G1 VPN relay 03', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9}
+    - {name: 'G1 relay1', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3306, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}
+    - {name: 'G1 relay2', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3307, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}
+    - {name: 'G1 relay3', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3308, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}

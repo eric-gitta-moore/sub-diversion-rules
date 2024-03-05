@@ -1,4 +1,30 @@
 proxies:
-  - { name: 'Google One VPN - 01', server: 149.104.24.100, port: 443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
-  - { name: 'Google One VPN - 02', server: 149.104.24.100, port: 8443, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
-  - { name: 'Google One VPN - 03', server: 149.104.24.100, port: 20001, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 1fb2c335-7b4c-4c18-b524-d84f21f53ef9 }
+  - { name: 'G1 1', server: 149.104.24.100, port: 3306, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
+  - { name: 'G1 2', server: 149.104.24.100, port: 3307, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
+  - { name: 'G1 3', server: 149.104.24.100, port: 3308, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
+  - name: G1 vless
+    type: vless
+    server: 149.104.24.100
+    port: 8443
+    uuid: 2deaa90c-0d92-4a41-91e0-3023146dd86c
+    udp: true
+    skip-cert-verify: false
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+  - name: G1 ss
+    type: ss
+    server: 149.104.24.100
+    port: 7890
+    cipher: chacha20-ietf-poly1305
+    password: 2deaa90c-0d92-4a41-91e0-3023146dd86c
+    udp: true
+    skip-cert-verify: false
+  - name: G1 trojan
+    type: trojan
+    server: 149.104.24.100
+    port: 443
+    password: 2deaa90c-0d92-4a41-91e0-3023146dd86c
+    udp: true
+    skip-cert-verify: false
+
