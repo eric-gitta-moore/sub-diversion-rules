@@ -1,0 +1,41 @@
+dns:
+  enable: true
+  prefer-h3: true
+  listen: '0.0.0.0:53'
+  enhanced-mode: redir-host
+  default-nameserver: [223.5.5.5, 119.29.29.29, 101.226.4.6]
+  nameserver: ['https://dns.alidns.com/dns-query', 'https://doh.360.cn/dns-query', 'https://doh.pub/dns-query']
+  fallback: ['tls://8.8.4.4', 'tls://1.1.1.1']
+  fallback-filter: {geoip: true, geoip-code: CN, geosite: [gfw, geolocation-!cn], ipcidr: [240.0.0.0/4], domain: [+.google.com, +.facebook.com, +.youtube.com]}
+sniffer:
+  enable: true
+  sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+rules:
+  - 'GEOSITE,private,DIRECT'
+  - 'GEOSITE,google@cn,国内'
+  - 'RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun'
+  - 'RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint'
+  - 'GEOSITE,category-games@cn,国内'
+  - 'GEOSITE,google,Google'
+  - 'GEOSITE,cn,国内'
+  - 'GEOSITE,gfw,漏网之鱼'
+  - 'GEOSITE,geolocation-!cn,漏网之鱼'
+  - 'GEOIP,google,Google,no-resolve'
+  - 'GEOIP,cn,国内,no-resolve'
+  - 'MATCH,漏网之鱼'
+proxy-groups:
+  - {name: 默认, type: select, proxies: [自动选择, 手动选择, DIRECT]}
+  - {name: 自动选择, type: url-test, include-all: true}
+  - {name: 手动选择, type: select, include-all: true}
+  - {name: Google, proxies: [默认, 自动选择, 手动选择, DIRECT], type: select}
+  - {name: GoogleOneVPNCheckPoint, proxies: [默认, 自动选择, 手动选择, DIRECT], type: select}
+  - {name: GoogleOneVPNTun, proxies: [默认, 自动选择, 手动选择, DIRECT], type: select}
+  - {name: 国内, proxies: [DIRECT, 默认, 自动选择, 手动选择], type: select}
+  - {name: 漏网之鱼, proxies: [默认, 自动选择, 手动选择, DIRECT], type: select}
+rule-providers:
+  GoogleOneVPNCheckPoint: {path: ./rule-providers/GoogleOneVPNCheckPoint.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.yaml', type: http, behavior: classical, format: yaml}
+  GoogleOneVPNTun: {path: ./rule-providers/GoogleOneVPNTun.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.yaml', type: http, behavior: classical, format: yaml}
+proxy-providers:
+  慈善机场.xyz: {path: ./proxy-providers/慈善机场.xyz.yaml, url: 'https://dydz.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493', type: http}
+  www.三毛机场.shop: {path: ./proxy-providers/www.三毛机场.shop.yaml, url: 'https://dy.smjc.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e', type: http}
+  dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
