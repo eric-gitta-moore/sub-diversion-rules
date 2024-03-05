@@ -11,15 +11,10 @@ sniffer:
   enable: true
   sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
 rules:
-  - 'GEOSITE,private,DIRECT'
-  - 'GEOSITE,google@cn,国内'
   - 'RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun'
   - 'RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint'
-  - 'GEOSITE,category-games@cn,国内'
   - 'GEOSITE,google,Google'
   - 'GEOSITE,cn,国内'
-  - 'GEOSITE,gfw,漏网之鱼'
-  - 'GEOSITE,geolocation-!cn,漏网之鱼'
   - 'GEOIP,google,Google,no-resolve'
   - 'GEOIP,cn,国内,no-resolve'
   - 'MATCH,漏网之鱼'
