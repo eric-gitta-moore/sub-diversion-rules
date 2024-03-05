@@ -138,6 +138,4 @@ proxy-providers:
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
     G1VPN: {path: ./proxy-providers/G1VPN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http}
 proxies:
-    - {name: 'G1 relay1', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3306, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}
-    - {name: 'G1 relay2', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3307, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}
-    - {name: 'G1 relay3', dialer-proxy: 前置代理组, server: 149.104.24.100, port: 3308, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c}
+    - {name: 'null', server: 1.1.1.1, port: 3308, type: hysteria2, password: 1}

@@ -1,7 +1,4 @@
 proxies:
-  - { name: 'G1 1', server: 149.104.24.100, port: 3306, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
-  - { name: 'G1 2', server: 149.104.24.100, port: 3307, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
-  - { name: 'G1 3', server: 149.104.24.100, port: 3308, udp: true, skip-cert-verify: true, sni: bing.com, type: hysteria2, password: 2deaa90c-0d92-4a41-91e0-3023146dd86c }
   - name: G1 vless
     type: vless
     server: 149.104.24.100
@@ -12,14 +9,6 @@ proxies:
     tls: true
     flow: xtls-rprx-vision
     client-fingerprint: chrome
-  - name: G1 ss
-    type: ss
-    server: 149.104.24.100
-    port: 7890
-    cipher: chacha20-ietf-poly1305
-    password: 2deaa90c-0d92-4a41-91e0-3023146dd86c
-    udp: true
-    skip-cert-verify: true
   - name: G1 trojan
     type: trojan
     server: 149.104.24.100
