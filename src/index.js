@@ -17,7 +17,11 @@ function getConf() {
     "proxy-groups": useProxyGroups({ proxies: presetProxies?.proxies }),
     "rule-providers": useRuleProviders(ruleProvider),
     "proxy-providers": useProxyProviders(proxyProvider),
-    ...presetProxies,
+    ...(presetProxies.proxies
+      ? {
+          proxies: presetProxies.proxies,
+        }
+      : {}),
   };
 }
 

@@ -50,13 +50,13 @@ proxy-groups:
     - {name: 负载均衡, type: load-balance, strategy: consistent-hashing, include-all: true}
     - {name: 故障转移, type: fallback, include-all: true}
     - {name: '⭕⭕====分割线 1====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 手动选择1, type: select, proxies: [自动选择, 负载均衡, 故障转移, 中继组1, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
+    - {name: 手动选择1, type: select, proxies: [自动选择, 负载均衡, 故障转移, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
     - {name: 手动选择2, type: select, include-all: true}
     - {name: 手动选择3, type: select, include-all: true}
     - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling, G1VPN]}
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 前置代理组, type: select, proxies: [手动选择1, 手动选择2, 手动选择3]}
-    - {name: 中继前置1, type: select, include-all: true}
+    - {name: 中继前置1, type: select, proxies: [手动选择1, 手动选择2, 手动选择3, 选择机场]}
     - {name: 中继后继1, type: select, include-all: true}
     - {name: 中继组1, type: relay, proxies: [中继前置1, 中继后继1]}
     - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
@@ -137,5 +137,3 @@ proxy-providers:
     顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http}
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
     G1VPN: {path: ./proxy-providers/G1VPN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http}
-proxies:
-    - {name: 'null', server: 1.1.1.1, port: 3308, type: hysteria2, password: 1}

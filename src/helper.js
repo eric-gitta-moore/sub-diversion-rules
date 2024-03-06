@@ -23,7 +23,7 @@ export function useGroupConfig() {
     default: ["默认"],
     direct: ["DIRECT"],
     manual: [
-      ...useManualGroup({ useConfig: null }).map((e) => e.name),
+      ...useManualGroup({}).map((e) => e.name),
       ...useRelayGroup().choose.map((e) => e.name),
     ],
     basic: ["负载均衡", "故障转移"],
@@ -43,7 +43,7 @@ function useGenGroupHelper() {
           ? [
               ...useConfig().auto,
               ...useConfig().basic,
-              ...useConfig().relay,
+              // ...useConfig().relay,
               ...useConfig().country,
               ...useConfig().direct,
             ]
@@ -56,7 +56,11 @@ function useGenGroupHelper() {
   }
   function useRelayGroup() {
     const all = [
-      { name: "中继前置1", type: "select", "include-all": true },
+      {
+        name: "中继前置1",
+        type: "select",
+        proxies: [...useManualGroup({}).map((e) => e.name)],
+      },
       { name: "中继后继1", type: "select", "include-all": true },
       { name: "中继组1", type: "relay", proxies: ["中继前置1", "中继后继1"] },
     ];

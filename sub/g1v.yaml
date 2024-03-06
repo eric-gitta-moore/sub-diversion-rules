@@ -16,4 +16,3 @@ proxies:
     password: 2deaa90c-0d92-4a41-91e0-3023146dd86c
     udp: true
     skip-cert-verify: true
-

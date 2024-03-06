@@ -1,2 +1,1 @@
 proxies:
-  - { name: 'null', server: 1.1.1.1, port: 3308, type: hysteria2, password: 1 }
