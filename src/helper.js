@@ -1,19 +1,25 @@
 import { proxyProvider } from "./proxy-provider.js";
+import { PROXY_TYPE } from "./constant.js";
 
 /**
  * @type {number|boolean}
  */
 // export const INTERVAL = 86400;
 export const INTERVAL = false;
+export const TIMEOUT = 1000;
 
 let proxies = [];
 
 export function useInterval() {
-  return INTERVAL
-    ? {
-        interval: INTERVAL,
-      }
-    : {};
+  const obj = {};
+  INTERVAL && (obj["interval"] = INTERVAL);
+  return obj;
+}
+
+export function useTimeout() {
+  const obj = {};
+  TIMEOUT && (obj["timeout"] = TIMEOUT);
+  return obj;
 }
 
 export function useGroupConfig() {
@@ -33,7 +39,21 @@ export function useGroupConfig() {
   };
 }
 
+export function useProxyGroupConfigure() {
+  function useType({ type }) {
+    switch (type) {
+      case PROXY_TYPE.URLTest:
+        return {
+          type: PROXY_TYPE.URLTest,
+          ...useTimeout(),
+        };
+    }
+  }
+  return { useType };
+}
+
 function useGenGroupHelper() {
+  const { useType } = useProxyGroupConfigure();
   function useManualGroup({ useConfig } = { useConfig: useGroupConfig }) {
     return [
       {
@@ -95,7 +115,11 @@ function useGenGroupHelper() {
           ...useGroupConfig().direct,
         ],
       },
-      { name: "自动选择", type: "url-test", "include-all": true },
+      {
+        name: "自动选择",
+        "include-all": true,
+        ...useType({ type: PROXY_TYPE.URLTest }),
+      },
       {
         name: "负载均衡",
         type: "load-balance",
@@ -165,11 +189,14 @@ function useGenGroupHelper() {
       ),
     );
 
-    return list.map((e) => ({ ...e, type: "url-test" }));
+    return list.map((e) => ({
+      ...e,
+      ...useType({ type: PROXY_TYPE.URLTest }),
+    }));
   }
   function useProviderGroup() {
     return Object.entries(proxyProvider).map(([name, _]) => {
-      return { name, type: "url-test", use: [name] };
+      return { name, ...useType({ type: PROXY_TYPE.URLTest }), use: [name] };
     });
   }
   function useCommonGroupAfter() {
@@ -260,19 +287,12 @@ export function useProxiesArrayCN() {
   };
 }
 
-export function useHealthCheck(
-  { interval, url } = {
-    interval: INTERVAL,
-    url: `https://cp.cloudflare.com/generate_204`,
-  },
-) {
-  return INTERVAL
-    ? {
-        "health-check": {
-          enable: true,
-          url,
-          interval,
-        },
-      }
-    : {};
+export function useHealthCheck() {
+  return {
+    "health-check": {
+      enable: true,
+      ...useInterval(),
+      ...useTimeout(),
+    },
+  };
 }
