@@ -136,5 +136,5 @@ proxy-providers:
     顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http, health-check: {enable: true, timeout: 1000}}
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http, health-check: {enable: true, timeout: 1000}}
 proxies:
-    - {name: 'G1 ss', type: ss, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 10001, cipher: aes-128-gcm, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true}
+    - {name: 'G1 ss', type: ss, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 10001, cipher: chacha20-ietf-poly1305, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true}
     - {name: 'G1 hy2', type: hysteria2, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true, skip-cert-verify: true, sni: bing.com}
