@@ -98,7 +98,7 @@ function useGenGroupHelper() {
       {
         name: "前置代理组",
         type: "select",
-        proxies: ["手动选择1", "手动选择2", "手动选择3"],
+        "include-all-providers": true,
       },
     ];
   }
