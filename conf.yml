@@ -53,7 +53,7 @@ proxy-groups:
     - {name: 手动选择1, type: select, proxies: [自动选择, 负载均衡, 故障转移, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, DIRECT]}
     - {name: 手动选择2, type: select, include-all: true}
     - {name: 手动选择3, type: select, include-all: true}
-    - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling, G1VPN]}
+    - {name: 选择机场, type: select, proxies: [一元机场.com, dash.fscloud.cc, www.eevpn.com, 慈善机场.xyz, www.三毛机场.shop, 大熊云.com, www.xingsu.club, dash.spcloud.info, www.极速云.xyz, juanwang.store, 顶级机场.com, dash.spcloud.info-yunling]}
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 前置代理组, type: select, proxies: [手动选择1, 手动选择2, 手动选择3]}
     - {name: 中继前置1, type: select, proxies: [手动选择1, 手动选择2, 手动选择3, 选择机场]}
@@ -113,7 +113,6 @@ proxy-groups:
     - {name: juanwang.store, type: url-test, timeout: 1000, use: [juanwang.store]}
     - {name: 顶级机场.com, type: url-test, timeout: 1000, use: [顶级机场.com]}
     - {name: dash.spcloud.info-yunling, type: url-test, timeout: 1000, use: [dash.spcloud.info-yunling]}
-    - {name: G1VPN, type: url-test, timeout: 1000, use: [G1VPN]}
     - {name: '⭕⭕====分割线 6====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移], type: select}
     - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
@@ -136,4 +135,6 @@ proxy-providers:
     juanwang.store: {path: ./proxy-providers/juanwang.store.yaml, url: 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5', type: http, health-check: {enable: true, timeout: 1000}}
     顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http, health-check: {enable: true, timeout: 1000}}
     dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http, health-check: {enable: true, timeout: 1000}}
-    G1VPN: {path: ./proxy-providers/G1VPN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/hidden/sub/g1v.yaml', type: http, health-check: {enable: true, timeout: 1000}}
+proxies:
+    - {name: 'G1 ss', type: ss, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 10001, cipher: aes-128-gcm, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true}
+    - {name: 'G1 hy2', type: hysteria2, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true, skip-cert-verify: true, sni: bing.com}
