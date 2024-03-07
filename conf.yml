@@ -39,9 +39,9 @@ rules:
     - 'GEOSITE,cn,国内'
     - 'GEOSITE,gfw,漏网之鱼'
     - 'GEOSITE,geolocation-!cn,漏网之鱼'
-    - 'GEOIP,google,Google,no-resolve'
-    - 'GEOIP,netflix,NETFLIX,no-resolve'
-    - 'GEOIP,cn,国内,no-resolve'
+    - 'GEOIP,google,Google'
+    - 'GEOIP,netflix,NETFLIX'
+    - 'GEOIP,cn,国内'
     - 'DST-PORT,22,Abroad SSH'
     - 'MATCH,漏网之鱼'
 proxy-groups:
