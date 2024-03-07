@@ -42,7 +42,6 @@ sniffer:
       ports: [443, 8443]
 
 rules:
-  - RULE-SET,LocalAreaNetwork,DIRECT
   - GEOSITE,private,DIRECT
   - RULE-SET,AboardNetwork,漏网之鱼
 

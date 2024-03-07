@@ -11,7 +11,6 @@ sniffer:
     enable: true
     sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
 rules:
-    - 'RULE-SET,LocalAreaNetwork,DIRECT'
     - 'GEOSITE,private,DIRECT'
     - 'RULE-SET,AboardNetwork,漏网之鱼'
     - 'GEOSITE,google@cn,国内'
@@ -117,11 +116,10 @@ proxy-groups:
     - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移], type: select}
     - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 澳大利亚, 德国, 印度, 巴西, 加拿大, 韩国, 英国, 智利, 土耳其, 阿根廷, 荷兰, 法国, CN, 其它地区, 手动选择1, 手动选择2, 手动选择3, 选择机场, 中继组1, 自动选择, 负载均衡, 故障转移, DIRECT], type: select}
 rule-providers:
-    LocalAreaNetwork: {path: ./rule-providers/LocalAreaNetwork.yaml, url: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml', type: http, behavior: classical, format: yaml}
-    AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
-    GoogleOneVPNCheckPoint: {path: ./rule-providers/GoogleOneVPNCheckPoint.yaml, url: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.yaml', type: http, behavior: classical, format: yaml}
-    GoogleOneVPNTun: {path: ./rule-providers/GoogleOneVPNTun.yaml, url: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.yaml', type: http, behavior: classical, format: yaml}
-    TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
+    AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
+    GoogleOneVPNCheckPoint: {path: ./rule-providers/GoogleOneVPNCheckPoint.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.yaml', type: http, behavior: classical, format: yaml}
+    GoogleOneVPNTun: {path: ./rule-providers/GoogleOneVPNTun.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.yaml', type: http, behavior: classical, format: yaml}
+    TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
 proxy-providers:
     一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http, health-check: {enable: true, timeout: 1000}}
     dash.fscloud.cc: {path: ./proxy-providers/dash.fscloud.cc.yaml, url: 'http://fsc.cdn.22.jiacdnd123456789.com/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8', type: http, health-check: {enable: true, timeout: 1000}}
