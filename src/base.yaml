@@ -57,8 +57,8 @@ rules:
 
   - GEOSITE,openai,OpenAI
   - GEOSITE,zoom,Zoom
-  - RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun
-  - RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint
+#  - RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun
+#  - RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint
 
   - GEOSITE,google,Google
   - GEOSITE,meta,漏网之鱼

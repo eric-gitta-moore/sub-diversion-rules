@@ -23,8 +23,6 @@ rules:
     - 'GEOSITE,cn,国内'
     - 'GEOSITE,openai,OpenAI'
     - 'GEOSITE,zoom,Zoom'
-    - 'RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun'
-    - 'RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint'
     - 'GEOSITE,google,Google'
     - 'GEOSITE,meta,漏网之鱼'
     - 'GEOSITE,category-social-media-!cn,漏网之鱼'
@@ -40,34 +38,28 @@ proxies:
     - {name: 'G1 ss', type: ss, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 10001, cipher: chacha20-ietf-poly1305, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true}
     - {name: 'G1 hy2', type: hysteria2, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true, skip-cert-verify: true, sni: bing.com}
 proxy-groups:
-    - {name: 默认, type: select, proxies: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, DIRECT]}
+    - {name: 默认, type: select, proxies: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
     - {name: 自动选择, include-all: true, filter: '(?i)^(?!.*(?:(中国|CN))).*', type: url-test, timeout: 1000}
     - {name: '⭕⭕====分割线 1====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 手动选择1, type: select, proxies: [自动选择, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, DIRECT]}
+    - {name: 手动选择1, type: select, proxies: [自动选择, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
     - {name: 手动选择2, type: select, include-all: true}
     - {name: 手动选择3, type: select, include-all: true}
-    - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 前置代理组, type: select, include-all-providers: true}
+    - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: Google, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+    - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
     - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: Google, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: GoogleOneVPNCheckPoint, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: GoogleOneVPNTun, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: '⭕⭕====分割线 4====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 香港, include-all-providers: true, filter: '(?i)(香港)', type: url-test, timeout: 1000}
     - {name: 台湾, include-all-providers: true, filter: '(?i)(台湾)', type: url-test, timeout: 1000}
     - {name: 日本, include-all-providers: true, filter: '(?i)(日本)', type: url-test, timeout: 1000}
-    - {name: 美国, include-all-providers: true, filter: '(?i)美|us|unitedstates|united states', type: url-test, timeout: 1000}
     - {name: 新加坡, include-all-providers: true, filter: '(?i)(新加坡)', type: url-test, timeout: 1000}
-    - {name: 其它地区, include-all-providers: true, filter: '(?i)^(?!.*(?:(香港|台湾|日本|美国|新加坡))).*', type: url-test, timeout: 1000}
-    - {name: '⭕⭕====分割线 5====⭕⭕', type: select, proxies: [DIRECT]}
-    - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
-    - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 美国, 新加坡, 其它地区, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+    - {name: 美国, include-all-providers: true, filter: '(?i)美|us|unitedstates|united states', type: url-test, timeout: 1000}
+    - {name: '⭕⭕====分割线 4====⭕⭕', type: select, proxies: [DIRECT]}
+    - {name: 国内, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
+    - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
 rule-providers:
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
-    GoogleOneVPNCheckPoint: {path: ./rule-providers/GoogleOneVPNCheckPoint.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.yaml', type: http, behavior: classical, format: yaml}
-    GoogleOneVPNTun: {path: ./rule-providers/GoogleOneVPNTun.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.yaml', type: http, behavior: classical, format: yaml}
     TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
 proxy-providers:
     一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http, health-check: {enable: true, timeout: 1000}}

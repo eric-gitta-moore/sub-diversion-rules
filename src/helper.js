@@ -134,8 +134,8 @@ function useGenGroupHelper() {
     return [
       // { name: "Abroad SSH", ...useProxiesArray() },
       { name: "Google", ...useProxiesArray() },
-      { name: "GoogleOneVPNCheckPoint", ...useProxiesArray() },
-      { name: "GoogleOneVPNTun", ...useProxiesArray() },
+      // { name: "GoogleOneVPNCheckPoint", ...useProxiesArray() },
+      // { name: "GoogleOneVPNTun", ...useProxiesArray() },
       // { name: "AWS", ...useProxiesArray() },
       // { name: "Microsoft", ...useProxiesArray() },
       // { name: "TikTok", ...useProxiesArray() },
@@ -154,7 +154,7 @@ function useGenGroupHelper() {
       // { name: "NETFLIX", ...useProxiesArray() },
     ].map((e) => ({ ...e, type: "select" }));
   }
-  function useAriaGroup() {
+  function useAriaGroup({ isShowOtherAria } = { isShowOtherAria: false }) {
     function genAriaGroup(name, filter = null) {
       return {
         name,
@@ -167,8 +167,8 @@ function useGenGroupHelper() {
       genAriaGroup(`香港`),
       genAriaGroup(`台湾`),
       genAriaGroup(`日本`),
-      genAriaGroup(`美国`, `(?i)美|us|unitedstates|united states`),
       genAriaGroup(`新加坡`),
+      genAriaGroup(`美国`, `(?i)美|us|unitedstates|united states`),
       // genAriaGroup(`澳大利亚`),
       // genAriaGroup(`德国`),
       // genAriaGroup(`印度`),
@@ -183,12 +183,13 @@ function useGenGroupHelper() {
       // genAriaGroup(`法国`),
       // genAriaGroup(`CN`, `(?i)cn|中国`),
     ];
-    list.push(
-      genAriaGroup(
-        `其它地区`,
-        `(?i)^(?!.*(?:(${list.map((e) => e.name).join("|")}))).*`,
-      ),
-    );
+    isShowOtherAria &&
+      list.push(
+        genAriaGroup(
+          `其它地区`,
+          `(?i)^(?!.*(?:(${list.map((e) => e.name).join("|")}))).*`,
+        ),
+      );
 
     return list.map((e) => ({
       ...e,
@@ -248,9 +249,9 @@ export function useProxyGroups({ proxies: presetProxies } = { proxies: [] }) {
     ...useCommonGroup(),
     useDivider(),
     ...useManualGroup(),
-    useDivider(),
+    // useDivider(),
     ...useDialerGroup(),
-    ...useRelayGroup().all,
+    // ...useRelayGroup().all,
     useDivider(),
     ...useCustomGroup(),
     useDivider(),
