@@ -32,7 +32,7 @@ export function useGroupConfig() {
       ...useManualGroup({}).map((e) => e.name),
       ...useRelayGroup().choose.map((e) => e.name),
     ],
-    basic: ["负载均衡", "故障转移"],
+    basic: false ? ["负载均衡", "故障转移"] : [],
     country: useAriaGroup().map((e) => e.name),
     //
     relay: [...useRelayGroup().choose.map((e) => e.name)],
@@ -71,7 +71,7 @@ function useGenGroupHelper() {
       },
       { name: "手动选择2", type: "select", "include-all": true },
       { name: "手动选择3", type: "select", "include-all": true },
-      { name: "选择机场", type: "select", proxies: Object.keys(proxyProvider) },
+      // { name: "选择机场", type: "select", proxies: Object.keys(proxyProvider) },
     ];
   }
   function useRelayGroup() {
@@ -118,6 +118,7 @@ function useGenGroupHelper() {
       {
         name: "自动选择",
         "include-all": true,
+        filter: "(?i)^(?!.*(?:(中国|CN))).*",
         ...useType({ type: PROXY_TYPE.URLTest }),
       },
       // {
@@ -168,19 +169,19 @@ function useGenGroupHelper() {
       genAriaGroup(`日本`),
       genAriaGroup(`美国`, `(?i)美|us|unitedstates|united states`),
       genAriaGroup(`新加坡`),
-      genAriaGroup(`澳大利亚`),
+      // genAriaGroup(`澳大利亚`),
       // genAriaGroup(`德国`),
       // genAriaGroup(`印度`),
       // genAriaGroup(`巴西`),
       // genAriaGroup(`加拿大`),
       // genAriaGroup(`韩国`),
-      genAriaGroup(`英国`),
+      // genAriaGroup(`英国`),
       // genAriaGroup(`智利`),
       // genAriaGroup(`土耳其`),
       // genAriaGroup(`阿根廷`),
       // genAriaGroup(`荷兰`),
       // genAriaGroup(`法国`),
-      genAriaGroup(`CN`, `(?i)cn|中国`),
+      // genAriaGroup(`CN`, `(?i)cn|中国`),
     ];
     list.push(
       genAriaGroup(
@@ -255,8 +256,8 @@ export function useProxyGroups({ proxies: presetProxies } = { proxies: [] }) {
     useDivider(),
     ...useAriaGroup(),
     useDivider(),
-    ...useProviderGroup(),
-    useDivider(),
+    // ...useProviderGroup(),
+    // useDivider(),
     ...useCommonGroupAfter(),
   ];
 }
