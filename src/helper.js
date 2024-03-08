@@ -76,13 +76,13 @@ function useGenGroupHelper() {
   }
   function useRelayGroup() {
     const all = [
-      {
-        name: "中继前置1",
-        type: "select",
-        proxies: [...useManualGroup({}).map((e) => e.name)],
-      },
-      { name: "中继后继1", type: "select", "include-all": true },
-      { name: "中继组1", type: "relay", proxies: ["中继前置1", "中继后继1"] },
+      // {
+      //   name: "中继前置1",
+      //   type: "select",
+      //   proxies: [...useManualGroup({}).map((e) => e.name)],
+      // },
+      // { name: "中继后继1", type: "select", "include-all": true },
+      // { name: "中继组1", type: "relay", proxies: ["中继前置1", "中继后继1"] },
     ];
     return {
       all,
@@ -120,13 +120,13 @@ function useGenGroupHelper() {
         "include-all": true,
         ...useType({ type: PROXY_TYPE.URLTest }),
       },
-      {
-        name: "负载均衡",
-        type: "load-balance",
-        strategy: "consistent-hashing",
-        "include-all": true,
-      },
-      { name: "故障转移", type: "fallback", "include-all": true },
+      // {
+      //   name: "负载均衡",
+      //   type: "load-balance",
+      //   strategy: "consistent-hashing",
+      //   "include-all": true,
+      // },
+      // { name: "故障转移", type: "fallback", "include-all": true },
     ];
   }
   function useCustomGroup() {
