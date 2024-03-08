@@ -45,24 +45,31 @@ rules:
   - GEOSITE,private,DIRECT
   - RULE-SET,AboardNetwork,漏网之鱼
 
-  #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,youtube),REJECT # youtube quic
+  - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
+
   - GEOSITE,category-dev-cn,国内
-  - GEOSITE,google@cn,国内
+  - GEOSITE,category-scholar-cn,国内
   - GEOSITE,category-games@cn,国内
   - GEOSITE,apple@cn,国内
+  - GEOSITE,google@cn,国内
+  - GEOSITE,tld-cn,国内
   - GEOSITE,cn,国内
 
-#  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
   - GEOSITE,openai,OpenAI
   - GEOSITE,zoom,Zoom
   - RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun
   - RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint
 
   - GEOSITE,google,Google
+  - GEOSITE,meta,漏网之鱼
+  - GEOSITE,category-social-media-!cn,漏网之鱼
+  - GEOSITE,category-porn,漏网之鱼
+  - GEOSITE,category-communication,漏网之鱼
+  - GEOSITE,tld-!cn,漏网之鱼
   - GEOSITE,gfw,漏网之鱼
   - GEOSITE,geolocation-!cn,漏网之鱼
 
   - GEOIP,google,Google
   - GEOIP,cn,国内
-#  - DST-PORT,22,Abroad SSH
+
   - MATCH,漏网之鱼
