@@ -46,36 +46,23 @@ rules:
   - RULE-SET,AboardNetwork,漏网之鱼
 
   #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(GEOSITE,youtube),REJECT # youtube quic
+  - GEOSITE,category-dev-cn,国内
   - GEOSITE,google@cn,国内
+  - GEOSITE,category-games@cn,国内
+  - GEOSITE,apple@cn,国内
+  - GEOSITE,cn,国内
 
-  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
-  - GEOSITE,youtube,YouTube
-  - GEOSITE,twitter,Twitter
-  - GEOSITE,facebook,Facebook
+#  - AND,((DOMAIN-SUFFIX,github.com),(DST-PORT,22)),Abroad SSH
   - GEOSITE,openai,OpenAI
-  - GEOSITE,github,GitHub
-  - GEOSITE,onedrive,OneDrive
-  - GEOSITE,xbox,Xbox
-  - GEOSITE,apple,Apple
   - GEOSITE,zoom,Zoom
-  - GEOSITE,microsoft,Microsoft
-  - GEOSITE,netflix,NETFLIX
-  - RULE-SET,TikTok,TikTok
-  - GEOSITE,category-scholar-!cn,Scholar
-  - GEOSITE,jetbrains,JetBrains
-  - GEOSITE,category-dev,Dev
   - RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun
   - RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint
 
-  - GEOSITE,category-games@cn,国内
   - GEOSITE,google,Google
-  - GEOSITE,aws,AWS
-  - GEOSITE,cn,国内
   - GEOSITE,gfw,漏网之鱼
   - GEOSITE,geolocation-!cn,漏网之鱼
 
   - GEOIP,google,Google
-  - GEOIP,netflix,NETFLIX
   - GEOIP,cn,国内
-  - DST-PORT,22,Abroad SSH
+#  - DST-PORT,22,Abroad SSH
   - MATCH,漏网之鱼
