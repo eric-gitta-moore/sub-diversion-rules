@@ -150,7 +150,7 @@ function useGenGroupHelper() {
       // { name: "JetBrains", ...useProxiesArray() },
       // { name: "Dev", ...useProxiesArray() },
       // { name: "Apple", ...useProxiesArrayCN() },
-      { name: "OpenAI", ...useProxiesArray() },
+      { name: "LLM", ...useProxiesArray() },
       // { name: "NETFLIX", ...useProxiesArray() },
     ].map((e) => ({ ...e, type: "select" }));
   }

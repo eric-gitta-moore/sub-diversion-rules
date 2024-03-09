@@ -21,7 +21,7 @@ rules:
     - 'GEOSITE,google@cn,国内'
     - 'GEOSITE,tld-cn,国内'
     - 'GEOSITE,cn,国内'
-    - 'GEOSITE,openai,OpenAI'
+    - 'RULE-SET,LLM,LLM'
     - 'GEOSITE,zoom,Zoom'
     - 'GEOSITE,google,Google'
     - 'GEOSITE,meta,漏网之鱼'
@@ -48,7 +48,7 @@ proxy-groups:
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: Google, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
     - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
-    - {name: OpenAI, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+    - {name: LLM, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
     - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 香港, include-all-providers: true, filter: '(?i)(香港)', type: url-test, timeout: 1000}
     - {name: 台湾, include-all-providers: true, filter: '(?i)(台湾)', type: url-test, timeout: 1000}
@@ -61,6 +61,7 @@ proxy-groups:
 rule-providers:
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
     TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
+    LLM: {path: ./rule-providers/LLM.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yml', type: http, behavior: classical, format: yaml}
 proxy-providers:
     一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http, health-check: {enable: true, timeout: 1000}}
     dash.fscloud.cc: {path: ./proxy-providers/dash.fscloud.cc.yaml, url: 'http://fsc.cdn.22.jiacdnd123456789.com/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8', type: http, health-check: {enable: true, timeout: 1000}}

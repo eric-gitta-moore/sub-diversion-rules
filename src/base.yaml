@@ -55,10 +55,8 @@ rules:
   - GEOSITE,tld-cn,国内
   - GEOSITE,cn,国内
 
-  - GEOSITE,openai,OpenAI
+  - RULE-SET,LLM,LLM
   - GEOSITE,zoom,Zoom
-#  - RULE-SET,GoogleOneVPNTun,GoogleOneVPNTun
-#  - RULE-SET,GoogleOneVPNCheckPoint,GoogleOneVPNCheckPoint
 
   - GEOSITE,google,Google
   - GEOSITE,meta,漏网之鱼
