@@ -31,15 +31,14 @@ rule-providers:
   GoogleOneVPNCheckPoint: {path: ./rule-providers/GoogleOneVPNCheckPoint.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.yaml', type: http, behavior: classical, format: yaml}
   GoogleOneVPNTun: {path: ./rule-providers/GoogleOneVPNTun.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.yaml', type: http, behavior: classical, format: yaml}
 proxy-providers:
-  一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http}
-  dash.fscloud.cc: {path: ./proxy-providers/dash.fscloud.cc.yaml, url: 'http://fsc.cdn.22.jiacdnd123456789.com/api/v1/client/subscribe?token=ade84f590eeaa4b0d33696801995cdf8', type: http}
-  www.eevpn.com: {path: ./proxy-providers/www.eevpn.com.yaml, url: 'https://api.eehk.net/api/v1/client/subscribe?token=554a1dc8e56be01a10d4d619840c7ed9', type: http}
-  慈善机场.xyz: {path: ./proxy-providers/慈善机场.xyz.yaml, url: 'https://dydz.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493', type: http}
-  www.三毛机场.shop: {path: ./proxy-providers/www.三毛机场.shop.yaml, url: 'https://dy.smjc.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e', type: http}
-  大熊云.com: {path: ./proxy-providers/大熊云.com.yaml, url: 'https://vpn.956256.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63', type: http}
-  www.xingsu.club: {path: ./proxy-providers/www.xingsu.club.yaml, url: 'https://www.xingsu.club/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05', type: http}
-  dash.spcloud.info: {path: ./proxy-providers/dash.spcloud.info.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd', type: http}
-  www.极速云.xyz: {path: ./proxy-providers/www.极速云.xyz.yaml, url: 'https://jsysub.ayvupt.com/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc', type: http}
-  juanwang.store: {path: ./proxy-providers/juanwang.store.yaml, url: 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5', type: http}
-  顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://gates.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http}
-  dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http}
+  一元机场.com: {path: ./proxy-providers/一元机场.com.yaml, url: 'https://sub3.smallstrawberry.com/api/v1/client/subscribe?token=0xcl3s3ujeq8y2jw4gqwuu3lvysp7mz2', type: http, health-check: {enable: true, timeout: 1000}}
+  dash.fscloud.cc: {path: ./proxy-providers/dash.fscloud.cc.yaml, url: 'http://fsc.cdn.22.jiacdnd123456789.com/answer/land?token=ade84f590eeaa4b0d33696801995cdf8', type: http, health-check: {enable: true, timeout: 1000}}
+  慈善机场.xyz: {path: ./proxy-providers/慈善机场.xyz.yaml, url: 'https://dydz.csjc.win/api/v1/client/subscribe?token=74f3463174d4a4fdf355f42c9e6cb493', type: http, health-check: {enable: true, timeout: 1000}}
+  www.三毛机场.shop: {path: ./proxy-providers/www.三毛机场.shop.yaml, url: 'https://dy.smjc.top/api/v1/client/subscribe?token=e768edb08411c217faf4e1a18ac6654e', type: http, health-check: {enable: true, timeout: 1000}}
+  大熊云.com: {path: ./proxy-providers/大熊云.com.yaml, url: 'https://753654.xyz/api/v1/client/subscribe?token=570fadd79125db44f19bc71e771f5e63', type: http, health-check: {enable: true, timeout: 1000}}
+  www.xingsu.shop: {path: ./proxy-providers/www.xingsu.shop.yaml, url: 'https://www.xingsu.shop/api/v1/client/subscribe?token=a3c9da88c692496dd2e95ca5e4975e05', type: http, health-check: {enable: true, timeout: 1000}}
+  dash.spcloud.info: {path: ./proxy-providers/dash.spcloud.info.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/api/v1/client/subscribe?token=183b824670e038ec04fad9782c50d3cd', type: http, health-check: {enable: true, timeout: 1000}}
+  www.极速云.xyz: {path: ./proxy-providers/www.极速云.xyz.yaml, url: 'https://jcool.cool/api/v1/client/subscribe?token=e08deb73698ce6ac5abaf687f8e53618&ttoken=a4238a0b923820dcc', type: http, health-check: {enable: true, timeout: 1000}}
+  juanwang.store: {path: ./proxy-providers/juanwang.store.yaml, url: 'https://sub-01.juanwang.shop/api/v1/client/subscribe?token=bafa3d34612535f0f7651393901342f5', type: http, health-check: {enable: true, timeout: 1000}}
+  顶级机场.com: {path: ./proxy-providers/顶级机场.com.yaml, url: 'https://platform.djjc.cfd/api/v1/client/subscribe?token=b1f5f07445d901a6e2927ee43b56a345', type: http, health-check: {enable: true, timeout: 1000}}
+  dash.spcloud.info-yunling: {path: ./proxy-providers/dash.spcloud.info-yunling.yaml, url: 'http://miaosu.shun.cdn.sg.jiacdnd123456789.com/answer/land?token=f88dc4c09fad5e8aa8d1f63b178192c5', type: http, health-check: {enable: true, timeout: 1000}}
