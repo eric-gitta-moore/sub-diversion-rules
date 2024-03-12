@@ -13,6 +13,7 @@ sniffer:
 rules:
     - 'GEOSITE,private,DIRECT'
     - 'RULE-SET,AboardNetwork,漏网之鱼'
+    - 'RULE-SET,CN,国内'
     - 'AND,(DST-PORT,443),(NETWORK,UDP),REJECT'
     - 'GEOSITE,apple,Apple'
     - 'GEOSITE,category-dev-cn,国内'
@@ -61,6 +62,7 @@ proxy-groups:
     - {name: 漏网之鱼, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
 rule-providers:
     AboardNetwork: {path: ./rule-providers/AboardNetwork.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml', type: http, behavior: classical, format: yaml}
+    CN: {path: ./rule-providers/CN.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml', type: http, behavior: classical, format: yaml}
     TikTok: {path: ./rule-providers/TikTok.yaml, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml', type: http, behavior: classical, format: yaml}
     LLM: {path: ./rule-providers/LLM.yaml, url: 'https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yml', type: http, behavior: classical, format: yaml}
 proxy-providers:
