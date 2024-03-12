@@ -14,7 +14,6 @@ rules:
     - 'GEOSITE,private,DIRECT'
     - 'RULE-SET,AboardNetwork,漏网之鱼'
     - 'RULE-SET,CN,国内'
-    - 'AND,(DST-PORT,443),(NETWORK,UDP),REJECT'
     - 'GEOSITE,apple,Apple'
     - 'GEOSITE,category-dev-cn,国内'
     - 'GEOSITE,category-scholar-cn,国内'

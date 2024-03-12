@@ -46,7 +46,7 @@ rules:
   - RULE-SET,AboardNetwork,漏网之鱼
   - RULE-SET,CN,国内
 
-  - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
+#  - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
 
   - GEOSITE,apple,Apple
 
