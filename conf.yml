@@ -14,10 +14,10 @@ rules:
     - 'GEOSITE,private,DIRECT'
     - 'RULE-SET,AboardNetwork,漏网之鱼'
     - 'AND,(DST-PORT,443),(NETWORK,UDP),REJECT'
+    - 'GEOSITE,apple,Apple'
     - 'GEOSITE,category-dev-cn,国内'
     - 'GEOSITE,category-scholar-cn,国内'
     - 'GEOSITE,category-games@cn,国内'
-    - 'GEOSITE,apple@cn,国内'
     - 'GEOSITE,google@cn,国内'
     - 'GEOSITE,tld-cn,国内'
     - 'GEOSITE,cn,国内'
@@ -48,6 +48,7 @@ proxy-groups:
     - {name: '⭕⭕====分割线 2====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: Google, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
     - {name: Zoom, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+    - {name: Apple, proxies: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
     - {name: LLM, proxies: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
     - {name: '⭕⭕====分割线 3====⭕⭕', type: select, proxies: [DIRECT]}
     - {name: 香港, include-all-providers: true, filter: '(?i)(香港)', type: url-test, timeout: 1000}

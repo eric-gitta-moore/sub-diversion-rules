@@ -47,10 +47,11 @@ rules:
 
   - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
 
+  - GEOSITE,apple,Apple
+
   - GEOSITE,category-dev-cn,国内
   - GEOSITE,category-scholar-cn,国内
   - GEOSITE,category-games@cn,国内
-  - GEOSITE,apple@cn,国内
   - GEOSITE,google@cn,国内
   - GEOSITE,tld-cn,国内
   - GEOSITE,cn,国内
