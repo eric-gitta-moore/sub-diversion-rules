@@ -2,9 +2,7 @@
   "name": "sub-diversion-rules",
   "private": true,
   "type": "module",
-  "scripts": {
-    "gen": "node src/index.js"
-  },
+  "scripts": {},
   "devDependencies": {
     "prettier": "^3.2.5"
   },
