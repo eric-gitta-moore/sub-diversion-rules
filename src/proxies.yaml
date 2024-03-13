@@ -7,12 +7,3 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
     udp: true
-  - name: G1 hy2
-    type: hysteria2
-    dialer-proxy: 前置代理组
-    server: 149.104.24.100
-    port: 443
-    password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
-    udp: true
-    skip-cert-verify: true
-    sni: bing.com

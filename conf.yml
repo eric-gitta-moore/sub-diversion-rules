@@ -36,7 +36,6 @@ rules:
     - 'MATCH,漏网之鱼'
 proxies:
     - {name: 'G1 ss', type: ss, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 10001, cipher: chacha20-ietf-poly1305, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true}
-    - {name: 'G1 hy2', type: hysteria2, dialer-proxy: 前置代理组, server: 149.104.24.100, port: 443, password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c, udp: true, skip-cert-verify: true, sni: bing.com}
 proxy-groups:
     - {name: 默认, type: select, proxies: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
     - {name: 自动选择, include-all: true, filter: '(?i)^(?!.*(?:(中国|CN))).*', type: url-test, timeout: 1000}
