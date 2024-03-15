@@ -43,7 +43,7 @@ async function getConf() {
       delete proxyItem["include-all"];
       proxyItem["outbounds"] = [
         ...(await getOutbounds()),
-        ...customOutbounds,
+        ...customOutbounds.map((e) => e["tag"]),
       ].filter((e) => filterExp.test(e));
     } else if ("include-all-providers" in proxyItem) {
       delete proxyItem["include-all-providers"];
@@ -53,7 +53,11 @@ async function getConf() {
     }
   }
 
-  baseYaml["outbounds"] = [...baseYaml["outbounds"], ...(await getProxies())];
+  baseYaml["outbounds"] = [
+    ...baseYaml["outbounds"],
+    ...(await getProxies()),
+    ...customOutbounds,
+  ];
   return {
     ...baseYaml,
   };
