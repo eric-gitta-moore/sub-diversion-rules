@@ -122,6 +122,7 @@ outbounds:
   - {tag: 国内, outbounds: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
   - {tag: 漏网之鱼, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
 
+custom_outbounds:
   - tag: G1 ss
     type: shadowsocks
     server: 149.104.24.100
