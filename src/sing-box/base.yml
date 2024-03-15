@@ -2,8 +2,40 @@ log:
   level: debug
   timestamp: true
 
-dns: {}
-outbounds: []
+
+dns:
+  servers:
+    - {tag: dns_direct, address: h3://dns.alidns.com/dns-query, address_resolver: dns_resolver, detour: DIRECT}
+    - {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}
+    - {tag: dns_proxy, address: tls://1.1.1.1, address_resolver: dns_resolver}
+  rules:
+    - {outbound: [any], server: dns_resolver}
+    - {rule_set: [geolocation-!cn, gfw, tld-!cn], server: dns_proxy}
+  final: dns_direct
+  independent_cache: true
+
+ntp:
+  enabled: true
+  server: time.apple.com
+  server_port: 123
+  interval: 30m
+  detour: DIRECT
+
+
+inbounds:
+  - type: mixed
+    tag: mixed-in
+    listen: 0.0.0.0
+    listen_port: 2080
+  - type: tun
+    tag: tun-in
+    inet4_address: 172.19.0.1/30
+    inet6_address: fdfe:dcba:9876::1/126
+    auto_route: true
+    strict_route: true
+    stack: mixed
+    sniff: true
+
 route:
   rule_set:
     - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml}
@@ -43,3 +75,19 @@ route:
       rule_set: [AboardNetwork]
     - outbound: 国内
       rule_set: [CN]
+
+
+experimental:
+  cache_file:
+    enabled: true
+
+
+outbounds:
+  - tag: G1 ss
+    type: shadowsocks
+    server: 149.104.24.100
+    server_port: 10001
+    method: chacha20-ietf-poly1305
+    password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
+    multiplex:
+      enabled: true
