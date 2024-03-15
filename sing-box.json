@@ -593,6 +593,7 @@
         "台湾awshy2-001",
         "台湾awshy2-002",
         "台湾awshy2-003",
+        "G1 ss detour",
         "G1 ss"
       ]
     },
@@ -892,6 +893,7 @@
         "台湾awshy2-001",
         "台湾awshy2-002",
         "台湾awshy2-003",
+        "G1 ss detour",
         "G1 ss"
       ]
     },
@@ -1171,6 +1173,7 @@
         "台湾awshy2-001",
         "台湾awshy2-002",
         "台湾awshy2-003",
+        "G1 ss detour",
         "G1 ss"
       ]
     },
@@ -5042,6 +5045,18 @@
         "server_name": "123.1234567890spcloud.com",
         "insecure": true
       }
+    },
+    {
+      "tag": "G1 ss detour",
+      "type": "shadowsocks",
+      "server": "149.104.24.100",
+      "server_port": 10001,
+      "method": "chacha20-ietf-poly1305",
+      "password": "aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c",
+      "multiplex": {
+        "enabled": true
+      },
+      "detour": "前置代理组"
     },
     {
       "tag": "G1 ss",

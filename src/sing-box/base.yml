@@ -106,11 +106,18 @@ outbounds:
   - { tag: dns-out, type: dns }
 
 custom_outbounds:
+  - tag: G1 ss detour
+    type: shadowsocks
+    server: 149.104.24.100
+    server_port: 10001
+    method: chacha20-ietf-poly1305
+    password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
+    multiplex: { enabled: true }
+    detour: 前置代理组
   - tag: G1 ss
     type: shadowsocks
     server: 149.104.24.100
     server_port: 10001
     method: chacha20-ietf-poly1305
     password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
-    multiplex:
-      enabled: true
+    multiplex: { enabled: true }
