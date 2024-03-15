@@ -17,13 +17,6 @@ dns:
     - { clash_mode: global, server: dns_proxy }
     - { clash_mode: direct, server: dns_resolver }
 
-ntp:
-  enabled: true
-  server: time.apple.com
-  server_port: 123
-  interval: 30m
-  detour: DIRECT
-
 
 inbounds:
   - type: mixed
