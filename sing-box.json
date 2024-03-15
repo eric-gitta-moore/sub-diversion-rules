@@ -15,15 +15,14 @@
         "detour": "DIRECT"
       },
       {
-        "tag": "dns_resolver",
-        "address": "223.5.5.5",
-        "address_resolver": "dns_resolver",
-        "detour": "DIRECT"
-      },
-      {
         "tag": "dns_proxy",
         "address": "tls://1.1.1.1",
         "address_resolver": "dns_resolver"
+      },
+      {
+        "tag": "dns_resolver",
+        "address": "223.5.5.5",
+        "detour": "DIRECT"
       }
     ],
     "rules": [
@@ -85,182 +84,182 @@
         "tag": "AboardNetwork",
         "type": "remote",
         "format": "source",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
         "tag": "GeoSite@tiktok",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs"
       },
       {
         "tag": "GeoSite@openai",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/openai.srs"
       },
       {
         "tag": "GeoSite@Claude",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Claude.srs"
       },
       {
         "tag": "GeoSite@Gemini",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Gemini.srs"
       },
       {
         "tag": "GeoSite@category-dev-cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev-cn.srs"
       },
       {
         "tag": "GeoSite@category-scholar-cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-scholar-cn.srs"
       },
       {
         "tag": "GeoSite@category-games@cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games@cn.srs"
       },
       {
         "tag": "GeoSite@google@cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google@cn.srs"
       },
       {
         "tag": "GeoSite@tld-cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-cn.srs"
       },
       {
         "tag": "GeoSite@cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs"
       },
       {
         "tag": "GeoSite@apple",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs"
       },
       {
         "tag": "GeoSite@zoom",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/zoom.srs"
       },
       {
         "tag": "GeoSite@google",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs"
       },
       {
         "tag": "GeoSite@meta",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/meta.srs"
       },
       {
         "tag": "GeoSite@category-games",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs"
       },
       {
         "tag": "GeoSite@category-social-media-!cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-social-media-!cn.srs"
       },
       {
         "tag": "GeoSite@category-porn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-porn.srs"
       },
       {
         "tag": "GeoSite@category-communication",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-communication.srs"
       },
       {
         "tag": "GeoSite@category-dev",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev.srs"
       },
       {
         "tag": "GeoSite@tld-!cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-!cn.srs"
       },
       {
         "tag": "GeoSite@gfw",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs"
       },
       {
         "tag": "GeoSite@geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs"
       },
       {
         "tag": "GeoIP@google",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs"
       },
       {
         "tag": "GeoIP@cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs"
       },
       {
         "tag": "GeoMixed@private",
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "DIRECT",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/mixed/private.srs"
       }
     ],
@@ -271,7 +270,7 @@
       },
       {
         "clash_mode": "direct",
-        "outbound": "direct"
+        "outbound": "DIRECT"
       },
       {
         "clash_mode": "global",
@@ -362,11 +361,11 @@
         "手动选择1",
         "手动选择2",
         "手动选择3",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "DIRECT"
       ]
     },
@@ -660,11 +659,11 @@
       "type": "selector",
       "outbounds": [
         "自动选择",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "DIRECT"
       ]
     },
@@ -1518,69 +1517,69 @@
       "tag": "Google",
       "outbounds": [
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择",
         "DIRECT"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "Zoom",
       "outbounds": [
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择",
         "DIRECT"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "Apple",
       "outbounds": [
         "DIRECT",
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "LLM",
       "outbounds": [
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择",
         "DIRECT"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "⭕⭕====分割线 3====⭕⭕",
@@ -1590,7 +1589,7 @@
       ]
     },
     {
-      "tag": "香港",
+      "tag": "香港节点",
       "type": "urltest",
       "outbounds": [
         "香港001 - hysteria2",
@@ -1628,7 +1627,7 @@
       ]
     },
     {
-      "tag": "台湾",
+      "tag": "台湾节点",
       "type": "urltest",
       "outbounds": [
         "台湾01 - hysteria2",
@@ -1650,7 +1649,7 @@
       ]
     },
     {
-      "tag": "日本",
+      "tag": "日本节点",
       "type": "urltest",
       "outbounds": [
         "日本aws - 001",
@@ -1699,7 +1698,7 @@
       ]
     },
     {
-      "tag": "新加坡",
+      "tag": "新加坡节点",
       "type": "urltest",
       "outbounds": [
         "新加坡aws - 001",
@@ -1739,7 +1738,7 @@
       ]
     },
     {
-      "tag": "美国",
+      "tag": "美国节点",
       "type": "urltest",
       "outbounds": [
         "美国001 - hysteria2",
@@ -1799,34 +1798,34 @@
       "outbounds": [
         "DIRECT",
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "漏网之鱼",
       "outbounds": [
         "默认",
-        "香港",
-        "台湾",
-        "日本",
-        "新加坡",
-        "美国",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
         "手动选择1",
         "手动选择2",
         "手动选择3",
         "自动选择",
         "DIRECT"
       ],
-      "type": "select"
+      "type": "selector"
     },
     {
       "tag": "剩余流量：42.39 GB",
