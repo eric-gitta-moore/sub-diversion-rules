@@ -63,17 +63,6 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080
-    },
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true
     }
   ],
   "route": {
@@ -319,14 +308,6 @@
     }
   },
   "outbounds": [
-    {
-      "tag": "DIRECT",
-      "type": "direct"
-    },
-    {
-      "tag": "dns-out",
-      "type": "dns"
-    },
     {
       "tag": "默认",
       "type": "selector",
@@ -1800,6 +1781,14 @@
         "DIRECT"
       ],
       "type": "selector"
+    },
+    {
+      "tag": "DIRECT",
+      "type": "direct"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
     },
     {
       "tag": "剩余流量：42.39 GB",
