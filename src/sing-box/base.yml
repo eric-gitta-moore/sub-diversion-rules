@@ -14,6 +14,7 @@ dns:
   final: dns_direct
   independent_cache: true
 
+
 ntp:
   enabled: true
   server: time.apple.com
@@ -35,6 +36,7 @@ inbounds:
     strict_route: true
     stack: mixed
     sniff: true
+
 
 route:
   rule_set:
