@@ -90,7 +90,6 @@ route:
     - {outbound: Google, rule_set: [GeoSite@google, GeoIP@google]}
     - {outbound: 漏网之鱼, rule_set: [AboardNetwork, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@category-dev, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn]}
 
-    - 'MATCH,漏网之鱼'
 
 experimental:
   cache_file:
