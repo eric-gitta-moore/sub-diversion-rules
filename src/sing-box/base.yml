@@ -47,8 +47,10 @@ route:
   rule_set:
     - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml}
     - {tag: CN, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml}
-    - {tag: TikTok, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml}
-    - {tag: LLM, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yaml}
+    - {tag: GeoSite@tiktok, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs}
+    - {tag: GeoSite@openai, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/openai.srs}
+    - {tag: GeoSite@Claude, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Claude.srs}
+    - {tag: GeoSite@Gemini, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Gemini.srs}
     # 系统规则 begin
     - {tag: GeoSite@category-dev-cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev-cn.srs}
     - {tag: GeoSite@category-scholar-cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-scholar-cn.srs}
@@ -85,10 +87,10 @@ route:
     - {outbound: DIRECT, rule_set: [GeoMixed@private]}
     - {outbound: 国内, rule_set: [CN, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@google@cn, GeoSite@tld-cn, GeoSite@cn, GeoIP@cn]}
     - {outbound: Apple, rule_set: [GeoSite@apple]}
-    - {outbound: LLM, rule_set: [LLM]}
+    - {outbound: LLM, rule_set: [GeoSite@openai, GeoSite@Claude, GeoSite@Gemini]}
     - {outbound: Zoom, rule_set: [GeoSite@zoom]}
     - {outbound: Google, rule_set: [GeoSite@google, GeoIP@google]}
-    - {outbound: 漏网之鱼, rule_set: [AboardNetwork, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@category-dev, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn]}
+    - {outbound: 漏网之鱼, rule_set: [AboardNetwork, GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@category-dev, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn]}
 
 
 experimental:

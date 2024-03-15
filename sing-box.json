@@ -96,18 +96,32 @@
         "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml"
       },
       {
-        "tag": "TikTok",
+        "tag": "GeoSite@tiktok",
         "type": "remote",
-        "format": "source",
+        "format": "binary",
         "download_detour": "direct",
-        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs"
       },
       {
-        "tag": "LLM",
+        "tag": "GeoSite@openai",
         "type": "remote",
-        "format": "source",
+        "format": "binary",
         "download_detour": "direct",
-        "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yaml"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/openai.srs"
+      },
+      {
+        "tag": "GeoSite@Claude",
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Claude.srs"
+      },
+      {
+        "tag": "GeoSite@Gemini",
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Gemini.srs"
       },
       {
         "tag": "GeoSite@category-dev-cn",
@@ -298,7 +312,9 @@
       {
         "outbound": "LLM",
         "rule_set": [
-          "LLM"
+          "GeoSite@openai",
+          "GeoSite@Claude",
+          "GeoSite@Gemini"
         ]
       },
       {
@@ -318,6 +334,7 @@
         "outbound": "漏网之鱼",
         "rule_set": [
           "AboardNetwork",
+          "GeoSite@tiktok",
           "GeoSite@meta",
           "GeoSite@category-games",
           "GeoSite@category-social-media-!cn",
@@ -365,7 +382,7 @@
       "tag": "自动选择",
       "type": "urltest",
       "outbounds": [
-        "剩余流量：42.41 GB",
+        "剩余流量：42.39 GB",
         "距离下次重置剩余：15 天",
         "套餐到期：2024-10-30",
         "一元百G：https://123.fscloud.cc",
@@ -404,7 +421,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：185.42 GB",
+        "剩余流量：185.34 GB",
         "距离下次重置剩余：16 天",
         "套餐到期：2024-08-06",
         "去除28条不合适线路",
@@ -433,7 +450,7 @@
         "英国伦敦 01",
         "荷兰 01",
         "迪拜 01",
-        "剩余流量：189.63 GB",
+        "剩余流量：189.62 GB",
         "距离下次重置剩余：14 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
@@ -497,7 +514,7 @@
         "巴基斯坦-ChatGpt",
         "菲律宾-ChatGpt",
         "东帝汶-ChatGpt",
-        "剩余流量：904.02 GB",
+        "剩余流量：903.82 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -616,7 +633,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾Hinet",
-        "剩余流量：478.61 GB",
+        "剩余流量：478.24 GB",
         "距离下次重置剩余：19 天",
         "套餐到期：2024-04-03",
         "美国hy2-001",
@@ -673,7 +690,7 @@
       "tag": "手动选择2",
       "type": "selector",
       "outbounds": [
-        "剩余流量：42.41 GB",
+        "剩余流量：42.39 GB",
         "距离下次重置剩余：15 天",
         "套餐到期：2024-10-30",
         "一元百G：https://123.fscloud.cc",
@@ -712,7 +729,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：185.42 GB",
+        "剩余流量：185.34 GB",
         "距离下次重置剩余：16 天",
         "套餐到期：2024-08-06",
         "去除28条不合适线路",
@@ -741,7 +758,7 @@
         "英国伦敦 01",
         "荷兰 01",
         "迪拜 01",
-        "剩余流量：189.63 GB",
+        "剩余流量：189.62 GB",
         "距离下次重置剩余：14 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
@@ -807,7 +824,7 @@
         "巴基斯坦-ChatGpt",
         "菲律宾-ChatGpt",
         "东帝汶-ChatGpt",
-        "剩余流量：904.02 GB",
+        "剩余流量：903.82 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -926,7 +943,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾Hinet",
-        "剩余流量：478.61 GB",
+        "剩余流量：478.24 GB",
         "距离下次重置剩余：19 天",
         "套餐到期：2024-04-03",
         "美国hy2-001",
@@ -963,7 +980,7 @@
       "tag": "手动选择3",
       "type": "selector",
       "outbounds": [
-        "剩余流量：42.41 GB",
+        "剩余流量：42.39 GB",
         "距离下次重置剩余：15 天",
         "套餐到期：2024-10-30",
         "一元百G：https://123.fscloud.cc",
@@ -1002,7 +1019,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：185.42 GB",
+        "剩余流量：185.34 GB",
         "距离下次重置剩余：16 天",
         "套餐到期：2024-08-06",
         "去除28条不合适线路",
@@ -1031,7 +1048,7 @@
         "英国伦敦 01",
         "荷兰 01",
         "迪拜 01",
-        "剩余流量：189.63 GB",
+        "剩余流量：189.62 GB",
         "距离下次重置剩余：14 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
@@ -1097,7 +1114,7 @@
         "巴基斯坦-ChatGpt",
         "菲律宾-ChatGpt",
         "东帝汶-ChatGpt",
-        "剩余流量：904.02 GB",
+        "剩余流量：903.82 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1216,7 +1233,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾Hinet",
-        "剩余流量：478.61 GB",
+        "剩余流量：478.24 GB",
         "距离下次重置剩余：19 天",
         "套餐到期：2024-04-03",
         "美国hy2-001",
@@ -1253,7 +1270,7 @@
       "tag": "前置代理组",
       "type": "selector",
       "outbounds": [
-        "剩余流量：42.41 GB",
+        "剩余流量：42.39 GB",
         "距离下次重置剩余：15 天",
         "套餐到期：2024-10-30",
         "一元百G：https://123.fscloud.cc",
@@ -1292,7 +1309,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：185.42 GB",
+        "剩余流量：185.34 GB",
         "距离下次重置剩余：16 天",
         "套餐到期：2024-08-06",
         "去除28条不合适线路",
@@ -1321,7 +1338,7 @@
         "英国伦敦 01",
         "荷兰 01",
         "迪拜 01",
-        "剩余流量：189.63 GB",
+        "剩余流量：189.62 GB",
         "距离下次重置剩余：14 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
@@ -1387,7 +1404,7 @@
         "巴基斯坦-ChatGpt",
         "菲律宾-ChatGpt",
         "东帝汶-ChatGpt",
-        "剩余流量：904.02 GB",
+        "剩余流量：903.82 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1506,7 +1523,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾Hinet",
-        "剩余流量：478.61 GB",
+        "剩余流量：478.24 GB",
         "距离下次重置剩余：19 天",
         "套餐到期：2024-04-03",
         "美国hy2-001",
@@ -1850,10 +1867,10 @@
       "type": "select"
     },
     {
-      "tag": "剩余流量：42.41 GB",
+      "tag": "剩余流量：42.39 GB",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20253,
+      "server_port": 20001,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1865,7 +1882,7 @@
       "tag": "距离下次重置剩余：15 天",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20253,
+      "server_port": 20001,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1877,7 +1894,7 @@
       "tag": "套餐到期：2024-10-30",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20253,
+      "server_port": 20001,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1889,7 +1906,7 @@
       "tag": "一元百G：https://123.fscloud.cc",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20253,
+      "server_port": 20001,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1901,7 +1918,7 @@
       "tag": "日本aws - 001",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20123,
+      "server_port": 20002,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1913,7 +1930,7 @@
       "tag": "日本aws - 002",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20323,
+      "server_port": 20005,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1925,7 +1942,7 @@
       "tag": "日本aws - 003",
       "type": "hysteria2",
       "server": "jiefscdian.123jp.interld123456789.com",
-      "server_port": 20223,
+      "server_port": 20003,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1937,7 +1954,7 @@
       "tag": "新加坡aws - 001",
       "type": "hysteria2",
       "server": "jiefscdian.123sg.interld123456789.com",
-      "server_port": 20085,
+      "server_port": 20001,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1949,7 +1966,7 @@
       "tag": "新加坡aws - 002",
       "type": "hysteria2",
       "server": "jiefscdian.123sg.interld123456789.com",
-      "server_port": 20185,
+      "server_port": 20002,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1961,7 +1978,7 @@
       "tag": "新加坡aws - 003",
       "type": "hysteria2",
       "server": "jiefscdian.123sg.interld123456789.com",
-      "server_port": 20195,
+      "server_port": 20003,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1985,7 +2002,7 @@
       "tag": "香港002 - hysteria2",
       "type": "hysteria2",
       "server": "fschk.1234567890fscloud.com",
-      "server_port": 20003,
+      "server_port": 20002,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -1997,7 +2014,7 @@
       "tag": "香港003 - hysteria2",
       "type": "hysteria2",
       "server": "fschk.1234567890fscloud.com",
-      "server_port": 20055,
+      "server_port": 20003,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -2021,7 +2038,7 @@
       "tag": "台湾002 - hysteria2",
       "type": "hysteria2",
       "server": "fsctw.1234567890fscloud.com",
-      "server_port": 20066,
+      "server_port": 20002,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -2033,7 +2050,7 @@
       "tag": "台湾003 - hysteria2",
       "type": "hysteria2",
       "server": "fsctw.1234567890fscloud.com",
-      "server_port": 20077,
+      "server_port": 20003,
       "password": "c2aa76be-3072-489f-a71a-eb50bf2505a8",
       "tls": {
         "enabled": true,
@@ -2432,7 +2449,7 @@
       }
     },
     {
-      "tag": "剩余流量：185.42 GB",
+      "tag": "剩余流量：185.34 GB",
       "type": "trojan",
       "server": "smus.aikunapp.com",
       "server_port": 443,
@@ -2888,7 +2905,7 @@
       }
     },
     {
-      "tag": "剩余流量：189.63 GB",
+      "tag": "剩余流量：189.62 GB",
       "type": "vmess",
       "server": "8275cl.mc5173.cn",
       "server_port": 10123,
@@ -3704,7 +3721,7 @@
       "password": "002b4dc0-67c7-4bc5-a4e5-1c0edef3e2bb"
     },
     {
-      "tag": "剩余流量：904.02 GB",
+      "tag": "剩余流量：903.82 GB",
       "type": "shadowsocks",
       "server": "hkt.jjjjjj.icu",
       "server_port": 40981,
@@ -4902,7 +4919,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "tag": "剩余流量：478.61 GB",
+      "tag": "剩余流量：478.24 GB",
       "type": "hysteria2",
       "server": "ushy2.1234567890spcloud.com",
       "server_port": 20007,
