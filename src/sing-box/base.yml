@@ -6,127 +6,36 @@ dns: {}
 outbounds: []
 route:
   rule_set:
-    - tag: AboardNetwork
-      type: remote
-      format: source
-      url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
-      download_detour: direct
-    - tag: CN
-      type: remote
-      format: source
-      url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml
-      download_detour: direct
-    - tag: TikTok
-      type: remote
-      format: source
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
-      download_detour: direct
-    - tag: LLM
-      type: remote
-      format: source
-      url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yml
-      download_detour: direct
+    - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml}
+    - {tag: CN, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml}
+    - {tag: TikTok, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml}
+    - {tag: LLM, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/LLM.yaml}
     # 系统规则 begin
-    - tag: GeoMixed@private
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/mixed/private.srs
-      download_detour: direct
-    - tag: GeoIP@CN
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs
-      download_detour: direct
-    - tag: GeoSite@apple
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs
-      download_detour: direct
-    - tag: GeoSite@category-dev-cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev-cn.srs
-      download_detour: direct
-    - tag: GeoSite@category-scholar-cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-scholar-cn.srs
-      download_detour: direct
-    - tag: GeoSite@category-games@cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games@cn.srs
-      download_detour: direct
-    - tag: GeoSite@google@cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google@cn.srs
-      download_detour: direct
-    - tag: GeoSite@tld-cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-cn.srs
-      download_detour: direct
-    - tag: GeoSite@CN
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs
-      download_detour: direct
-    - tag: GeoSite@zoom
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/zoom.srs
-      download_detour: direct
-    - tag: GeoSite@google
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs
-      download_detour: direct
-    - tag: GeoSite@meta
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/meta.srs
-      download_detour: direct
-    - tag: GeoSite@category-social-media-!cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-social-media-!cn.srs
-      download_detour: direct
-    - tag: GeoSite@category-porn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-porn.srs
-      download_detour: direct
-    - tag: GeoSite@category-communication
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-communication.srs
-      download_detour: direct
-    - tag: GeoSite@tld-!cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-!cn.srs
-      download_detour: direct
-    - tag: GeoSite@gfw
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs
-      download_detour: direct
-    - tag: GeoSite@geolocation-!cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs
-      download_detour: direct
-    - tag: GeoIP@google
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs
-      download_detour: direct
-    - tag: GeoIP@cn
-      type: remote
-      format: binary
-      url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs
-      download_detour: direct
+    - {tag: GeoSite@category-dev-cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev-cn.srs}
+    - {tag: GeoSite@category-scholar-cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-scholar-cn.srs}
+    - {tag: GeoSite@category-games@cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games@cn.srs}
+    - {tag: GeoSite@google@cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google@cn.srs}
+    - {tag: GeoSite@tld-cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-cn.srs}
+    - {tag: GeoSite@cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs}
+
+    - {tag: GeoSite@apple, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs}
+    - {tag: GeoSite@zoom, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/zoom.srs}
+    - {tag: GeoSite@google, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs}
+    - {tag: GeoSite@meta, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/meta.srs}
+    - {tag: GeoSite@category-games, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs}
+
+    - {tag: GeoSite@category-social-media-!cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-social-media-!cn.srs}
+    - {tag: GeoSite@category-porn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-porn.srs}
+    - {tag: GeoSite@category-communication, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-communication.srs}
+    - {tag: GeoSite@category-dev, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-dev.srs}
+
+    - {tag: GeoSite@tld-!cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tld-!cn.srs}
+    - {tag: GeoSite@gfw, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/gfw.srs}
+    - {tag: GeoSite@geolocation-!cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs}
+
+    - {tag: GeoIP@google, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs}
+    - {tag: GeoIP@cn, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs}
+    - {tag: GeoMixed@private, type: remote, format: binary, download_detour: direct, url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/mixed/private.srs}
   # 系统规则 end
 
   rules:
