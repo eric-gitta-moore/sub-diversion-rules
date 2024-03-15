@@ -307,8 +307,7 @@
       "enabled": true
     },
     "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "secret": "11111111"
+      "external_controller": "127.0.0.1:19090"
     }
   },
   "outbounds": [
