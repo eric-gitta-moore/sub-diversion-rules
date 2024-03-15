@@ -2,6 +2,9 @@ import fs from "node:fs";
 import yaml from "yamljs";
 import path from "node:path";
 import url from "node:url";
+import { HttpsProxyAgent } from "https-proxy-agent";
+import fetch from "node-fetch";
+
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const PROXY_PROVIDER_URL =
@@ -15,7 +18,11 @@ function useProxies(
     if (proxies) {
       return proxies;
     }
-    proxies = await fetch(proxyProviderURL).then((e) => e.json());
+    const httpsProxy = process.env.https_proxy;
+    const agent = httpsProxy ? new HttpsProxyAgent(httpsProxy) : null;
+    proxies = await fetch(proxyProviderURL, agent ? { agent } : {}).then((e) =>
+      e.json(),
+    );
     return proxies;
   }
 

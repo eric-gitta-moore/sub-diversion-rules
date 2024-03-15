@@ -7,7 +7,9 @@
     "prettier": "^3.2.5"
   },
   "dependencies": {
+    "https-proxy-agent": "^7.0.4",
     "json-to-pretty-yaml": "^1.2.2",
+    "node-fetch": "^3.3.2",
     "yamljs": "^0.3.0"
   }
 }

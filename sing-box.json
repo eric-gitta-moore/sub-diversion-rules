@@ -59,7 +59,6 @@
     }
   ],
   "route": {
-    "final": "漏网之鱼",
     "auto_detect_interface": true,
     "rule_set": [
       {
@@ -278,7 +277,7 @@
         ]
       },
       {
-        "outbound": "漏网之鱼",
+        "outbound": "默认",
         "rule_set": [
           "AboardNetwork",
           "GeoSite@tiktok",
@@ -1753,23 +1752,6 @@
         "手动选择2",
         "手动选择3",
         "自动选择"
-      ],
-      "type": "selector"
-    },
-    {
-      "tag": "漏网之鱼",
-      "outbounds": [
-        "默认",
-        "香港节点",
-        "台湾节点",
-        "日本节点",
-        "新加坡节点",
-        "美国节点",
-        "手动选择1",
-        "手动选择2",
-        "手动选择3",
-        "自动选择",
-        "DIRECT"
       ],
       "type": "selector"
     },
