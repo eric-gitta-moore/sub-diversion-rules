@@ -364,7 +364,6 @@
     {
       "tag": "自动选择",
       "type": "urltest",
-      "filter": "^(?!.*(?:(中国|CN))).*",
       "outbounds": [
         "剩余流量：42.41 GB",
         "距离下次重置剩余：15 天",
@@ -1614,7 +1613,6 @@
     {
       "tag": "香港",
       "type": "urltest",
-      "filter": "(香港)",
       "outbounds": [
         "香港001 - hysteria2",
         "香港002 - hysteria2",
@@ -1653,7 +1651,6 @@
     {
       "tag": "台湾",
       "type": "urltest",
-      "filter": "(台湾)",
       "outbounds": [
         "台湾01 - hysteria2",
         "台湾002 - hysteria2",
@@ -1676,7 +1673,6 @@
     {
       "tag": "日本",
       "type": "urltest",
-      "filter": "(日本)",
       "outbounds": [
         "日本aws - 001",
         "日本aws - 002",
@@ -1726,7 +1722,6 @@
     {
       "tag": "新加坡",
       "type": "urltest",
-      "filter": "(新加坡)",
       "outbounds": [
         "新加坡aws - 001",
         "新加坡aws - 002",
@@ -1767,7 +1762,6 @@
     {
       "tag": "美国",
       "type": "urltest",
-      "filter": "美|us|unitedstates|united states",
       "outbounds": [
         "美国001 - hysteria2",
         "美国002 - hysteria2",
