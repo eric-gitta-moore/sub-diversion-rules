@@ -7,7 +7,7 @@ dns:
   servers:
     - {tag: dns_direct, address: h3://dns.alidns.com/dns-query, address_resolver: dns_resolver, detour: DIRECT}
     - {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}
-    - {tag: dns_proxy, address: tls://1.1.1.1, address_resolver: dns_resolver}
+    - {tag: dns_proxy, address: tls://1.1.1.1}
   rules:
     - {outbound: [any], server: dns_resolver}
     - {rule_set: [geolocation-!cn, gfw, tld-!cn], server: dns_proxy}
@@ -39,6 +39,8 @@ inbounds:
 
 
 route:
+  final: 漏网之鱼
+  auto_detect_interface: true
   rule_set:
     - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml}
     - {tag: CN, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml}
@@ -73,11 +75,15 @@ route:
   # 系统规则 end
 
   rules:
-    - outbound: direct
-      rule_set: [AboardNetwork]
-    - outbound: 国内
-      rule_set: [CN]
+    - {outbound: DIRECT, rule_set: [GeoMixed@private]}
+    - {outbound: 国内, rule_set: [CN, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@google@cn, GeoSite@tld-cn, GeoSite@cn, GeoIP@cn]}
+    - {outbound: Apple, rule_set: [GeoSite@apple]}
+    - {outbound: LLM, rule_set: [LLM]}
+    - {outbound: Zoom, rule_set: [GeoSite@zoom]}
+    - {outbound: Google, rule_set: [GeoSite@google, GeoIP@google]}
+    - {outbound: 漏网之鱼, rule_set: [AboardNetwork, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@category-dev, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn]}
 
+    - 'MATCH,漏网之鱼'
 
 experimental:
   cache_file:
@@ -85,6 +91,30 @@ experimental:
 
 
 outbounds:
+  - {tag: DIRECT, type: direct}
+
+  - {tag: 默认, type: selector, outbounds: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
+  - {tag: 自动选择, type: urltest, include-all: true, filter: '(?i)^(?!.*(?:(中国|CN))).*'}
+  - {tag: '⭕⭕====分割线 1====⭕⭕', type: selector, outbounds: [DIRECT]}
+  - {tag: 手动选择1, type: selector, outbounds: [自动选择, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
+  - {tag: 手动选择2, type: selector, include-all: true}
+  - {tag: 手动选择3, type: selector, include-all: true}
+  - {tag: 前置代理组, type: selector, include-all-providers: true}
+  - {tag: '⭕⭕====分割线 2====⭕⭕', type: selector, outbounds: [DIRECT]}
+  - {tag: Google, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+  - {tag: Zoom, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+  - {tag: Apple, outbounds: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
+  - {tag: LLM, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+  - {tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [DIRECT]}
+  - {tag: 香港, type: urltest, include-all-providers: true, filter: '(?i)(香港)'}
+  - {tag: 台湾, type: urltest, include-all-providers: true, filter: '(?i)(台湾)'}
+  - {tag: 日本, type: urltest, include-all-providers: true, filter: '(?i)(日本)'}
+  - {tag: 新加坡, type: urltest, include-all-providers: true, filter: '(?i)(新加坡)'}
+  - {tag: 美国, type: urltest, include-all-providers: true, filter: '(?i)美|us|unitedstates|united states'}
+  - {tag: '⭕⭕====分割线 4====⭕⭕', type: selector, outbounds: [DIRECT]}
+  - {tag: 国内, outbounds: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
+  - {tag: 漏网之鱼, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
+
   - tag: G1 ss
     type: shadowsocks
     server: 149.104.24.100
