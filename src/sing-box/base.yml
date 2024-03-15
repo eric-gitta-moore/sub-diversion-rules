@@ -4,16 +4,18 @@ log:
 
 
 dns:
+  final: dns_direct
+  independent_cache: true
+  strategy: prefer_ipv4
   servers:
     - {tag: dns_direct, address: h3://dns.alidns.com/dns-query, address_resolver: dns_resolver, detour: DIRECT}
-    - {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}
-    - {tag: dns_proxy, address: tls://1.1.1.1}
+    - {tag: dns_resolver, address: 223.5.5.5, address_resolver: dns_resolver, detour: DIRECT}
+    - {tag: dns_proxy, address: tls://1.1.1.1, address_resolver: dns_resolver}
   rules:
     - {outbound: [any], server: dns_resolver}
     - {rule_set: [geolocation-!cn, gfw, tld-!cn], server: dns_proxy}
-  final: dns_direct
-  independent_cache: true
-
+    - {clash_mode: global, server: dns_proxy}
+    - {clash_mode: direct, server: dns_resolver}
 
 ntp:
   enabled: true
