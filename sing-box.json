@@ -86,14 +86,7 @@
         "type": "remote",
         "format": "source",
         "download_detour": "direct",
-        "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml"
-      },
-      {
-        "tag": "CN",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "direct",
-        "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml"
+        "url": "https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
         "tag": "GeoSite@tiktok",
@@ -293,7 +286,6 @@
       {
         "outbound": "国内",
         "rule_set": [
-          "CN",
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
           "GeoSite@category-games@cn",

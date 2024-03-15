@@ -45,8 +45,7 @@ route:
   final: 漏网之鱼
   auto_detect_interface: true
   rule_set:
-    - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml}
-    - {tag: CN, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/CN.yaml}
+    - {tag: AboardNetwork, type: remote, format: source, download_detour: direct, url: https://raw.githubusercontent.com/james-curtis/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.json}
     - {tag: GeoSite@tiktok, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs}
     - {tag: GeoSite@openai, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/openai.srs}
     - {tag: GeoSite@Claude, type: remote, format: binary, download_detour: direct, url: https://github.com/MetaCubeX/meta-rules-dat/raw/sing/bm7/Claude.srs}
@@ -85,7 +84,7 @@ route:
     - {clash_mode: global, outbound: 默认}
 
     - {outbound: DIRECT, rule_set: [GeoMixed@private]}
-    - {outbound: 国内, rule_set: [CN, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@google@cn, GeoSite@tld-cn, GeoSite@cn, GeoIP@cn]}
+    - {outbound: 国内, rule_set: [GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@google@cn, GeoSite@tld-cn, GeoSite@cn, GeoIP@cn]}
     - {outbound: Apple, rule_set: [GeoSite@apple]}
     - {outbound: LLM, rule_set: [GeoSite@openai, GeoSite@Claude, GeoSite@Gemini]}
     - {outbound: Zoom, rule_set: [GeoSite@zoom]}
