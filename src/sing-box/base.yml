@@ -78,6 +78,10 @@ route:
   # 系统规则 end
 
   rules:
+    - {outbound: dns-out, protocol: dns}
+    - {clash_mode: direct, outbound: direct}
+    - {clash_mode: global, outbound: 默认}
+
     - {outbound: DIRECT, rule_set: [GeoMixed@private]}
     - {outbound: 国内, rule_set: [CN, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@google@cn, GeoSite@tld-cn, GeoSite@cn, GeoIP@cn]}
     - {outbound: Apple, rule_set: [GeoSite@apple]}
@@ -95,6 +99,7 @@ experimental:
 
 outbounds:
   - {tag: DIRECT, type: direct}
+  - {tag: dns-out, type: dns}
 
   - {tag: 默认, type: selector, outbounds: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
   - {tag: 自动选择, type: urltest, include-all: true, filter: '(?i)^(?!.*(?:(中国|CN))).*'}
