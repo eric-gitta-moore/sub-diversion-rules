@@ -27,5 +27,5 @@ function getConf() {
 
 (function () {
   const conf = getConf();
-  fs.writeFileSync(path.join(__dirname, `../conf.yml`), yaml.stringify(conf));
+  fs.writeFileSync(path.join(__dirname, `../../meta.yml`), yaml.stringify(conf));
 })();
