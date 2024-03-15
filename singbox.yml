@@ -2,10 +2,10 @@ log:
     level: debug
     timestamp: true
 dns:
-    final: dns_direct
+    final: dns_resolver
     independent_cache: true
     strategy: ipv4_only
-    servers: [{tag: dns_direct, address: 'h3://dns.alidns.com/dns-query', address_resolver: dns_resolver, detour: DIRECT}, {tag: dns_proxy, address: 'tls://1.1.1.1', address_resolver: dns_resolver}, {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}]
+    servers: [{tag: dns_proxy, address: 'tls://1.1.1.1'}, {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}]
     rules: [{outbound: [any], server: dns_resolver}, {rule_set: [GeoSite@geolocation-!cn, GeoSite@gfw, GeoSite@tld-!cn], server: dns_proxy}, {clash_mode: global, server: dns_proxy}, {clash_mode: direct, server: dns_resolver}]
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 0.0.0.0, listen_port: 2080}

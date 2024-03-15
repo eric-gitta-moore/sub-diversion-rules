@@ -4,20 +4,13 @@
     "timestamp": true
   },
   "dns": {
-    "final": "dns_direct",
+    "final": "dns_resolver",
     "independent_cache": true,
     "strategy": "ipv4_only",
     "servers": [
       {
-        "tag": "dns_direct",
-        "address": "h3://dns.alidns.com/dns-query",
-        "address_resolver": "dns_resolver",
-        "detour": "DIRECT"
-      },
-      {
         "tag": "dns_proxy",
-        "address": "tls://1.1.1.1",
-        "address_resolver": "dns_resolver"
+        "address": "tls://1.1.1.1"
       },
       {
         "tag": "dns_resolver",
