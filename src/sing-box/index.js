@@ -38,6 +38,7 @@ async function getConf() {
 
   for (const proxyItem of baseYaml["outbounds"]) {
     const filterExp = new RegExp(proxyItem["filter"] ?? ".*", "i");
+    delete proxyItem["filter"];
     if ("include-all" in proxyItem) {
       delete proxyItem["include-all"];
       proxyItem["outbounds"] = [
