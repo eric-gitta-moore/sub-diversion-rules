@@ -101,7 +101,7 @@ outbounds:
   - {tag: dns-out, type: dns}
 
   - {tag: 默认, type: selector, outbounds: [自动选择, 手动选择1, 手动选择2, 手动选择3, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
-  - {tag: 自动选择, type: urltest, include-all: true, filter: '(?i)^(?!.*(?:(中国|CN))).*'}
+  - {tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*'}
   - {tag: '⭕⭕====分割线 1====⭕⭕', type: selector, outbounds: [DIRECT]}
   - {tag: 手动选择1, type: selector, outbounds: [自动选择, 香港, 台湾, 日本, 新加坡, 美国, DIRECT]}
   - {tag: 手动选择2, type: selector, include-all: true}
@@ -113,11 +113,11 @@ outbounds:
   - {tag: Apple, outbounds: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
   - {tag: LLM, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
   - {tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [DIRECT]}
-  - {tag: 香港, type: urltest, include-all-providers: true, filter: '(?i)(香港)'}
-  - {tag: 台湾, type: urltest, include-all-providers: true, filter: '(?i)(台湾)'}
-  - {tag: 日本, type: urltest, include-all-providers: true, filter: '(?i)(日本)'}
-  - {tag: 新加坡, type: urltest, include-all-providers: true, filter: '(?i)(新加坡)'}
-  - {tag: 美国, type: urltest, include-all-providers: true, filter: '(?i)美|us|unitedstates|united states'}
+  - {tag: 香港, type: urltest, include-all-providers: true, filter: '(香港)'}
+  - {tag: 台湾, type: urltest, include-all-providers: true, filter: '(台湾)'}
+  - {tag: 日本, type: urltest, include-all-providers: true, filter: '(日本)'}
+  - {tag: 新加坡, type: urltest, include-all-providers: true, filter: '(新加坡)'}
+  - {tag: 美国, type: urltest, include-all-providers: true, filter: '美|us|unitedstates|united states'}
   - {tag: '⭕⭕====分割线 4====⭕⭕', type: selector, outbounds: [DIRECT]}
   - {tag: 国内, outbounds: [DIRECT, 默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择], type: select}
   - {tag: 漏网之鱼, outbounds: [默认, 香港, 台湾, 日本, 新加坡, 美国, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT], type: select}
