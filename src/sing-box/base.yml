@@ -6,7 +6,7 @@ log:
 dns:
   final: dns_direct
   independent_cache: true
-  strategy: prefer_ipv4
+  strategy: ipv4_only
   servers:
     - {tag: dns_direct, address: h3://dns.alidns.com/dns-query, address_resolver: dns_resolver, detour: DIRECT}
     - {tag: dns_proxy, address: tls://1.1.1.1, address_resolver: dns_resolver}

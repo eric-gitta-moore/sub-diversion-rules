@@ -6,7 +6,7 @@
   "dns": {
     "final": "dns_direct",
     "independent_cache": true,
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "servers": [
       {
         "tag": "dns_direct",

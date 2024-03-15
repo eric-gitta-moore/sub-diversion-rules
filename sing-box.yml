@@ -4,7 +4,7 @@ log:
 dns:
     final: dns_direct
     independent_cache: true
-    strategy: prefer_ipv4
+    strategy: ipv4_only
     servers: [{tag: dns_direct, address: 'h3://dns.alidns.com/dns-query', address_resolver: dns_resolver, detour: DIRECT}, {tag: dns_proxy, address: 'tls://1.1.1.1', address_resolver: dns_resolver}, {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}]
     rules: [{outbound: [any], server: dns_resolver}, {rule_set: [GeoSite@geolocation-!cn, GeoSite@gfw, GeoSite@tld-!cn], server: dns_proxy}, {clash_mode: global, server: dns_proxy}, {clash_mode: direct, server: dns_resolver}]
 ntp:
