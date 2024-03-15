@@ -70,14 +70,25 @@ async function getConf() {
   };
 }
 
+async function getMobileConf() {
+  const mobileConf = yaml.load(path.join(__dirname, `./mobile.yml`));
+  return {
+    ...(await getConf()),
+    ...mobileConf,
+  };
+}
+
 (async function () {
-  const conf = await getConf();
-  fs.writeFileSync(
-    path.join(__dirname, `../../sing-box.json`),
-    JSON.stringify(conf, null, 2),
-  );
-  fs.writeFileSync(
-    path.join(__dirname, `../../sing-box.yml`),
-    yaml.stringify(conf),
-  );
+  function write({ conf, name }) {
+    fs.writeFileSync(
+      path.join(__dirname, `../../${name}.json`),
+      JSON.stringify(conf, null, 2),
+    );
+    fs.writeFileSync(
+      path.join(__dirname, `../../${name}.yml`),
+      yaml.stringify(conf),
+    );
+  }
+  write({ conf: await getConf(), name: `singbox` });
+  write({ conf: await getMobileConf(), name: `singbox-mobile` });
 })();
