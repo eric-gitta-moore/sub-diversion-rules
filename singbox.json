@@ -65,30 +65,6 @@
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
-        "tag": "GeoSite@tiktok",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tiktok.srs"
-      },
-      {
-        "tag": "GeoSite@openai",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/openai.srs"
-      },
-      {
-        "tag": "GeoSite@Claude",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs"
-      },
-      {
-        "tag": "GeoSite@Gemini",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs"
-      },
-      {
         "tag": "GeoSite@category-dev-cn",
         "type": "remote",
         "format": "binary",
@@ -141,6 +117,30 @@
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/meta.srs"
+      },
+      {
+        "tag": "GeoSite@tiktok",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tiktok.srs"
+      },
+      {
+        "tag": "GeoSite@openai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/openai.srs"
+      },
+      {
+        "tag": "GeoSite@Claude",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs"
+      },
+      {
+        "tag": "GeoSite@Gemini",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs"
       },
       {
         "tag": "GeoSite@category-games",
