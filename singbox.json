@@ -1614,6 +1614,24 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "SSH@22",
+      "outbounds": [
+        "默认",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "手动选择1",
+        "手动选择2",
+        "手动选择3",
+        "自动选择",
+        "DIRECT"
+      ],
+      "type": "selector",
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "⭕⭕====分割线 3====⭕⭕",
       "type": "selector",
       "outbounds": [
