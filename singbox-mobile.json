@@ -6,7 +6,6 @@
   "dns": {
     "final": "dns_proxy",
     "independent_cache": true,
-    "strategy": "ipv4_only",
     "servers": [
       {
         "tag": "dns_proxy",
@@ -58,7 +57,8 @@
       "auto_route": true,
       "strict_route": true,
       "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": true,
+      "endpoint_independent_nat": true
     }
   ],
   "route": {

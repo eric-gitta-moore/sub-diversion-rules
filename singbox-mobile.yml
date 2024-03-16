@@ -4,12 +4,11 @@ log:
 dns:
     final: dns_proxy
     independent_cache: true
-    strategy: ipv4_only
     servers: [{tag: dns_proxy, address: 'https://1.1.1.1/dns-query', detour: 默认}, {tag: dns_resolver, address: 'https://223.5.5.5/dns-query', detour: DIRECT}]
     rules: [{outbound: [any], server: dns_resolver}, {rule_set: [GeoSite@cn, GeoSite@tld-cn], server: dns_resolver}, {clash_mode: global, server: dns_proxy}, {clash_mode: direct, server: dns_resolver}]
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 0.0.0.0, listen_port: 2080}
-    - {type: tun, tag: tun-in, inet4_address: 172.19.0.1/30, inet6_address: 'fdfe:dcba:9876::1/126', auto_route: true, strict_route: true, sniff: true, sniff_override_destination: true}
+    - {type: tun, tag: tun-in, inet4_address: 172.19.0.1/30, inet6_address: 'fdfe:dcba:9876::1/126', auto_route: true, strict_route: true, sniff: true, sniff_override_destination: true, endpoint_independent_nat: true}
 route:
     final: 默认
     auto_detect_interface: true
