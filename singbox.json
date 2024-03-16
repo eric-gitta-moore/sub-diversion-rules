@@ -207,10 +207,16 @@
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/cn.srs"
       },
       {
-        "tag": "GeoMixed@private",
+        "tag": "GeoIP@private",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/mixed/private.srs"
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/private.srs"
+      },
+      {
+        "tag": "GeoSite@private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/private.srs"
       }
     ],
     "rules": [
@@ -229,7 +235,7 @@
       {
         "outbound": "DIRECT",
         "rule_set": [
-          "GeoMixed@private"
+          "GeoSite@private"
         ]
       },
       {
@@ -240,8 +246,7 @@
           "GeoSite@category-games@cn",
           "GeoSite@google@cn",
           "GeoSite@tld-cn",
-          "GeoSite@cn",
-          "GeoIP@cn"
+          "GeoSite@cn"
         ]
       },
       {
@@ -267,8 +272,7 @@
       {
         "outbound": "Google",
         "rule_set": [
-          "GeoSite@google",
-          "GeoIP@google"
+          "GeoSite@google"
         ]
       },
       {
@@ -285,6 +289,24 @@
           "GeoSite@tld-!cn",
           "GeoSite@gfw",
           "GeoSite@geolocation-!cn"
+        ]
+      },
+      {
+        "outbound": "DIRECT",
+        "rule_set": [
+          "GeoIP@private"
+        ]
+      },
+      {
+        "outbound": "国内",
+        "rule_set": [
+          "GeoIP@cn"
+        ]
+      },
+      {
+        "outbound": "Google",
+        "rule_set": [
+          "GeoIP@google"
         ]
       }
     ]

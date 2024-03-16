@@ -3,6 +3,9 @@ inbounds:
     tag: mixed-in
     listen: 0.0.0.0
     listen_port: 2080
+    sniff: true
+    sniff_override_destination: true
+    domain_strategy: prefer_ipv4
   - type: tun
     tag: tun-in
     inet4_address: 172.19.0.1/30
@@ -12,3 +15,5 @@ inbounds:
     sniff: true
     sniff_override_destination: true
     endpoint_independent_nat: true
+    domain_strategy: prefer_ipv4
+    stack: system
