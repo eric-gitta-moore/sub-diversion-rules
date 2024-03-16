@@ -49,6 +49,8 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": true,
       "domain_strategy": "prefer_ipv4"
     }
   ],
@@ -334,11 +336,15 @@
         "新加坡节点",
         "美国节点",
         "DIRECT"
-      ]
+      ],
+      "interrupt_exist_connections": true
     },
     {
       "tag": "自动选择",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "剩余流量：40.85 GB",
         "距离下次重置剩余：14 天",
@@ -640,11 +646,13 @@
         "新加坡节点",
         "美国节点",
         "DIRECT"
-      ]
+      ],
+      "interrupt_exist_connections": true
     },
     {
       "tag": "手动选择2",
       "type": "selector",
+      "interrupt_exist_connections": true,
       "outbounds": [
         "剩余流量：40.85 GB",
         "距离下次重置剩余：14 天",
@@ -932,6 +940,7 @@
     {
       "tag": "手动选择3",
       "type": "selector",
+      "interrupt_exist_connections": true,
       "outbounds": [
         "剩余流量：40.85 GB",
         "距离下次重置剩余：14 天",
@@ -1219,6 +1228,7 @@
     {
       "tag": "前置代理组",
       "type": "selector",
+      "interrupt_exist_connections": true,
       "outbounds": [
         "剩余流量：40.85 GB",
         "距离下次重置剩余：14 天",
@@ -1523,7 +1533,8 @@
         "自动选择",
         "DIRECT"
       ],
-      "type": "selector"
+      "type": "selector",
+      "interrupt_exist_connections": true
     },
     {
       "tag": "Zoom",
@@ -1540,7 +1551,8 @@
         "自动选择",
         "DIRECT"
       ],
-      "type": "selector"
+      "type": "selector",
+      "interrupt_exist_connections": true
     },
     {
       "tag": "Apple",
@@ -1557,7 +1569,8 @@
         "手动选择3",
         "自动选择"
       ],
-      "type": "selector"
+      "type": "selector",
+      "interrupt_exist_connections": true
     },
     {
       "tag": "LLM",
@@ -1574,7 +1587,8 @@
         "自动选择",
         "DIRECT"
       ],
-      "type": "selector"
+      "type": "selector",
+      "interrupt_exist_connections": true
     },
     {
       "tag": "⭕⭕====分割线 3====⭕⭕",
@@ -1586,6 +1600,9 @@
     {
       "tag": "香港节点",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "香港001 - hysteria2",
         "香港002 - hysteria2",
@@ -1624,6 +1641,9 @@
     {
       "tag": "台湾节点",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "台湾01 - hysteria2",
         "台湾002 - hysteria2",
@@ -1646,6 +1666,9 @@
     {
       "tag": "日本节点",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "日本aws - 001",
         "日本aws - 002",
@@ -1696,6 +1719,9 @@
     {
       "tag": "新加坡节点",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "新加坡aws - 001",
         "新加坡aws - 002",
@@ -1736,6 +1762,9 @@
     {
       "tag": "美国节点",
       "type": "urltest",
+      "interrupt_exist_connections": true,
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "12h",
       "outbounds": [
         "美国001 - hysteria2",
         "美国002 - hysteria2",
@@ -1804,7 +1833,8 @@
         "手动选择3",
         "自动选择"
       ],
-      "type": "selector"
+      "type": "selector",
+      "interrupt_exist_connections": true
     },
     {
       "tag": "DIRECT",
