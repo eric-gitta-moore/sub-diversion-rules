@@ -4,13 +4,14 @@
     "timestamp": true
   },
   "dns": {
-    "final": "dns_resolver",
+    "final": "dns_proxy",
     "independent_cache": true,
     "strategy": "ipv4_only",
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "tls://1.1.1.1"
+        "address": "https://1.1.1.1/dns-query",
+        "detour": "默认"
       },
       {
         "tag": "dns_resolver",
@@ -27,11 +28,10 @@
       },
       {
         "rule_set": [
-          "GeoSite@geolocation-!cn",
-          "GeoSite@gfw",
-          "GeoSite@tld-!cn"
+          "GeoSite@cn",
+          "GeoSite@tld-cn"
         ],
-        "server": "dns_proxy"
+        "server": "dns_resolver"
       },
       {
         "clash_mode": "global",
@@ -62,6 +62,7 @@
     }
   ],
   "route": {
+    "final": "默认",
     "auto_detect_interface": true,
     "rule_set": [
       {
