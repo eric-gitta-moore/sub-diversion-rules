@@ -78,7 +78,8 @@ route:
     - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
-    - { outbound: 默认, rule_set: [ AboardNetwork, GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@category-dev, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
+    - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
+    - { outbound: 默认, rule_set: [ AboardNetwork, GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
 
     - { outbound: DIRECT, rule_set: [ GeoIP@private ] }
     - { outbound: 国内, rule_set: [ GeoIP@cn ] }
@@ -103,6 +104,7 @@ outbounds:
   - { tag: Zoom, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: Apple, outbounds: [ DIRECT, 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择 ], type: selector, interrupt_exist_connections: true }
   - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: Dev, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: 香港节点, type: urltest, include-all-providers: true, filter: '(香港)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
   - { tag: 台湾节点, type: urltest, include-all-providers: true, filter: '(台湾)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }

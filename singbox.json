@@ -278,6 +278,12 @@
         ]
       },
       {
+        "outbound": "Dev",
+        "rule_set": [
+          "GeoSite@category-dev"
+        ]
+      },
+      {
         "outbound": "默认",
         "rule_set": [
           "AboardNetwork",
@@ -287,7 +293,6 @@
           "GeoSite@category-social-media-!cn",
           "GeoSite@category-porn",
           "GeoSite@category-communication",
-          "GeoSite@category-dev",
           "GeoSite@tld-!cn",
           "GeoSite@gfw",
           "GeoSite@geolocation-!cn"
@@ -1575,6 +1580,24 @@
     },
     {
       "tag": "LLM",
+      "outbounds": [
+        "默认",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "手动选择1",
+        "手动选择2",
+        "手动选择3",
+        "自动选择",
+        "DIRECT"
+      ],
+      "type": "selector",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Dev",
       "outbounds": [
         "默认",
         "香港节点",
