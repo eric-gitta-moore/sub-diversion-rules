@@ -5,7 +5,7 @@ dns:
     final: dns_proxy
     independent_cache: true
     strategy: ipv4_only
-    servers: [{tag: dns_proxy, address: 'https://1.1.1.1/dns-query', detour: 默认}, {tag: dns_resolver, address: 223.5.5.5, detour: DIRECT}]
+    servers: [{tag: dns_proxy, address: 'https://1.1.1.1/dns-query', detour: 默认}, {tag: dns_resolver, address: 'https://223.5.5.5/dns-query', detour: DIRECT}]
     rules: [{outbound: [any], server: dns_resolver}, {rule_set: [GeoSite@cn, GeoSite@tld-cn], server: dns_resolver}, {clash_mode: global, server: dns_proxy}, {clash_mode: direct, server: dns_resolver}]
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 0.0.0.0, listen_port: 2080}
