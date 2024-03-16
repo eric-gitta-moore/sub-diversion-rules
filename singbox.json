@@ -344,7 +344,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "剩余流量：40.85 GB",
         "距离下次重置剩余：14 天",
@@ -1602,7 +1603,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "香港001 - hysteria2",
         "香港002 - hysteria2",
@@ -1643,7 +1645,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "台湾01 - hysteria2",
         "台湾002 - hysteria2",
@@ -1668,7 +1671,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "日本aws - 001",
         "日本aws - 002",
@@ -1721,7 +1725,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "新加坡aws - 001",
         "新加坡aws - 002",
@@ -1764,7 +1769,8 @@
       "type": "urltest",
       "interrupt_exist_connections": true,
       "url": "https://www.youtube.com/generate_204",
-      "interval": "12h",
+      "interval": "6h",
+      "idle_timeout": "12h",
       "outbounds": [
         "美国001 - hysteria2",
         "美国002 - hysteria2",

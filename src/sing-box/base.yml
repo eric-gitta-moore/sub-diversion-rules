@@ -92,7 +92,7 @@ experimental:
 
 outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择1, 手动选择2, 手动选择3, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
-  - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
+  - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
   - { tag: '⭕⭕====分割线 1====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: 手动选择1, type: selector, outbounds: [ 自动选择, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
   - { tag: 手动选择2, type: selector, include-all: true, interrupt_exist_connections: true }
@@ -104,11 +104,11 @@ outbounds:
   - { tag: Apple, outbounds: [ DIRECT, 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择 ], type: selector, interrupt_exist_connections: true }
   - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [ DIRECT ] }
-  - { tag: 香港节点, type: urltest, include-all-providers: true, filter: '(香港)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
-  - { tag: 台湾节点, type: urltest, include-all-providers: true, filter: '(台湾)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
-  - { tag: 日本节点, type: urltest, include-all-providers: true, filter: '(日本)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
-  - { tag: 新加坡节点, type: urltest, include-all-providers: true, filter: '(新加坡)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
-  - { tag: 美国节点, type: urltest, include-all-providers: true, filter: '美|us|unitedstates|united states', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 12h }
+  - { tag: 香港节点, type: urltest, include-all-providers: true, filter: '(香港)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
+  - { tag: 台湾节点, type: urltest, include-all-providers: true, filter: '(台湾)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
+  - { tag: 日本节点, type: urltest, include-all-providers: true, filter: '(日本)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
+  - { tag: 新加坡节点, type: urltest, include-all-providers: true, filter: '(新加坡)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
+  - { tag: 美国节点, type: urltest, include-all-providers: true, filter: '美|us|unitedstates|united states', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
   - { tag: '⭕⭕====分割线 4====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: 国内, outbounds: [ DIRECT, 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择 ], type: selector, interrupt_exist_connections: true }
 
