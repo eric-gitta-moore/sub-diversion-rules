@@ -119,12 +119,6 @@
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games@cn.srs"
       },
       {
-        "tag": "GeoSite@google@cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google@cn.srs"
-      },
-      {
         "tag": "GeoSite@tld-cn",
         "type": "remote",
         "format": "binary",
@@ -258,7 +252,6 @@
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
           "GeoSite@category-games@cn",
-          "GeoSite@google@cn",
           "GeoSite@tld-cn",
           "GeoSite@cn"
         ]
