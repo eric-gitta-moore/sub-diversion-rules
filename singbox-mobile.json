@@ -6,6 +6,7 @@
   "dns": {
     "final": "dns_proxy",
     "independent_cache": true,
+    "strategy": "prefer_ipv4",
     "servers": [
       {
         "tag": "dns_proxy",

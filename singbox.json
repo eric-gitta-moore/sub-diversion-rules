@@ -6,6 +6,7 @@
   "dns": {
     "final": "dns_proxy",
     "independent_cache": true,
+    "strategy": "prefer_ipv4",
     "servers": [
       {
         "tag": "dns_proxy",
@@ -47,7 +48,8 @@
       "type": "mixed",
       "tag": "mixed-in",
       "listen": "0.0.0.0",
-      "listen_port": 2080
+      "listen_port": 2080,
+      "domain_strategy": "prefer_ipv4"
     }
   ],
   "route": {
