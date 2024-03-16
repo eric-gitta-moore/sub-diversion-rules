@@ -78,6 +78,7 @@ route:
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
+    - { outbound: SSH@22, port: [ 22 ] }
     - { outbound: 默认, rule_set: [ AboardNetwork, GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
 
     - { outbound: DIRECT, rule_set: [ GeoIP@private ] }

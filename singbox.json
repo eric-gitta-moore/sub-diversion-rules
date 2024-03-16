@@ -277,6 +277,12 @@
         ]
       },
       {
+        "outbound": "SSH@22",
+        "port": [
+          22
+        ]
+      },
+      {
         "outbound": "默认",
         "rule_set": [
           "AboardNetwork",
