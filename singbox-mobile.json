@@ -32,14 +32,6 @@
           "GeoSite@tld-cn"
         ],
         "server": "dns_resolver"
-      },
-      {
-        "clash_mode": "global",
-        "server": "dns_proxy"
-      },
-      {
-        "clash_mode": "direct",
-        "server": "dns_resolver"
       }
     ]
   },
@@ -233,17 +225,15 @@
         "protocol": "dns"
       },
       {
-        "clash_mode": "direct",
-        "outbound": "DIRECT"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "默认"
-      },
-      {
         "outbound": "DIRECT",
         "rule_set": [
           "GeoSite@private"
+        ]
+      },
+      {
+        "outbound": "默认",
+        "rule_set": [
+          "AboardNetwork"
         ]
       },
       {
@@ -297,7 +287,6 @@
       {
         "outbound": "默认",
         "rule_set": [
-          "AboardNetwork",
           "GeoSite@tiktok",
           "GeoSite@meta",
           "GeoSite@category-games",
@@ -334,7 +323,7 @@
       "enabled": true
     },
     "clash_api": {
-      "external_controller": "127.0.0.1:19090"
+      "external_controller": "127.0.0.1:9090"
     }
   },
   "outbounds": [
