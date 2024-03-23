@@ -117,6 +117,18 @@
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google.srs"
       },
       {
+        "tag": "GeoSite@microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft.srs"
+      },
+      {
+        "tag": "GeoSite@microsoft@cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs"
+      },
+      {
         "tag": "GeoSite@meta",
         "type": "remote",
         "format": "binary",
@@ -251,6 +263,7 @@
       {
         "outbound": "国内",
         "rule_set": [
+          "GeoSite@microsoft@cn",
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
           "GeoSite@category-games@cn",
@@ -282,6 +295,12 @@
         "outbound": "Google",
         "rule_set": [
           "GeoSite@google"
+        ]
+      },
+      {
+        "outbound": "Microsoft",
+        "rule_set": [
+          "GeoSite@microsoft"
         ]
       },
       {
@@ -1486,6 +1505,24 @@
     },
     {
       "tag": "Google",
+      "outbounds": [
+        "默认",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "手动选择1",
+        "手动选择2",
+        "手动选择3",
+        "自动选择",
+        "DIRECT"
+      ],
+      "type": "selector",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Microsoft",
       "outbounds": [
         "默认",
         "香港节点",

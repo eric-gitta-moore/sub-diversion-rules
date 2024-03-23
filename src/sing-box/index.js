@@ -8,7 +8,7 @@ import fetch from "node-fetch";
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const PROXY_PROVIDER_URL =
-  "https://gist.githubusercontent.com/james-curtis/c95dee8e3432444e47c32c4a5527465a/raw/all-sing-box";
+  "https://gist.githubusercontent.com/eric-gitta-moore/c95dee8e3432444e47c32c4a5527465a/raw/all-sing-box";
 
 function useProxies(
   { proxyProviderURL } = { proxyProviderURL: PROXY_PROVIDER_URL },
