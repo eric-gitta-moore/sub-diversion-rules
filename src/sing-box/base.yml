@@ -31,6 +31,8 @@ route:
   auto_detect_interface: true
   rule_set:
     - { tag: AboardNetwork, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json }
+    - { tag: GoogleOneVPNTun, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
+    - { tag: GoogleOneVPNCheckPoint, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
     - { tag: GeoSite@category-dev-cn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs }
     - { tag: GeoSite@category-scholar-cn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs }
@@ -68,6 +70,8 @@ route:
 
     - { outbound: DIRECT, rule_set: [ GeoSite@private ] }
     - { outbound: 默认, rule_set: [ AboardNetwork ] }
+    - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
+    - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
     - { outbound: 国内, rule_set: [ GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@tld-cn, GeoSite@cn ] }
     - { outbound: Apple, rule_set: [ GeoSite@apple ] }
@@ -103,6 +107,8 @@ outbounds:
   - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: Dev, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: SSH@22, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: GoogleOneVPNTun, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: 香港节点, type: urltest, include-all-providers: true, filter: '(香港)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
   - { tag: 台湾节点, type: urltest, include-all-providers: true, filter: '(台湾)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
