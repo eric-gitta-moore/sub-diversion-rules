@@ -46,6 +46,7 @@ route:
     - { tag: GeoSite@github, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/github.srs }
     - { tag: GeoSite@microsoft, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft.srs }
     - { tag: GeoSite@microsoft@cn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs }
+    - { tag: GeoSite@imgur, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/imgur.srs }
     - { tag: GeoSite@meta, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/meta.srs }
     - { tag: GeoSite@tiktok, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tiktok.srs }
     - { tag: GeoSite@openai, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/openai.srs }
@@ -83,6 +84,7 @@ route:
     - { outbound: Dev, rule_set: [ GeoSite@github ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
+    - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
     - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
     - { outbound: SSH@22, port: [ 22 ] }
     - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
@@ -112,6 +114,7 @@ outbounds:
   - { tag: Apple, outbounds: [ DIRECT, 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择 ], type: selector, interrupt_exist_connections: true }
   - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: Dev, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: 国外图床, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: SSH@22, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: GoogleOneVPNTun, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }

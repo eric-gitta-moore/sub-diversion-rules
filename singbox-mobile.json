@@ -148,6 +148,12 @@
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs"
       },
       {
+        "tag": "GeoSite@imgur",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/imgur.srs"
+      },
+      {
         "tag": "GeoSite@meta",
         "type": "remote",
         "format": "binary",
@@ -326,6 +332,12 @@
         "outbound": "Microsoft",
         "rule_set": [
           "GeoSite@microsoft"
+        ]
+      },
+      {
+        "outbound": "国外图床",
+        "rule_set": [
+          "GeoSite@imgur"
         ]
       },
       {
@@ -1627,6 +1639,24 @@
     },
     {
       "tag": "Dev",
+      "outbounds": [
+        "默认",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "手动选择1",
+        "手动选择2",
+        "手动选择3",
+        "自动选择",
+        "DIRECT"
+      ],
+      "type": "selector",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "国外图床",
       "outbounds": [
         "默认",
         "香港节点",
