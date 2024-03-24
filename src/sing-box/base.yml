@@ -43,6 +43,7 @@ route:
     - { tag: GeoSite@apple, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/apple.srs }
     - { tag: GeoSite@zoom, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/zoom.srs }
     - { tag: GeoSite@google, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google.srs }
+    - { tag: GeoSite@github, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/github.srs }
     - { tag: GeoSite@microsoft, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft.srs }
     - { tag: GeoSite@microsoft@cn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs }
     - { tag: GeoSite@meta, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/meta.srs }
@@ -79,6 +80,7 @@ route:
     - { outbound: Apple, rule_set: [ GeoSite@apple ] }
     - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
+    - { outbound: Dev, rule_set: [ GeoSite@github ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
