@@ -58,6 +58,7 @@ route:
     - { tag: GeoSite@category-porn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-porn.srs }
     - { tag: GeoSite@category-communication, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-communication.srs }
     - { tag: GeoSite@category-dev, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs }
+    - { tag: GeoSite@category-anticensorship, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-anticensorship.srs }
 
     - { tag: GeoSite@tld-!cn, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-!cn.srs }
     - { tag: GeoSite@gfw, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/gfw.srs }
@@ -77,7 +78,7 @@ route:
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
-    - { outbound: 国内, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@tld-cn, GeoSite@cn ] }
+    - { outbound: 国内, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn ] }
     - { outbound: Apple, rule_set: [ GeoSite@apple ] }
     - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
@@ -87,7 +88,10 @@ route:
     - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
     - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
     - { outbound: SSH@22, port: [ 22 ] }
-    - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@meta, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
+    - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@meta, GeoSite@category-anticensorship, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication ] }
+
+    - { outbound: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
+    - { outbound: 默认, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
 
     - { outbound: DIRECT, rule_set: [ GeoIP@private ] }
     - { outbound: 国内, rule_set: [ GeoIP@cn ] }

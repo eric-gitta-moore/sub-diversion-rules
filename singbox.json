@@ -201,6 +201,12 @@
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs"
       },
       {
+        "tag": "GeoSite@category-anticensorship",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-anticensorship.srs"
+      },
+      {
         "tag": "GeoSite@tld-!cn",
         "type": "remote",
         "format": "binary",
@@ -278,9 +284,7 @@
           "GeoSite@microsoft@cn",
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
-          "GeoSite@category-games@cn",
-          "GeoSite@tld-cn",
-          "GeoSite@cn"
+          "GeoSite@category-games@cn"
         ]
       },
       {
@@ -344,10 +348,23 @@
         "rule_set": [
           "GeoSite@tiktok",
           "GeoSite@meta",
+          "GeoSite@category-anticensorship",
           "GeoSite@category-games",
           "GeoSite@category-social-media-!cn",
           "GeoSite@category-porn",
-          "GeoSite@category-communication",
+          "GeoSite@category-communication"
+        ]
+      },
+      {
+        "outbound": "国内",
+        "rule_set": [
+          "GeoSite@tld-cn",
+          "GeoSite@cn"
+        ]
+      },
+      {
+        "outbound": "默认",
+        "rule_set": [
           "GeoSite@tld-!cn",
           "GeoSite@gfw",
           "GeoSite@geolocation-!cn"
