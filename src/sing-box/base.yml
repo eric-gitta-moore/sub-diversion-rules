@@ -12,6 +12,7 @@ dns:
     - { tag: dns_resolver, address: 223.5.5.5, detour: DIRECT }
   rules:
     - { outbound: [ any ], server: dns_resolver }
+    - { rule_set: [ AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ], server: dns_proxy }
     - { rule_set: [ GeoSite@cn, GeoSite@tld-cn ], server: dns_resolver }
 
 
