@@ -8,8 +8,8 @@ dns:
   independent_cache: true
   strategy: prefer_ipv4
   servers:
-    - { tag: dns_proxy, address: https://1.1.1.1/dns-query, detour: 默认 }
-    - { tag: dns_resolver, address: https://223.5.5.5/dns-query, detour: DIRECT }
+    - { tag: dns_proxy, address: 8.8.8.8, detour: 默认 }
+    - { tag: dns_resolver, address: 223.5.5.5, detour: DIRECT }
   rules:
     - { outbound: [ any ], server: dns_resolver }
     #    - { rule_set: [ GeoSite@geolocation-!cn, GeoSite@gfw, GeoSite@tld-!cn ], server: dns_proxy }
