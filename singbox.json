@@ -67,6 +67,12 @@
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
+        "tag": "MainlandNetwork",
+        "type": "remote",
+        "format": "source",
+        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
+      },
+      {
         "tag": "GoogleOneVPNTun",
         "type": "remote",
         "format": "source",
@@ -268,6 +274,12 @@
         "outbound": "DIRECT",
         "rule_set": [
           "GeoSite@private"
+        ]
+      },
+      {
+        "outbound": "国内",
+        "rule_set": [
+          "MainlandNetwork"
         ]
       },
       {
