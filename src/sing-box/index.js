@@ -9,7 +9,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const PROXY_PROVIDER_URL =
   // "https://gist.githubusercontent.com/eric-gitta-moore/c95dee8e3432444e47c32c4a5527465a/raw/all-sing-box";
-  "https://sub-store.tianhaoltd.top/4ae91b41-9b14-4c79-8b36-b3d5b6366874/download/collection/all-in-one";
+  "https://sub-store.tianhaoltd.top/4ae91b41-9b14-4c79-8b36-b3d5b6366874/download/collection/all-in-one?target=sing-box";
 
 function useProxies(
   { proxyProviderURL } = { proxyProviderURL: PROXY_PROVIDER_URL },
