@@ -81,204 +81,238 @@
     "rule_set": [
       {
         "tag": "AboardNetwork",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
         "tag": "MainlandNetwork",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
         "tag": "GoogleOneVPNTun",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
       },
       {
         "tag": "GoogleOneVPNCheckPoint",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
         "tag": "GeoSite@category-dev-cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs"
       },
       {
         "tag": "GeoSite@category-scholar-cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs"
       },
       {
         "tag": "GeoSite@category-games@cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games@cn.srs"
       },
       {
         "tag": "GeoSite@tld-cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-cn.srs"
       },
       {
         "tag": "GeoSite@cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cn.srs"
       },
       {
         "tag": "GeoSite@apple",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/apple.srs"
       },
       {
         "tag": "GeoSite@zoom",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/zoom.srs"
       },
       {
         "tag": "GeoSite@google",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google.srs"
       },
       {
         "tag": "GeoSite@github",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/github.srs"
       },
       {
         "tag": "GeoSite@microsoft",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft.srs"
       },
       {
         "tag": "GeoSite@microsoft@cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs"
       },
       {
         "tag": "GeoSite@imgur",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/imgur.srs"
       },
       {
         "tag": "GeoSite@meta",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/meta.srs"
       },
       {
         "tag": "GeoSite@tiktok",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tiktok.srs"
       },
       {
         "tag": "GeoSite@openai",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/openai.srs"
       },
       {
         "tag": "GeoSite@Claude",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs"
       },
       {
         "tag": "GeoSite@Gemini",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs"
       },
       {
         "tag": "GeoSite@category-games",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games.srs"
       },
       {
         "tag": "GeoSite@category-social-media-!cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-social-media-!cn.srs"
       },
       {
         "tag": "GeoSite@category-porn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-porn.srs"
       },
       {
         "tag": "GeoSite@category-communication",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-communication.srs"
       },
       {
         "tag": "GeoSite@category-dev",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs"
       },
       {
         "tag": "GeoSite@category-anticensorship",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-anticensorship.srs"
       },
       {
         "tag": "GeoSite@tld-!cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-!cn.srs"
       },
       {
         "tag": "GeoSite@gfw",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/gfw.srs"
       },
       {
         "tag": "GeoSite@geolocation-!cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
         "tag": "GeoIP@google",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/google.srs"
       },
       {
         "tag": "GeoIP@cn",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/cn.srs"
       },
       {
         "tag": "GeoIP@private",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/private.srs"
       },
       {
         "tag": "GeoSite@private",
+        "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/private.srs"
