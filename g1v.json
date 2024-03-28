@@ -21,12 +21,6 @@
     ],
     "rules": [
       {
-        "outbound": [
-          "any"
-        ],
-        "server": "dns_resolver"
-      },
-      {
         "rule_set": [
           "MainlandNetwork"
         ],
