@@ -16,12 +16,12 @@ dns:
     - { rule_set: [ GeoSite@cn, GeoSite@tld-cn ], server: dns_resolver }
 
 
-ntp:
-  enabled: false
-  server: time.windows.com
-  server_port: 123
-  interval: 30m
-  detour: DIRECT
+#ntp:
+#  enabled: false
+#  server: time.windows.com
+#  server_port: 123
+#  interval: 30m
+#  detour: DIRECT
 
 
 inbounds:

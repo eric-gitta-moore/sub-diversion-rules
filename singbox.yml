@@ -7,12 +7,6 @@ dns:
     strategy: prefer_ipv4
     servers: [{tag: dns_proxy, address: 8.8.8.8, detour: 默认}, {tag: dns_resolver, address: 223.5.5.5, detour: 国内}]
     rules: [{rule_set: [MainlandNetwork], server: dns_resolver}, {rule_set: [AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn], server: dns_proxy}, {rule_set: [GeoSite@cn, GeoSite@tld-cn], server: dns_resolver}]
-ntp:
-    enabled: false
-    server: time.windows.com
-    server_port: 123
-    interval: 30m
-    detour: DIRECT
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 0.0.0.0, listen_port: 2080, sniff: true, sniff_override_destination: true, domain_strategy: prefer_ipv4}
 route:

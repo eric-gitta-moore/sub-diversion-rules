@@ -45,13 +45,6 @@
       }
     ]
   },
-  "ntp": {
-    "enabled": false,
-    "server": "time.windows.com",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": "DIRECT"
-  },
   "inbounds": [
     {
       "type": "mixed",
