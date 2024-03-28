@@ -79,6 +79,14 @@ async function getMobileConf() {
   };
 }
 
+async function getGOneConf() {
+  const mobileConf = yaml.load(path.join(__dirname, `./g1v.yml`));
+  return {
+    ...(await getConf()),
+    ...mobileConf,
+  };
+}
+
 (async function () {
   function write({ conf, name }) {
     fs.writeFileSync(
@@ -92,4 +100,5 @@ async function getMobileConf() {
   }
   write({ conf: await getConf(), name: `singbox` });
   write({ conf: await getMobileConf(), name: `singbox-mobile` });
+  write({ conf: await getGOneConf(), name: `g1v` });
 })();
