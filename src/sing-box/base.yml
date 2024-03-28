@@ -9,7 +9,7 @@ dns:
   strategy: prefer_ipv4
   servers:
     - { tag: dns_proxy, address: 8.8.8.8, detour: 默认 }
-    - { tag: dns_resolver, address: 223.5.5.5, detour: 国内 }
+    - { tag: dns_resolver, address: 223.5.5.5, detour: DIRECT }
   rules:
     - { rule_set: [ MainlandNetwork ], server: dns_resolver }
     - { rule_set: [ AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ], server: dns_proxy }
