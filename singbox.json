@@ -46,7 +46,7 @@
     ]
   },
   "ntp": {
-    "enabled": true,
+    "enabled": false,
     "server": "time.windows.com",
     "server_port": 123,
     "interval": "30m",
