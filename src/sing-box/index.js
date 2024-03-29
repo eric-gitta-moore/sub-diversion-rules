@@ -11,16 +11,18 @@ const PROXY_PROVIDER_URL =
   // "https://gist.githubusercontent.com/eric-gitta-moore/c95dee8e3432444e47c32c4a5527465a/raw/all-sing-box";
   "https://sub-store.tianhaoltd.top/4ae91b41-9b14-4c79-8b36-b3d5b6366874/download/collection/all-in-one?target=sing-box";
 
+let proxies;
 function useProxies(
   { proxyProviderURL } = { proxyProviderURL: PROXY_PROVIDER_URL },
 ) {
-  let proxies;
   async function getProxies() {
     if (proxies) {
+      console.log(`hit cache`);
       return proxies;
     }
-    const httpsProxy = process.env.https_proxy;
-    const agent = httpsProxy ? new HttpsProxyAgent(httpsProxy) : null;
+    const httpProxy = process.env.http_proxy;
+    const agent = httpProxy ? new HttpsProxyAgent(httpProxy) : null;
+    console.log(`fetch proxies, proxy ${httpProxy}`);
     proxies = await fetch(proxyProviderURL, agent ? { agent } : {}).then((e) =>
       e.json(),
     );
