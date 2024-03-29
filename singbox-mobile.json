@@ -109,13 +109,6 @@
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
-        "tag": "GeoSite@category-dev",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs"
-      },
-      {
         "tag": "GeoSite@category-dev-cn",
         "download_detour": "DIRECT",
         "type": "remote",
@@ -421,12 +414,6 @@
         "outbound": "国外图床",
         "rule_set": [
           "GeoSite@imgur"
-        ]
-      },
-      {
-        "outbound": "Dev",
-        "rule_set": [
-          "GeoSite@category-dev"
         ]
       },
       {
