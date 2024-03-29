@@ -44,12 +44,14 @@ route:
     - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
+    - { tag: GeoSite@category-dev, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs }
     - { tag: GeoSite@category-dev-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs }
     - { tag: GeoSite@category-scholar-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs }
     - { tag: GeoSite@category-games@cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games@cn.srs }
     - { tag: GeoSite@tld-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-cn.srs }
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cn.srs }
 
+    - { tag: GeoSite@golang, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/golang.srs }
     - { tag: GeoSite@apple, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/apple.srs }
     - { tag: GeoSite@zoom, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/zoom.srs }
     - { tag: GeoSite@google, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google.srs }
@@ -93,7 +95,7 @@ route:
     - { outbound: Apple, rule_set: [ GeoSite@apple ] }
     - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
-    - { outbound: Dev, rule_set: [ GeoSite@github ] }
+    - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
