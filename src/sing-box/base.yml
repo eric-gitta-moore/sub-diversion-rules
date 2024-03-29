@@ -44,7 +44,6 @@ route:
     - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
-    - { tag: GeoSite@category-dev, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs }
     - { tag: GeoSite@category-dev-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs }
     - { tag: GeoSite@category-scholar-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs }
     - { tag: GeoSite@category-games@cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games@cn.srs }
@@ -99,7 +98,6 @@ route:
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
     - { outbound: SSH@22, port: [ 22 ] }
     - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@meta, GeoSite@category-anticensorship, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn, GeoSite@category-communication ] }
 
