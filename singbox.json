@@ -95,6 +95,13 @@
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
+        "tag": "GeoSite@category-dev",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs"
+      },
+      {
         "tag": "GeoSite@category-dev-cn",
         "download_detour": "DIRECT",
         "type": "remote",
@@ -128,6 +135,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cn.srs"
+      },
+      {
+        "tag": "GeoSite@golang",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/golang.srs"
       },
       {
         "tag": "GeoSite@apple",
@@ -372,7 +386,9 @@
       {
         "outbound": "Dev",
         "rule_set": [
-          "GeoSite@github"
+          "GeoSite@github",
+          "GeoSite@golang",
+          "GeoSite@category-dev"
         ]
       },
       {
