@@ -16,6 +16,8 @@ dns:
     - { tag: Zoom, address: 8.8.8.8, detour: Zoom }
     - { tag: Meta, address: 8.8.8.8, detour: Meta }
     - { tag: Communication, address: 8.8.8.8, detour: Communication }
+    - { tag: 国外CDN, address: 8.8.8.8, detour: 国外CDN }
+    - { tag: Games, address: 8.8.8.8, detour: Games }
     - { tag: Dev, address: 8.8.8.8, detour: Dev }
     - { tag: Google, address: 8.8.8.8, detour: Google }
     - { tag: Microsoft, address: 8.8.8.8, detour: Microsoft }
@@ -30,12 +32,12 @@ dns:
     - { server: Zoom, rule_set: [ GeoSite@zoom ] }
     - { server: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
     - { server: Communication, rule_set: [ GeoSite@category-communication ] }
+    - { server: 国外CDN, rule_set: [ GeoSite@cloudflare, GeoSite@jsdelivr ] }
     - { server: Games, rule_set: [ GeoSite@category-games ] }
     - { server: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
     - { server: Google, rule_set: [ GeoSite@google ] }
     - { server: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { server: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { server: SSH@22, port: [ 22 ] }
     - { server: 默认, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
 
     - { server: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
@@ -80,6 +82,9 @@ route:
     - { tag: GeoSite@tld-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-cn.srs }
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cn.srs }
 
+    - { tag: GeoSite@cloudflare, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cloudflare.srs }
+    - { tag: GeoSite@jsdelivr, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/jsdelivr.srs }
+    - { tag: GeoSite@x, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/x.srs }
     - { tag: GeoSite@golang, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/golang.srs }
     - { tag: GeoSite@apple, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/apple.srs }
     - { tag: GeoSite@zoom, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/zoom.srs }
@@ -94,7 +99,6 @@ route:
     - { tag: GeoSite@Claude, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs }
     - { tag: GeoSite@Gemini, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs }
 
-    - { tag: GeoSite@x, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/x.srs }
     - { tag: GeoSite@category-games, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games.srs }
     - { tag: GeoSite@category-social-media-!cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-social-media-!cn.srs }
     - { tag: GeoSite@category-porn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-porn.srs }
@@ -116,6 +120,7 @@ route:
     - { outbound: dns-out, protocol: dns }
 
     - { outbound: DIRECT, rule_set: [ GeoSite@private ] }
+    - { outbound: SSH@22, port: [ 22 ] }
 
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
@@ -129,12 +134,12 @@ route:
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
     - { outbound: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
     - { outbound: Communication, rule_set: [ GeoSite@category-communication ] }
+    - { outbound: 国外CDN, rule_set: [ GeoSite@cloudflare, GeoSite@jsdelivr ] }
     - { outbound: Games, rule_set: [ GeoSite@category-games ] }
     - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { outbound: SSH@22, port: [ 22 ] }
     - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
 
     - { outbound: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
@@ -170,6 +175,7 @@ outbounds:
   - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: Games, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: Dev, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: 国外CDN, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: 国外图床, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: SSH@22, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
   - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
