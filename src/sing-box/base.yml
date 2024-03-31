@@ -28,7 +28,7 @@ dns:
     - { server: Apple, rule_set: [ GeoSite@apple ] }
     - { server: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { server: Zoom, rule_set: [ GeoSite@zoom ] }
-    - { server: Meta, rule_set: [ GeoSite@meta ] }
+    - { server: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
     - { server: Communication, rule_set: [ GeoSite@category-communication ] }
     - { server: Games, rule_set: [ GeoSite@category-games ] }
     - { server: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
@@ -94,7 +94,7 @@ route:
     - { tag: GeoSite@Claude, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs }
     - { tag: GeoSite@Gemini, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs }
 
-#    - { tag: GeoSite@category-entertainment, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-entertainment.srs }
+    - { tag: GeoSite@x, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/x.srs }
     - { tag: GeoSite@category-games, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games.srs }
     - { tag: GeoSite@category-social-media-!cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-social-media-!cn.srs }
     - { tag: GeoSite@category-porn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-porn.srs }
@@ -127,7 +127,7 @@ route:
     - { outbound: Apple, rule_set: [ GeoSite@apple ] }
     - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
-    - { outbound: Meta, rule_set: [ GeoSite@meta ] }
+    - { outbound: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
     - { outbound: Communication, rule_set: [ GeoSite@category-communication ] }
     - { outbound: Games, rule_set: [ GeoSite@category-games ] }
     - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
