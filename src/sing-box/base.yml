@@ -30,7 +30,7 @@ dns:
     - { server: Zoom, rule_set: [ GeoSite@zoom ] }
     - { server: Meta, rule_set: [ GeoSite@meta ] }
     - { server: Communication, rule_set: [ GeoSite@category-communication ] }
-    - { server: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev ] }
+    - { server: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
     - { server: Google, rule_set: [ GeoSite@google ] }
     - { server: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { server: 国外图床, rule_set: [ GeoSite@imgur ] }
@@ -68,6 +68,7 @@ route:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
+    - { tag: MyDev, download_detour: DIRECT, type: remote, format: source, url: https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/Dev.json }
     # 系统规则 begin
     - { tag: GeoSite@category-dev-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs }
     - { tag: GeoSite@category-scholar-cn, download_detour: DIRECT, type: remote, format: binary, url: https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs }
@@ -121,7 +122,7 @@ route:
     - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
     - { outbound: Meta, rule_set: [ GeoSite@meta ] }
     - { outbound: Communication, rule_set: [ GeoSite@category-communication ] }
-    - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev ] }
+    - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
     - { outbound: Google, rule_set: [ GeoSite@google ] }
     - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
