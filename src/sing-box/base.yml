@@ -39,7 +39,7 @@ dns:
     - { server: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
     - { server: 默认, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
 
-    - { outbound: [ any ], server: dns_resolver }
+    - { server: 国内, outbound: [ any ] }
 
 
 #ntp:

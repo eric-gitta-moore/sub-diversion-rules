@@ -170,10 +170,10 @@
         ]
       },
       {
+        "server": "国内",
         "outbound": [
           "any"
-        ],
-        "server": "dns_resolver"
+        ]
       }
     ]
   },
