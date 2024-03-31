@@ -83,7 +83,9 @@
           "GeoSite@microsoft@cn",
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
-          "GeoSite@category-games@cn"
+          "GeoSite@category-games@cn",
+          "GeoSite@category-entertainment@cn",
+          "GeoSite@steam@cn"
         ]
       },
       {
@@ -119,6 +121,12 @@
         ]
       },
       {
+        "server": "Games",
+        "rule_set": [
+          "GeoSite@category-games"
+        ]
+      },
+      {
         "server": "Dev",
         "rule_set": [
           "GeoSite@github",
@@ -146,11 +154,16 @@
         ]
       },
       {
+        "server": "SSH@22",
+        "port": [
+          22
+        ]
+      },
+      {
         "server": "默认",
         "rule_set": [
           "GeoSite@tiktok",
           "GeoSite@category-anticensorship",
-          "GeoSite@category-games",
           "GeoSite@category-social-media-!cn",
           "GeoSite@category-porn"
         ]
@@ -241,6 +254,20 @@
         "type": "remote",
         "format": "source",
         "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/Dev.json"
+      },
+      {
+        "tag": "GeoSite@steam@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/steam@cn.srs"
+      },
+      {
+        "tag": "GeoSite@category-entertainment@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-entertainment@cn.srs"
       },
       {
         "tag": "GeoSite@category-dev-cn",
@@ -472,18 +499,6 @@
         ]
       },
       {
-        "outbound": "国内",
-        "rule_set": [
-          "MainlandNetwork"
-        ]
-      },
-      {
-        "outbound": "默认",
-        "rule_set": [
-          "AboardNetwork"
-        ]
-      },
-      {
         "outbound": "GoogleOneVPNCheckPoint",
         "rule_set": [
           "GoogleOneVPNCheckPoint"
@@ -498,10 +513,24 @@
       {
         "outbound": "国内",
         "rule_set": [
+          "MainlandNetwork"
+        ]
+      },
+      {
+        "outbound": "默认",
+        "rule_set": [
+          "AboardNetwork"
+        ]
+      },
+      {
+        "outbound": "国内",
+        "rule_set": [
           "GeoSite@microsoft@cn",
           "GeoSite@category-dev-cn",
           "GeoSite@category-scholar-cn",
-          "GeoSite@category-games@cn"
+          "GeoSite@category-games@cn",
+          "GeoSite@category-entertainment@cn",
+          "GeoSite@steam@cn"
         ]
       },
       {
@@ -534,6 +563,12 @@
         "outbound": "Communication",
         "rule_set": [
           "GeoSite@category-communication"
+        ]
+      },
+      {
+        "outbound": "Games",
+        "rule_set": [
+          "GeoSite@category-games"
         ]
       },
       {
@@ -574,7 +609,6 @@
         "rule_set": [
           "GeoSite@tiktok",
           "GeoSite@category-anticensorship",
-          "GeoSite@category-games",
           "GeoSite@category-social-media-!cn",
           "GeoSite@category-porn"
         ]
@@ -795,7 +829,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：774.03 GB",
+        "剩余流量：773.8 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -924,7 +958,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾—TK专线",
-        "剩余流量：432.49 GB",
+        "剩余流量：368.53 GB",
         "距离下次重置剩余：3 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1154,7 +1188,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：774.03 GB",
+        "剩余流量：773.8 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1283,7 +1317,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾—TK专线",
-        "剩余流量：432.49 GB",
+        "剩余流量：368.53 GB",
         "距离下次重置剩余：3 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1461,7 +1495,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：774.03 GB",
+        "剩余流量：773.8 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1590,7 +1624,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾—TK专线",
-        "剩余流量：432.49 GB",
+        "剩余流量：368.53 GB",
         "距离下次重置剩余：3 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1768,7 +1802,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：774.03 GB",
+        "剩余流量：773.8 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1897,7 +1931,7 @@
         "🇩🇪德国",
         "🇳🇱荷兰-0.1倍",
         "🇹🇼台湾—TK专线",
-        "剩余流量：432.49 GB",
+        "剩余流量：368.53 GB",
         "距离下次重置剩余：3 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -2036,6 +2070,24 @@
     },
     {
       "tag": "LLM",
+      "outbounds": [
+        "默认",
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "手动选择1",
+        "手动选择2",
+        "手动选择3",
+        "自动选择",
+        "DIRECT"
+      ],
+      "type": "selector",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Games",
       "outbounds": [
         "默认",
         "香港节点",
@@ -4584,7 +4636,7 @@
       }
     },
     {
-      "tag": "剩余流量：774.03 GB",
+      "tag": "剩余流量：773.8 GB",
       "type": "shadowsocks",
       "server": "hkt.jjjjjj.icu",
       "server_port": 40981,
@@ -5897,7 +5949,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "tag": "剩余流量：432.49 GB",
+      "tag": "剩余流量：368.53 GB",
       "type": "hysteria2",
       "server": "jiedianfsc.fsc.interld123456789.com",
       "server_port": 38000,
