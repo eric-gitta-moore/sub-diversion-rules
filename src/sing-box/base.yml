@@ -12,7 +12,11 @@ dns:
     - { tag: dns_resolver, address: 223.5.5.5, detour: 国内 }
   rules:
     - { rule_set: [ MainlandNetwork ], server: dns_resolver }
+
+    - { rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn ], server: dns_resolver }
     - { rule_set: [ AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ], server: dns_proxy }
+    - { rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ], server: dns_proxy }
+
     - { rule_set: [ GeoSite@cn, GeoSite@tld-cn ], server: dns_resolver }
     - { outbound: [ any ], server: dns_resolver }
 

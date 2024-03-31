@@ -6,7 +6,7 @@ dns:
     independent_cache: true
     strategy: prefer_ipv4
     servers: [{tag: dns_proxy, address: 8.8.8.8, detour: DnsOut}, {tag: dns_resolver, address: 223.5.5.5, detour: 国内}]
-    rules: [{rule_set: [MainlandNetwork], server: dns_resolver}, {rule_set: [AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn], server: dns_proxy}, {rule_set: [GeoSite@cn, GeoSite@tld-cn], server: dns_resolver}, {outbound: [any], server: dns_resolver}]
+    rules: [{rule_set: [MainlandNetwork], server: dns_resolver}, {rule_set: [GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn], server: dns_resolver}, {rule_set: [AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn], server: dns_proxy}, {rule_set: [GeoSite@openai, GeoSite@Claude, GeoSite@Gemini], server: dns_proxy}, {rule_set: [GeoSite@cn, GeoSite@tld-cn], server: dns_resolver}, {outbound: [any], server: dns_resolver}]
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 0.0.0.0, listen_port: 2080, sniff: true, sniff_override_destination: true, domain_strategy: prefer_ipv4}
     - {type: tun, tag: tun-in, inet4_address: 172.19.0.1/30, inet6_address: 'fdfe:dcba:9876::1/126', auto_route: true, strict_route: false, mtu: 1400, sniff: true, sniff_override_destination: true, endpoint_independent_nat: true, domain_strategy: prefer_ipv4, stack: system}
