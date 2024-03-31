@@ -8,8 +8,8 @@ dns:
   independent_cache: true
   strategy: prefer_ipv4
   servers:
-    - { tag: dns_proxy, address: 8.8.8.8, detour: 默认 }
-    - { tag: dns_resolver, address: 223.5.5.5, detour: DIRECT }
+    - { tag: dns_proxy, address: 8.8.8.8, detour: DnsOut }
+    - { tag: dns_resolver, address: 223.5.5.5, detour: 国内 }
   rules:
     - { rule_set: [ MainlandNetwork ], server: dns_resolver }
     - { rule_set: [ AboardNetwork, GeoSite@category-anticensorship, GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ], server: dns_proxy }
@@ -119,10 +119,12 @@ experimental:
 outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择1, 手动选择2, 手动选择3, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
   - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
+  - { tag: DnsOut, type: selector, outbounds: [ 自动选择, 手动选择1, 手动选择2, 手动选择3, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
   - { tag: '⭕⭕====分割线 1====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: 手动选择1, type: selector, outbounds: [ 自动选择, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
-  - { tag: 手动选择2, type: selector, include-all: true, interrupt_exist_connections: true }
+  - { tag: 手动选择2, type: selector, outbounds: [ 自动选择, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
   - { tag: 手动选择3, type: selector, include-all: true, interrupt_exist_connections: true }
+  - { tag: 手动选择4, type: selector, include-all: true, interrupt_exist_connections: true }
   - { tag: 前置代理组, type: selector, include-all-providers: true, interrupt_exist_connections: true }
   - { tag: '⭕⭕====分割线 2====⭕⭕', type: selector, outbounds: [ DIRECT ] }
   - { tag: Google, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
