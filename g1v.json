@@ -4,17 +4,17 @@
     "timestamp": true
   },
   "dns": {
-    "final": "dns_proxy",
+    "final": "默认",
     "independent_cache": true,
     "strategy": "prefer_ipv4",
     "servers": [
       {
-        "tag": "dns_proxy",
+        "tag": "默认",
         "address": "8.8.8.8",
         "detour": "DnsOut"
       },
       {
-        "tag": "dns_resolver",
+        "tag": "国内",
         "address": "223.5.5.5",
         "detour": "国内"
       },
@@ -66,19 +66,19 @@
     ],
     "rules": [
       {
-        "server": "dns_resolver",
+        "server": "国内",
         "rule_set": [
           "MainlandNetwork"
         ]
       },
       {
-        "server": "dns_proxy",
+        "server": "默认",
         "rule_set": [
           "AboardNetwork"
         ]
       },
       {
-        "server": "dns_resolver",
+        "server": "国内",
         "rule_set": [
           "GeoSite@microsoft@cn",
           "GeoSite@category-dev-cn",
@@ -145,7 +145,7 @@
         ]
       },
       {
-        "server": "dns_proxy",
+        "server": "默认",
         "rule_set": [
           "GeoSite@tiktok",
           "GeoSite@category-anticensorship",
@@ -155,14 +155,14 @@
         ]
       },
       {
-        "server": "dns_resolver",
+        "server": "国内",
         "rule_set": [
           "GeoSite@tld-cn",
           "GeoSite@cn"
         ]
       },
       {
-        "server": "dns_proxy",
+        "server": "默认",
         "rule_set": [
           "GeoSite@tld-!cn",
           "GeoSite@gfw",

@@ -4,12 +4,12 @@ log:
 
 
 dns:
-  final: dns_proxy
+  final: 默认
   independent_cache: true
   strategy: prefer_ipv4
   servers:
-    - { tag: dns_proxy, address: 8.8.8.8, detour: DnsOut }
-    - { tag: dns_resolver, address: 223.5.5.5, detour: 国内 }
+    - { tag: 默认, address: 8.8.8.8, detour: DnsOut }
+    - { tag: 国内, address: 223.5.5.5, detour: 国内 }
 
     - { tag: Apple, address: 8.8.8.8, detour: Apple }
     - { tag: LLM, address: 8.8.8.8, detour: LLM }
@@ -21,10 +21,10 @@ dns:
     - { tag: Microsoft, address: 8.8.8.8, detour: Microsoft }
     - { tag: 国外图床, address: 8.8.8.8, detour: 国外图床 }
   rules:
-    - { server: dns_resolver, rule_set: [ MainlandNetwork ] }
-    - { server: dns_proxy, rule_set: [ AboardNetwork ] }
+    - { server: 国内, rule_set: [ MainlandNetwork ] }
+    - { server: 默认, rule_set: [ AboardNetwork ] }
 
-    - { server: dns_resolver, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn ] }
+    - { server: 国内, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn ] }
     - { server: Apple, rule_set: [ GeoSite@apple ] }
     - { server: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
     - { server: Zoom, rule_set: [ GeoSite@zoom ] }
@@ -34,10 +34,10 @@ dns:
     - { server: Google, rule_set: [ GeoSite@google ] }
     - { server: Microsoft, rule_set: [ GeoSite@microsoft ] }
     - { server: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { server: dns_proxy, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
+    - { server: 默认, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-games, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
 
-    - { server: dns_resolver, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
-    - { server: dns_proxy, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
+    - { server: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
+    - { server: 默认, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
 
     - { outbound: [ any ], server: dns_resolver }
 
