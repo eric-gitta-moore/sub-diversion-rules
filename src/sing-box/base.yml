@@ -48,7 +48,7 @@ dns:
 
 ntp:
   enabled: true
-  server: ntp.aliyun.com
+  server: 203.107.6.88
   server_port: 123
   interval: 30m
   detour: DIRECT

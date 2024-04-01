@@ -9,7 +9,7 @@ dns:
     rules: [{server: 国内, rule_set: [MainlandNetwork]}, {server: 默认, rule_set: [AboardNetwork]}, {server: 国内, rule_set: [GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@category-entertainment@cn, GeoSite@steam@cn]}, {server: Apple, rule_set: [GeoSite@apple]}, {server: LLM, rule_set: [GeoSite@openai, GeoSite@Claude, GeoSite@Gemini]}, {server: Zoom, rule_set: [GeoSite@zoom]}, {server: Meta, rule_set: [GeoSite@meta, GeoSite@x]}, {server: Communication, rule_set: [GeoSite@category-communication]}, {server: 国外CDN, rule_set: [GeoSite@cloudflare, GeoSite@jsdelivr]}, {server: Games, rule_set: [GeoSite@category-games]}, {server: Dev, rule_set: [GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev]}, {server: Google, rule_set: [GeoSite@google]}, {server: Microsoft, rule_set: [GeoSite@microsoft]}, {server: 国外图床, rule_set: [GeoSite@imgur]}, {server: 默认, rule_set: [GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-social-media-!cn, GeoSite@category-porn]}, {server: 国内, rule_set: [GeoSite@tld-cn, GeoSite@cn]}, {server: 默认, rule_set: [GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn]}, {server: 国内, outbound: [any]}]
 ntp:
     enabled: true
-    server: ntp.aliyun.com
+    server: 203.107.6.88
     server_port: 123
     interval: 30m
     detour: DIRECT
