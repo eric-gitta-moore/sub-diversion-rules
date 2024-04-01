@@ -1,5 +1,5 @@
 log:
-  level: info
+  level: warn
   timestamp: true
 
 
@@ -46,12 +46,12 @@ dns:
     - { server: 国内, outbound: [ any ] }
 
 
-#ntp:
-#  enabled: false
-#  server: time.windows.com
-#  server_port: 123
-#  interval: 30m
-#  detour: DIRECT
+ntp:
+  enabled: true
+  server: ntp.aliyun.com
+  server_port: 123
+  interval: 30m
+  detour: DIRECT
 
 
 inbounds:
