@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   },
   "dns": {
@@ -203,6 +203,13 @@
       }
     ]
   },
+  "ntp": {
+    "enabled": true,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "DIRECT"
+  },
   "inbounds": [
     {
       "type": "mixed",
@@ -223,287 +230,287 @@
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
       },
       {
         "tag": "MainlandNetwork",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
         "tag": "GoogleOneVPNTun",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
       },
       {
         "tag": "GoogleOneVPNCheckPoint",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
         "tag": "MyDev",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://jihulab.com/james-curtis/sub-diversion-rules/-/raw/main/rule/james-curtis/Clash/Providers/Dev.json"
-      },
-      {
-        "tag": "GeoSite@steam@cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/steam@cn.srs"
-      },
-      {
-        "tag": "GeoSite@category-entertainment@cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-entertainment@cn.srs"
-      },
-      {
-        "tag": "GeoSite@category-dev-cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev-cn.srs"
-      },
-      {
-        "tag": "GeoSite@category-scholar-cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-scholar-cn.srs"
-      },
-      {
-        "tag": "GeoSite@category-games@cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games@cn.srs"
-      },
-      {
-        "tag": "GeoSite@tld-cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-cn.srs"
-      },
-      {
-        "tag": "GeoSite@cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cn.srs"
-      },
-      {
-        "tag": "GeoSite@cloudflare",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/cloudflare.srs"
-      },
-      {
-        "tag": "GeoSite@jsdelivr",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/jsdelivr.srs"
-      },
-      {
-        "tag": "GeoSite@x",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/x.srs"
-      },
-      {
-        "tag": "GeoSite@golang",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/golang.srs"
-      },
-      {
-        "tag": "GeoSite@apple",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/apple.srs"
-      },
-      {
-        "tag": "GeoSite@zoom",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/zoom.srs"
-      },
-      {
-        "tag": "GeoSite@google",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/google.srs"
-      },
-      {
-        "tag": "GeoSite@github",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/github.srs"
-      },
-      {
-        "tag": "GeoSite@microsoft",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft.srs"
-      },
-      {
-        "tag": "GeoSite@microsoft@cn",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/microsoft@cn.srs"
-      },
-      {
-        "tag": "GeoSite@imgur",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/imgur.srs"
-      },
-      {
-        "tag": "GeoSite@meta",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/meta.srs"
-      },
-      {
-        "tag": "GeoSite@tiktok",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tiktok.srs"
-      },
-      {
-        "tag": "GeoSite@openai",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/openai.srs"
-      },
-      {
-        "tag": "GeoSite@Claude",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Claude.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/Dev.json"
       },
       {
         "tag": "GeoSite@Gemini",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/bm7/Gemini.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/sub-diversion-rules/raw/main/rule/james-curtis/Clash/Providers/Gemini.json"
+      },
+      {
+        "tag": "GeoSite@steam@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/steam@cn.srs"
+      },
+      {
+        "tag": "GeoSite@category-entertainment@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-entertainment@cn.srs"
+      },
+      {
+        "tag": "GeoSite@category-dev-cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-dev-cn.srs"
+      },
+      {
+        "tag": "GeoSite@category-scholar-cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-scholar-cn.srs"
+      },
+      {
+        "tag": "GeoSite@category-games@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-games@cn.srs"
+      },
+      {
+        "tag": "GeoSite@tld-cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/tld-cn.srs"
+      },
+      {
+        "tag": "GeoSite@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
+      },
+      {
+        "tag": "GeoSite@cloudflare",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/cloudflare.srs"
+      },
+      {
+        "tag": "GeoSite@jsdelivr",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/jsdelivr.srs"
+      },
+      {
+        "tag": "GeoSite@x",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/x.srs"
+      },
+      {
+        "tag": "GeoSite@golang",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/golang.srs"
+      },
+      {
+        "tag": "GeoSite@apple",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/apple.srs"
+      },
+      {
+        "tag": "GeoSite@zoom",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/zoom.srs"
+      },
+      {
+        "tag": "GeoSite@google",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/google.srs"
+      },
+      {
+        "tag": "GeoSite@github",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/github.srs"
+      },
+      {
+        "tag": "GeoSite@microsoft",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/microsoft.srs"
+      },
+      {
+        "tag": "GeoSite@microsoft@cn",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/microsoft@cn.srs"
+      },
+      {
+        "tag": "GeoSite@imgur",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/imgur.srs"
+      },
+      {
+        "tag": "GeoSite@meta",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/meta.srs"
+      },
+      {
+        "tag": "GeoSite@tiktok",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/tiktok.srs"
+      },
+      {
+        "tag": "GeoSite@openai",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/openai.srs"
+      },
+      {
+        "tag": "GeoSite@Claude",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/anthropic.srs"
       },
       {
         "tag": "GeoSite@category-games",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-games.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-games.srs"
       },
       {
         "tag": "GeoSite@category-social-media-!cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-social-media-!cn.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-social-media-!cn.srs"
       },
       {
         "tag": "GeoSite@category-porn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-porn.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-porn.srs"
       },
       {
         "tag": "GeoSite@category-communication",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-communication.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-communication.srs"
       },
       {
         "tag": "GeoSite@category-dev",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-dev.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-dev.srs"
       },
       {
         "tag": "GeoSite@category-anticensorship",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/category-anticensorship.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/category-anticensorship.srs"
       },
       {
         "tag": "GeoSite@tld-!cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/tld-!cn.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/tld-!cn.srs"
       },
       {
         "tag": "GeoSite@gfw",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/gfw.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/gfw.srs"
       },
       {
         "tag": "GeoSite@geolocation-!cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/geolocation-!cn.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
         "tag": "GeoIP@google",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/google.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geoip/google.srs"
       },
       {
         "tag": "GeoIP@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/cn.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geoip/cn.srs"
       },
       {
         "tag": "GeoIP@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geoip/private.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geoip/private.srs"
       },
       {
         "tag": "GeoSite@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://jihulab.com/james-curtis/meta-rules-dat/-/raw/sing/geo/geosite/private.srs"
+        "url": "https://raw.gitcode.com/qq_35485875/meta-rules-dat/raw/sing/geo/geosite/private.srs"
       }
     ],
     "rules": [
@@ -709,7 +716,7 @@
       "interval": "6h",
       "idle_timeout": "12h",
       "outbounds": [
-        "剩余流量：99.91 GB",
+        "剩余流量：99.86 GB",
         "距离下次重置剩余：29 天-1",
         "套餐到期：2024-10-30",
         "一元百G：https://fscloud.vip",
@@ -782,7 +789,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：200 GB",
+        "剩余流量：199.89 GB",
         "距离下次重置剩余：29 天-2",
         "套餐到期：2024-08-06",
         "去除25条不合适线路",
@@ -806,12 +813,11 @@
         "沙特阿拉伯 01",
         "英国伦敦 01",
         "荷兰 01",
-        "剩余流量：199.74 GB",
+        "剩余流量：199.65 GB",
         "距离下次重置剩余：28 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
         "连不上就是换IP了",
-        "🇹🇼台湾TW2-家宽动态IP-x2",
         "🇹🇼台湾TW3-家宽动态IP-x2",
         "🇺🇸美国US1-家宽动态IP-x2",
         "🇹🇼台湾TW2-AK",
@@ -837,7 +843,7 @@
         "🇮🇳印度IN3-动态IP-x1",
         "🇮🇳印度IN4-动态IP-x1",
         "🇮🇳印度IN5-动态IP-x1",
-        "剩余流量：99.21 GB",
+        "剩余流量：99.09 GB",
         "距离下次重置剩余：10 天",
         "套餐到期：2025-02-11",
         "美国hy2-001-1",
@@ -857,7 +863,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：769.22 GB",
+        "剩余流量：765.63 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -944,13 +950,17 @@
         "加拿大01",
         "加拿大02",
         "澳大利亚01",
-        "剩余流量：188.54 GB",
+        "韩国01",
+        "韩国02",
+        "韩国03",
+        "剩余流量：188.4 GB",
         "距离下次重置剩余：23 天",
         "套餐到期：2025-01-24",
         "🇺🇸美国洛杉矶1号",
         "🇺🇸美国洛杉矶2号",
         "🇺🇸美国洛杉矶3号",
         "🇧🇷巴西圣保罗-1.5倍率",
+        "🇯🇵日本-0.1倍率",
         "🇸🇬新加坡-0.1倍率",
         "🇳🇱荷兰",
         "🇫🇷法国 Hy2",
@@ -984,7 +994,7 @@
         "🇹🇼台湾—TK专线",
         "🇭🇰香港hkt-2倍率",
         "🇭🇰香港hkt2-1.8倍率",
-        "剩余流量：366.37 GB",
+        "剩余流量：364.71 GB",
         "距离下次重置剩余：2 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1065,7 +1075,7 @@
       "type": "selector",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "剩余流量：99.91 GB",
+        "剩余流量：99.86 GB",
         "距离下次重置剩余：29 天-1",
         "套餐到期：2024-10-30",
         "一元百G：https://fscloud.vip",
@@ -1138,7 +1148,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：200 GB",
+        "剩余流量：199.89 GB",
         "距离下次重置剩余：29 天-2",
         "套餐到期：2024-08-06",
         "去除25条不合适线路",
@@ -1162,14 +1172,13 @@
         "沙特阿拉伯 01",
         "英国伦敦 01",
         "荷兰 01",
-        "剩余流量：199.74 GB",
+        "剩余流量：199.65 GB",
         "距离下次重置剩余：28 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
         "连不上就是换IP了",
         "🇨🇳江苏2CN-x1.2",
         "🇨🇳江苏3CN-x1.2",
-        "🇹🇼台湾TW2-家宽动态IP-x2",
         "🇹🇼台湾TW3-家宽动态IP-x2",
         "🇺🇸美国US1-家宽动态IP-x2",
         "🇹🇼台湾TW2-AK",
@@ -1195,7 +1204,7 @@
         "🇮🇳印度IN3-动态IP-x1",
         "🇮🇳印度IN4-动态IP-x1",
         "🇮🇳印度IN5-动态IP-x1",
-        "剩余流量：99.21 GB",
+        "剩余流量：99.09 GB",
         "距离下次重置剩余：10 天",
         "套餐到期：2025-02-11",
         "美国hy2-001-1",
@@ -1215,7 +1224,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：769.22 GB",
+        "剩余流量：765.63 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1302,13 +1311,17 @@
         "加拿大01",
         "加拿大02",
         "澳大利亚01",
-        "剩余流量：188.54 GB",
+        "韩国01",
+        "韩国02",
+        "韩国03",
+        "剩余流量：188.4 GB",
         "距离下次重置剩余：23 天",
         "套餐到期：2025-01-24",
         "🇺🇸美国洛杉矶1号",
         "🇺🇸美国洛杉矶2号",
         "🇺🇸美国洛杉矶3号",
         "🇧🇷巴西圣保罗-1.5倍率",
+        "🇯🇵日本-0.1倍率",
         "🇸🇬新加坡-0.1倍率",
         "🇳🇱荷兰",
         "🇫🇷法国 Hy2",
@@ -1342,7 +1355,7 @@
         "🇹🇼台湾—TK专线",
         "🇭🇰香港hkt-2倍率",
         "🇭🇰香港hkt2-1.8倍率",
-        "剩余流量：366.37 GB",
+        "剩余流量：364.71 GB",
         "距离下次重置剩余：2 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1371,7 +1384,7 @@
       "type": "selector",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "剩余流量：99.91 GB",
+        "剩余流量：99.86 GB",
         "距离下次重置剩余：29 天-1",
         "套餐到期：2024-10-30",
         "一元百G：https://fscloud.vip",
@@ -1444,7 +1457,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：200 GB",
+        "剩余流量：199.89 GB",
         "距离下次重置剩余：29 天-2",
         "套餐到期：2024-08-06",
         "去除25条不合适线路",
@@ -1468,14 +1481,13 @@
         "沙特阿拉伯 01",
         "英国伦敦 01",
         "荷兰 01",
-        "剩余流量：199.74 GB",
+        "剩余流量：199.65 GB",
         "距离下次重置剩余：28 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
         "连不上就是换IP了",
         "🇨🇳江苏2CN-x1.2",
         "🇨🇳江苏3CN-x1.2",
-        "🇹🇼台湾TW2-家宽动态IP-x2",
         "🇹🇼台湾TW3-家宽动态IP-x2",
         "🇺🇸美国US1-家宽动态IP-x2",
         "🇹🇼台湾TW2-AK",
@@ -1501,7 +1513,7 @@
         "🇮🇳印度IN3-动态IP-x1",
         "🇮🇳印度IN4-动态IP-x1",
         "🇮🇳印度IN5-动态IP-x1",
-        "剩余流量：99.21 GB",
+        "剩余流量：99.09 GB",
         "距离下次重置剩余：10 天",
         "套餐到期：2025-02-11",
         "美国hy2-001-1",
@@ -1521,7 +1533,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：769.22 GB",
+        "剩余流量：765.63 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1608,13 +1620,17 @@
         "加拿大01",
         "加拿大02",
         "澳大利亚01",
-        "剩余流量：188.54 GB",
+        "韩国01",
+        "韩国02",
+        "韩国03",
+        "剩余流量：188.4 GB",
         "距离下次重置剩余：23 天",
         "套餐到期：2025-01-24",
         "🇺🇸美国洛杉矶1号",
         "🇺🇸美国洛杉矶2号",
         "🇺🇸美国洛杉矶3号",
         "🇧🇷巴西圣保罗-1.5倍率",
+        "🇯🇵日本-0.1倍率",
         "🇸🇬新加坡-0.1倍率",
         "🇳🇱荷兰",
         "🇫🇷法国 Hy2",
@@ -1648,7 +1664,7 @@
         "🇹🇼台湾—TK专线",
         "🇭🇰香港hkt-2倍率",
         "🇭🇰香港hkt2-1.8倍率",
-        "剩余流量：366.37 GB",
+        "剩余流量：364.71 GB",
         "距离下次重置剩余：2 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -1677,7 +1693,7 @@
       "type": "selector",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "剩余流量：99.91 GB",
+        "剩余流量：99.86 GB",
         "距离下次重置剩余：29 天-1",
         "套餐到期：2024-10-30",
         "一元百G：https://fscloud.vip",
@@ -1750,7 +1766,7 @@
         "荷兰",
         "迪拜",
         "请到官网下载最新的软件",
-        "剩余流量：200 GB",
+        "剩余流量：199.89 GB",
         "距离下次重置剩余：29 天-2",
         "套餐到期：2024-08-06",
         "去除25条不合适线路",
@@ -1774,14 +1790,13 @@
         "沙特阿拉伯 01",
         "英国伦敦 01",
         "荷兰 01",
-        "剩余流量：199.74 GB",
+        "剩余流量：199.65 GB",
         "距离下次重置剩余：28 天",
         "套餐到期：2024-09-29",
         "一元大熊TG: @dx445566",
         "连不上就是换IP了",
         "🇨🇳江苏2CN-x1.2",
         "🇨🇳江苏3CN-x1.2",
-        "🇹🇼台湾TW2-家宽动态IP-x2",
         "🇹🇼台湾TW3-家宽动态IP-x2",
         "🇺🇸美国US1-家宽动态IP-x2",
         "🇹🇼台湾TW2-AK",
@@ -1807,7 +1822,7 @@
         "🇮🇳印度IN3-动态IP-x1",
         "🇮🇳印度IN4-动态IP-x1",
         "🇮🇳印度IN5-动态IP-x1",
-        "剩余流量：99.21 GB",
+        "剩余流量：99.09 GB",
         "距离下次重置剩余：10 天",
         "套餐到期：2025-02-11",
         "美国hy2-001-1",
@@ -1827,7 +1842,7 @@
         "台湾awshy2-001-1",
         "台湾awshy2-002-1",
         "台湾awshy2-003-1",
-        "剩余流量：769.22 GB",
+        "剩余流量：765.63 GB",
         "套餐到期：长期有效",
         "🇭🇰 香港HKT家宽",
         "🇭🇰 香港_A1",
@@ -1914,13 +1929,17 @@
         "加拿大01",
         "加拿大02",
         "澳大利亚01",
-        "剩余流量：188.54 GB",
+        "韩国01",
+        "韩国02",
+        "韩国03",
+        "剩余流量：188.4 GB",
         "距离下次重置剩余：23 天",
         "套餐到期：2025-01-24",
         "🇺🇸美国洛杉矶1号",
         "🇺🇸美国洛杉矶2号",
         "🇺🇸美国洛杉矶3号",
         "🇧🇷巴西圣保罗-1.5倍率",
+        "🇯🇵日本-0.1倍率",
         "🇸🇬新加坡-0.1倍率",
         "🇳🇱荷兰",
         "🇫🇷法国 Hy2",
@@ -1954,7 +1973,7 @@
         "🇹🇼台湾—TK专线",
         "🇭🇰香港hkt-2倍率",
         "🇭🇰香港hkt2-1.8倍率",
-        "剩余流量：366.37 GB",
+        "剩余流量：364.71 GB",
         "距离下次重置剩余：2 天",
         "套餐到期：2024-04-03",
         "美国hy2-001-2",
@@ -2304,7 +2323,6 @@
         "台湾01 - hysteria2",
         "台湾002 - hysteria2",
         "台湾003 - hysteria2",
-        "🇹🇼台湾TW2-家宽动态IP-x2",
         "🇹🇼台湾TW3-家宽动态IP-x2",
         "🇹🇼台湾TW2-AK",
         "台湾awshy2-001-1",
@@ -2367,6 +2385,7 @@
         "日本03",
         "日本04",
         "日本05",
+        "🇯🇵日本-0.1倍率",
         "🇯🇵日本-0.1倍",
         "日本awshy2-001-2",
         "日本awshy2-002-2",
@@ -2513,7 +2532,7 @@
       "type": "dns"
     },
     {
-      "tag": "剩余流量：99.91 GB",
+      "tag": "剩余流量：99.86 GB",
       "type": "hysteria2",
       "server": "jiedianfsc.fsc.interld123456789.com",
       "server_port": 24000,
@@ -3511,7 +3530,7 @@
       }
     },
     {
-      "tag": "剩余流量：200 GB",
+      "tag": "剩余流量：199.89 GB",
       "type": "vmess",
       "server": "cdncdncdncdn.784654.xyz",
       "server_port": 2052,
@@ -3925,7 +3944,7 @@
       }
     },
     {
-      "tag": "剩余流量：199.74 GB",
+      "tag": "剩余流量：199.65 GB",
       "type": "vmess",
       "server": "8275cl.mc5173.cn",
       "server_port": 10123,
@@ -4037,25 +4056,9 @@
       }
     },
     {
-      "tag": "🇹🇼台湾TW2-家宽动态IP-x2",
-      "type": "vmess",
-      "server": "vetw02.956256.xyz",
-      "server_port": 50711,
-      "uuid": "a1a46cba-1901-43f7-97d5-56e05e6577d0",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "a.189.cn"
-        },
-        "path": "/"
-      }
-    },
-    {
       "tag": "🇹🇼台湾TW3-家宽动态IP-x2",
       "type": "vmess",
-      "server": "vetw02.956256.xyz",
+      "server": "36.238.166.121",
       "server_port": 50414,
       "uuid": "a1a46cba-1901-43f7-97d5-56e05e6577d0",
       "security": "auto",
@@ -4453,7 +4456,7 @@
       }
     },
     {
-      "tag": "剩余流量：99.21 GB",
+      "tag": "剩余流量：99.09 GB",
       "type": "hysteria2",
       "server": "jiedianfsc.fsc.interld123456789.com",
       "server_port": 38000,
@@ -4693,7 +4696,7 @@
       }
     },
     {
-      "tag": "剩余流量：769.22 GB",
+      "tag": "剩余流量：765.63 GB",
       "type": "shadowsocks",
       "server": "hkt.jjjjjj.icu",
       "server_port": 40981,
@@ -4760,7 +4763,7 @@
       "tag": "🇭🇰 香港-01_解锁",
       "type": "shadowsocks",
       "server": "hk01.jjjjjj.icu",
-      "server_port": 54423,
+      "server_port": 44423,
       "method": "chacha20-ietf-poly1305",
       "password": "9c436ab1-74e4-4417-80c5-50a4b7c417ff"
     },
@@ -5384,12 +5387,36 @@
       "tag": "澳大利亚01",
       "type": "shadowsocks",
       "server": "vartyehhvaphet7j.zozazutenoga.shop",
-      "server_port": 20119,
+      "server_port": 20120,
       "method": "chacha20-ietf-poly1305",
       "password": "443d84f5-e194-461b-a1f2-571b231ab108"
     },
     {
-      "tag": "剩余流量：188.54 GB",
+      "tag": "韩国01",
+      "type": "shadowsocks",
+      "server": "vartyehhvaphet7j.zozazutenoga.shop",
+      "server_port": 20120,
+      "method": "chacha20-ietf-poly1305",
+      "password": "443d84f5-e194-461b-a1f2-571b231ab108"
+    },
+    {
+      "tag": "韩国02",
+      "type": "shadowsocks",
+      "server": "vartyehhvaphet7j.zozazutenoga.shop",
+      "server_port": 20121,
+      "method": "chacha20-ietf-poly1305",
+      "password": "443d84f5-e194-461b-a1f2-571b231ab108"
+    },
+    {
+      "tag": "韩国03",
+      "type": "shadowsocks",
+      "server": "vartyehhvaphet7j.zozazutenoga.shop",
+      "server_port": 20122,
+      "method": "chacha20-ietf-poly1305",
+      "password": "443d84f5-e194-461b-a1f2-571b231ab108"
+    },
+    {
+      "tag": "剩余流量：188.4 GB",
       "type": "hysteria2",
       "server": "108.181.23.33",
       "server_port": 443,
@@ -5464,6 +5491,18 @@
       "tag": "🇧🇷巴西圣保罗-1.5倍率",
       "type": "hysteria2",
       "server": "168.75.85.171",
+      "server_port": 443,
+      "password": "2c2feeaf-a354-48d3-91b6-2af198e0941d",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇯🇵日本-0.1倍率",
+      "type": "hysteria2",
+      "server": "205.178.183.33",
       "server_port": 443,
       "password": "2c2feeaf-a354-48d3-91b6-2af198e0941d",
       "tls": {
@@ -6004,7 +6043,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "tag": "剩余流量：366.37 GB",
+      "tag": "剩余流量：364.71 GB",
       "type": "hysteria2",
       "server": "jiedianfsc.fsc.interld123456789.com",
       "server_port": 38000,
