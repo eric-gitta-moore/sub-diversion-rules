@@ -1,63 +1,21 @@
 log:
-  level: warn
+  level: info
   timestamp: true
 
 
 dns:
-  final: 默认
-  independent_cache: true
-  strategy: prefer_ipv4
   servers:
-    - { tag: 默认, address: 8.8.8.8, detour: DnsOut }
-    - { tag: 国内, address: 223.5.5.5, detour: 国内 }
-
-    - { tag: Apple, address: 8.8.8.8, detour: Apple }
-    - { tag: LLM, address: 8.8.8.8, detour: LLM }
-    - { tag: Zoom, address: 8.8.8.8, detour: Zoom }
-    - { tag: Meta, address: 8.8.8.8, detour: Meta }
-    - { tag: Communication, address: 8.8.8.8, detour: Communication }
-    - { tag: 国外CDN, address: 8.8.8.8, detour: 国外CDN }
-    - { tag: Games, address: 8.8.8.8, detour: Games }
-    - { tag: Dev, address: 8.8.8.8, detour: Dev }
-    - { tag: Google, address: 8.8.8.8, detour: Google }
-    - { tag: Microsoft, address: 8.8.8.8, detour: Microsoft }
-    - { tag: 国外图床, address: 8.8.8.8, detour: 国外图床 }
+    - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
+    - { tag: local, address: 223.5.5.5, detour: DIRECT }
   rules:
-    - { server: 国内, rule_set: [ MainlandNetwork ] }
-    - { server: 默认, rule_set: [ AboardNetwork ] }
-
-    - { server: 国内, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@category-entertainment@cn, GeoSite@steam@cn ] }
-    - { server: Apple, rule_set: [ GeoSite@apple ] }
-    - { server: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
-    - { server: Zoom, rule_set: [ GeoSite@zoom ] }
-    - { server: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
-    - { server: Communication, rule_set: [ GeoSite@category-communication ] }
-    - { server: 国外CDN, rule_set: [ GeoSite@cloudflare, GeoSite@jsdelivr ] }
-    - { server: Games, rule_set: [ GeoSite@category-games ] }
-    - { server: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
-    - { server: Google, rule_set: [ GeoSite@google ] }
-    - { server: Microsoft, rule_set: [ GeoSite@microsoft ] }
-    - { server: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { server: 默认, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
-
-    - { server: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
-    - { server: 默认, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
-
-    - { server: 国内, outbound: [ any ] }
-
-
-#ntp:
-#  enabled: true
-#  server: 203.107.6.88
-#  server_port: 123
-#  interval: 30m
-#  detour: DIRECT
+    - { server: local, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
+    - { server: local, outbound: [ any ] }
 
 
 inbounds:
   - type: mixed
     tag: mixed-in
-    listen: 0.0.0.0
+    listen: 127.0.0.1
     listen_port: 2080
     sniff: true
     sniff_override_destination: true
@@ -72,45 +30,10 @@ route:
     - { tag: MainlandNetwork, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: GoogleOneVPNTun, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
-    - { tag: MyDev, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/Dev.json }
-    - { tag: GeoSite@Gemini, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/Gemini.json }
     # 系统规则 begin
-    - { tag: GeoSite@steam@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/steam@cn.srs }
-    - { tag: GeoSite@category-entertainment@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-entertainment@cn.srs }
-    - { tag: GeoSite@category-dev-cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-dev-cn.srs }
-    - { tag: GeoSite@category-scholar-cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-scholar-cn.srs }
-    - { tag: GeoSite@category-games@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-games@cn.srs }
     - { tag: GeoSite@tld-cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tld-cn.srs }
     - { tag: GeoSite@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/cn.srs }
 
-    - { tag: GeoSite@cloudflare, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/cloudflare.srs }
-    - { tag: GeoSite@jsdelivr, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/jsdelivr.srs }
-    - { tag: GeoSite@x, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/x.srs }
-    - { tag: GeoSite@golang, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/golang.srs }
-    - { tag: GeoSite@apple, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/apple.srs }
-    - { tag: GeoSite@zoom, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/zoom.srs }
-    - { tag: GeoSite@google, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/google.srs }
-    - { tag: GeoSite@github, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/github.srs }
-    - { tag: GeoSite@microsoft, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/microsoft.srs }
-    - { tag: GeoSite@microsoft@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/microsoft@cn.srs }
-    - { tag: GeoSite@imgur, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/imgur.srs }
-    - { tag: GeoSite@meta, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/meta.srs }
-    - { tag: GeoSite@tiktok, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tiktok.srs }
-    - { tag: GeoSite@openai, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/openai.srs }
-    - { tag: GeoSite@Claude, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/anthropic.srs }
-
-    - { tag: GeoSite@category-games, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-games.srs }
-    - { tag: GeoSite@category-social-media-!cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-social-media-!cn.srs }
-    - { tag: GeoSite@category-porn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-porn.srs }
-    - { tag: GeoSite@category-communication, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-communication.srs }
-    - { tag: GeoSite@category-dev, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-dev.srs }
-    - { tag: GeoSite@category-anticensorship, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/category-anticensorship.srs }
-
-    - { tag: GeoSite@tld-!cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tld-!cn.srs }
-    - { tag: GeoSite@gfw, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/gfw.srs }
-    - { tag: GeoSite@geolocation-!cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs }
-
-    - { tag: GeoIP@google, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geoip/google.srs }
     - { tag: GeoIP@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geoip/cn.srs }
     - { tag: GeoIP@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geoip/private.srs }
     - { tag: GeoSite@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/private.srs }
@@ -119,35 +42,12 @@ route:
   rules:
     - { outbound: dns-out, protocol: dns }
 
-    - { outbound: DIRECT, rule_set: [ GeoSite@private ] }
-    - { outbound: SSH@22, port: [ 22 ] }
-
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
-    - { outbound: 国内, rule_set: [ MainlandNetwork ] }
+    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork ] }
     - { outbound: 默认, rule_set: [ AboardNetwork ] }
-
-    - { outbound: 国内, rule_set: [ GeoSite@microsoft@cn, GeoSite@category-dev-cn, GeoSite@category-scholar-cn, GeoSite@category-games@cn, GeoSite@category-entertainment@cn, GeoSite@steam@cn ] }
-    - { outbound: Apple, rule_set: [ GeoSite@apple ] }
-    - { outbound: LLM, rule_set: [ GeoSite@openai, GeoSite@Claude, GeoSite@Gemini ] }
-    - { outbound: Zoom, rule_set: [ GeoSite@zoom ] }
-    - { outbound: Meta, rule_set: [ GeoSite@meta, GeoSite@x ] }
-    - { outbound: Communication, rule_set: [ GeoSite@category-communication ] }
-    - { outbound: 国外CDN, rule_set: [ GeoSite@cloudflare, GeoSite@jsdelivr ] }
-    - { outbound: Games, rule_set: [ GeoSite@category-games ] }
-    - { outbound: Dev, rule_set: [ GeoSite@github, GeoSite@golang, GeoSite@category-dev, MyDev ] }
-    - { outbound: Google, rule_set: [ GeoSite@google ] }
-    - { outbound: Microsoft, rule_set: [ GeoSite@microsoft ] }
-    - { outbound: 国外图床, rule_set: [ GeoSite@imgur ] }
-    - { outbound: 默认, rule_set: [ GeoSite@tiktok, GeoSite@category-anticensorship, GeoSite@category-social-media-!cn, GeoSite@category-porn ] }
-
-    - { outbound: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
-    - { outbound: 默认, rule_set: [ GeoSite@tld-!cn, GeoSite@gfw, GeoSite@geolocation-!cn ] }
-
-    - { outbound: DIRECT, rule_set: [ GeoIP@private ] }
-    - { outbound: 国内, rule_set: [ GeoIP@cn ] }
-    - { outbound: Google, rule_set: [ GeoIP@google ] }
+    - { outbound: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn, GeoIP@cn, GeoIP@private ] }
 
 
 experimental:
@@ -156,38 +56,13 @@ experimental:
 
 
 outbounds:
-  - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择1, 手动选择2, 手动选择3, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
+  - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, DIRECT ], interrupt_exist_connections: true }
   - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: DnsOut, type: selector, outbounds: [ 默认, 自动选择, 手动选择1, 手动选择2, 手动选择3, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
-  - { tag: '⭕⭕====分割线 1====⭕⭕', type: selector, outbounds: [ DIRECT ] }
-  - { tag: 手动选择1, type: selector, outbounds: [ 自动选择, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
-  - { tag: 手动选择2, type: selector, outbounds: [ 自动选择, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, DIRECT ], interrupt_exist_connections: true }
-  - { tag: 手动选择3, type: selector, include-all: true, interrupt_exist_connections: true }
-  - { tag: 手动选择4, type: selector, include-all: true, interrupt_exist_connections: true }
+  - { tag: 手动选择, type: selector, include-all: true, interrupt_exist_connections: true }
   - { tag: 前置代理组, type: selector, include-all-providers: true, interrupt_exist_connections: true }
-  - { tag: '⭕⭕====分割线 2====⭕⭕', type: selector, outbounds: [ DIRECT ] }
-  - { tag: Google, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Microsoft, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Zoom, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Meta, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Apple, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Communication, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: LLM, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Games, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: Dev, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: 国外CDN, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: 国外图床, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: SSH@22, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: GoogleOneVPNTun, outbounds: [ 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: '⭕⭕====分割线 3====⭕⭕', type: selector, outbounds: [ DIRECT ] }
-  - { tag: 香港节点, type: urltest, include-all-providers: true, filter: '(香港)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: 台湾节点, type: urltest, include-all-providers: true, filter: '(台湾)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: 日本节点, type: urltest, include-all-providers: true, filter: '(日本)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: 新加坡节点, type: urltest, include-all-providers: true, filter: '(新加坡)', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: 美国节点, type: urltest, include-all-providers: true, filter: '美|us|unitedstates|united states', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: '⭕⭕====分割线 4====⭕⭕', type: selector, outbounds: [ DIRECT ] }
-  - { tag: 国内, outbounds: [ DIRECT, 默认, 香港节点, 台湾节点, 日本节点, 新加坡节点, 美国节点, 手动选择1, 手动选择2, 手动选择3, 自动选择 ], type: selector, interrupt_exist_connections: true }
+  - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: GoogleOneVPNTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
+  - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector, interrupt_exist_connections: true }
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
@@ -201,10 +76,3 @@ custom_outbounds:
     password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
     multiplex: { enabled: true }
     detour: 前置代理组
-  - tag: G1 ss
-    type: shadowsocks
-    server: 149.104.24.100
-    server_port: 10001
-    method: chacha20-ietf-poly1305
-    password: aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c
-    multiplex: { enabled: true }

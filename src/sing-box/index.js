@@ -73,24 +73,6 @@ async function getConf() {
   };
 }
 
-async function getMobileConf() {
-  const mobileConf = yaml.load(path.join(__dirname, `./mobile.yml`));
-  return {
-    ...(await getConf()),
-    ...mobileConf,
-  };
-}
-
-async function getGOneConf() {
-  const mobileConf = yaml.load(path.join(__dirname, `./g1v.yml`));
-  const commonConf = await getConf();
-  commonConf.route.rule_set.forEach(e => (delete e['download_detour']));
-  return {
-    ...commonConf,
-    ...mobileConf,
-  };
-}
-
 async function getTunConf() {
   const mobileConf = yaml.load(path.join(__dirname, `./tun.yml`));
   return {
@@ -111,7 +93,5 @@ async function getTunConf() {
     );
   }
   write({ conf: await getConf(), name: `singbox` });
-  write({ conf: await getMobileConf(), name: `singbox-mobile` });
-  write({ conf: await getGOneConf(), name: `g1v` });
   write({ conf: await getTunConf(), name: `tun` });
 })();
