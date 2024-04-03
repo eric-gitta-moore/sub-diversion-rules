@@ -46,12 +46,12 @@ dns:
     - { server: 国内, outbound: [ any ] }
 
 
-ntp:
-  enabled: true
-  server: 203.107.6.88
-  server_port: 123
-  interval: 30m
-  detour: DIRECT
+#ntp:
+#  enabled: true
+#  server: 203.107.6.88
+#  server_port: 123
+#  interval: 30m
+#  detour: DIRECT
 
 
 inbounds:
