@@ -83,8 +83,10 @@ async function getMobileConf() {
 
 async function getGOneConf() {
   const mobileConf = yaml.load(path.join(__dirname, `./g1v.yml`));
+  const commonConf = await getConf();
+  commonConf.route.rule_set.forEach(e => (delete e['download_detour']));
   return {
-    ...(await getConf()),
+    ...commonConf,
     ...mobileConf,
   };
 }
