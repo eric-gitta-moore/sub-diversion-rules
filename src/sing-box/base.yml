@@ -10,7 +10,7 @@ dns:
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
     - { tag: local_local, address: 223.5.5.5, detour: DIRECT }
   rules:
-    - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
+    - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ], disable_cache: true }
     - { server: local_local, outbound: [ any ] }
 
 
