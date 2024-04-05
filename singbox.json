@@ -51,49 +51,49 @@
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
         "tag": "GoogleOneVPNTun",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
       },
       {
         "tag": "GoogleOneVPNCheckPoint",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
         "tag": "GeoSite@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
       },
       {
         "tag": "GeoSite@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs"
       },
       {
         "tag": "GeoIP@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
       },
       {
         "tag": "GeoIP@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
       }
     ],
     "rules": [
