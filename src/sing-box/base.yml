@@ -26,17 +26,16 @@ route:
   final: 默认
   auto_detect_interface: true
   rule_set:
-    - { tag: AboardNetwork, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/AboardNetwork.json }
     - { tag: MainlandNetwork, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: GoogleOneVPNTun, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
     - { tag: GeoSite@tld-cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tld-cn.srs }
     - { tag: GeoSite@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/cn.srs }
+    - { tag: GeoSite@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/private.srs }
 
     - { tag: GeoIP@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geoip/cn.srs }
     - { tag: GeoIP@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geoip/private.srs }
-    - { tag: GeoSite@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/private.srs }
   # 系统规则 end
 
   rules:
@@ -45,24 +44,22 @@ route:
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
-    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork ] }
-    - { outbound: 默认, rule_set: [ AboardNetwork ] }
-    - { outbound: 国内, rule_set: [ GeoSite@tld-cn, GeoSite@cn, GeoIP@cn, GeoIP@private ] }
+    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn, GeoSite@tld-cn ] }
+    - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
 
 
 experimental:
-  cache_file: { enabled: true }
   clash_api: { external_controller: 127.0.0.1:9090 }
 
 
 outbounds:
-  - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, DIRECT ], interrupt_exist_connections: true }
-  - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*', interrupt_exist_connections: true, url: https://www.youtube.com/generate_204, interval: 6h, idle_timeout: 12h }
-  - { tag: 手动选择, type: selector, include-all: true, interrupt_exist_connections: true }
-  - { tag: 前置代理组, type: selector, include-all-providers: true, interrupt_exist_connections: true }
-  - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: GoogleOneVPNTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector, interrupt_exist_connections: true }
-  - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector, interrupt_exist_connections: true }
+  - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, DIRECT ] }
+  - { tag: 自动选择, type: urltest, include-all: true, filter: '^(?!.*(?:(中国|CN))).*' }
+  - { tag: 手动选择, type: selector, include-all: true }
+  - { tag: 前置代理组, type: selector, include-all-providers: true }
+  - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
+  - { tag: GoogleOneVPNTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
+  - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector }
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
