@@ -26,15 +26,15 @@ inbounds:
 route:
   final: 默认
   rule_set:
-    - { tag: MainlandNetwork, download_detour: 自动选择, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
-    - { tag: GoogleOneVPNTun, download_detour: 自动选择, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
-    - { tag: GoogleOneVPNCheckPoint, download_detour: 自动选择, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
+    - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
+    - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
+    - { tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
-    - { tag: GeoSite@cn, download_detour: 自动选择, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
-    - { tag: GeoSite@private, download_detour: 自动选择, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
+    - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
+    - { tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
 
-    - { tag: GeoIP@cn, download_detour: 自动选择, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs }
-    - { tag: GeoIP@private, download_detour: 自动选择, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs }
+    - { tag: GeoIP@cn, download_detour: DIRECT, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs }
+    - { tag: GeoIP@private, download_detour: DIRECT, type: remote, format: binary, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs }
   # 系统规则 end
 
   rules:
