@@ -15,11 +15,6 @@
         "tag": "local",
         "address": "223.5.5.5",
         "detour": "DIRECT"
-      },
-      {
-        "tag": "local_local",
-        "address": "223.5.5.5",
-        "detour": "DIRECT"
       }
     ],
     "rules": [
@@ -33,7 +28,7 @@
         "disable_cache": true
       },
       {
-        "server": "local_local",
+        "server": "local",
         "outbound": [
           "any"
         ]
@@ -53,6 +48,7 @@
   ],
   "route": {
     "final": "默认",
+    "auto_detect_interface": true,
     "rule_set": [
       {
         "tag": "MainlandNetwork",

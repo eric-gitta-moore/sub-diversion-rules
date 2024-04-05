@@ -10,11 +10,8 @@ inbounds:
     tag: tun-in
     inet4_address: 172.19.0.1/30
     inet6_address: fdfe:dcba:9876::1/126
+    mtu: 9000
     auto_route: true
     strict_route: true
-    mtu: 1400
-    sniff: true
-    sniff_override_destination: true
-    endpoint_independent_nat: true
-    domain_strategy: prefer_ipv4
     stack: system
+    sniff: true

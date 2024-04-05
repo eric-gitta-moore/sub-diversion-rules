@@ -3,13 +3,14 @@ log:
     timestamp: true
 dns:
     strategy: ipv4_only
-    servers: [{tag: remote, address: 'tcp://8.8.8.8', detour: 默认}, {tag: local, address: 223.5.5.5, detour: DIRECT}, {tag: local_local, address: 223.5.5.5, detour: DIRECT}]
-    rules: [{server: local, rule_set: [GeoSite@private, MainlandNetwork, GeoSite@cn], disable_cache: true}, {server: local_local, outbound: [any]}]
+    servers: [{tag: remote, address: 'tcp://8.8.8.8', detour: 默认}, {tag: local, address: 223.5.5.5, detour: DIRECT}]
+    rules: [{server: local, rule_set: [GeoSite@private, MainlandNetwork, GeoSite@cn], disable_cache: true}, {server: local, outbound: [any]}]
 inbounds:
     - {type: mixed, tag: mixed-in, listen: 127.0.0.1, listen_port: 2080, sniff: true, sniff_override_destination: true, domain_strategy: prefer_ipv4}
-    - {type: tun, tag: tun-in, inet4_address: 172.19.0.1/30, inet6_address: 'fdfe:dcba:9876::1/126', auto_route: true, strict_route: true, mtu: 1400, sniff: true, sniff_override_destination: true, endpoint_independent_nat: true, domain_strategy: prefer_ipv4, stack: system}
+    - {type: tun, tag: tun-in, inet4_address: 172.19.0.1/30, inet6_address: 'fdfe:dcba:9876::1/126', mtu: 9000, auto_route: true, strict_route: true, stack: system, sniff: true}
 route:
     final: 默认
+    auto_detect_interface: true
     rule_set: [{tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json'}, {tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json'}, {tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json'}, {tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs'}, {tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs'}, {tag: GeoIP@cn, download_detour: DIRECT, type: remote, format: binary, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs'}, {tag: GeoIP@private, download_detour: DIRECT, type: remote, format: binary, url: 'https://testingcf.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs'}]
     rules: [{outbound: dns-out, protocol: dns}, {outbound: GoogleOneVPNCheckPoint, rule_set: [GoogleOneVPNCheckPoint]}, {outbound: GoogleOneVPNTun, rule_set: [GoogleOneVPNTun]}, {outbound: 国内, rule_set: [GeoSite@private, MainlandNetwork, GeoSite@cn, GeoIP@private, GeoIP@cn]}]
 experimental:

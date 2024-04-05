@@ -8,10 +8,9 @@ dns:
   servers:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
-    - { tag: local_local, address: 223.5.5.5, detour: DIRECT }
   rules:
     - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ], disable_cache: true }
-    - { server: local_local, outbound: [ any ] }
+    - { server: local, outbound: [ any ] }
 
 
 inbounds:
@@ -26,6 +25,7 @@ inbounds:
 
 route:
   final: 默认
+  auto_detect_interface: true
   rule_set:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://testingcf.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
