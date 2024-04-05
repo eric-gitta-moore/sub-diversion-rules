@@ -15,6 +15,11 @@
         "tag": "local",
         "address": "223.5.5.5",
         "detour": "DIRECT"
+      },
+      {
+        "tag": "local_local",
+        "address": "223.5.5.5",
+        "detour": "DIRECT"
       }
     ],
     "rules": [
@@ -27,7 +32,7 @@
         ]
       },
       {
-        "server": "local",
+        "server": "local_local",
         "outbound": [
           "any"
         ]
