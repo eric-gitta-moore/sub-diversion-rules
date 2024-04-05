@@ -21,7 +21,6 @@
       {
         "server": "local",
         "rule_set": [
-          "GeoSite@tld-cn",
           "GeoSite@cn"
         ]
       },
@@ -67,13 +66,6 @@
         "type": "remote",
         "format": "source",
         "url": "https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
-      },
-      {
-        "tag": "GeoSite@tld-cn",
-        "download_detour": "自动选择",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tld-cn.srs"
       },
       {
         "tag": "GeoSite@cn",
@@ -126,8 +118,7 @@
         "rule_set": [
           "GeoSite@private",
           "MainlandNetwork",
-          "GeoSite@cn",
-          "GeoSite@tld-cn"
+          "GeoSite@cn"
         ]
       },
       {

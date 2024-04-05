@@ -9,7 +9,7 @@ dns:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
   rules:
-    - { server: local, rule_set: [ GeoSite@tld-cn, GeoSite@cn ] }
+    - { server: local, rule_set: [ GeoSite@cn ] }
     - { server: local, outbound: [ any ] }
 
 
@@ -30,7 +30,6 @@ route:
     - { tag: GoogleOneVPNTun, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: GoogleOneVPNCheckPoint, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
     # 系统规则 begin
-    - { tag: GeoSite@tld-cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/tld-cn.srs }
     - { tag: GeoSite@cn, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/cn.srs }
     - { tag: GeoSite@private, download_detour: 自动选择, type: remote, format: binary, url: https://raw.githubusercontent.com/eric-gitta-moore/meta-rules-dat/sing/geo/geosite/private.srs }
 
@@ -44,7 +43,7 @@ route:
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
-    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn, GeoSite@tld-cn ] }
+    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
     - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
 
 
