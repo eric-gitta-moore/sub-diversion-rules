@@ -4,6 +4,9 @@
     "timestamp": true
   },
   "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
     "clash_api": {
       "external_controller": "127.0.0.1:9090"
     }
@@ -141,6 +144,9 @@
     {
       "tag": "自动选择",
       "type": "urltest",
+      "url": "https://speed.cloudflare.com/__down?bytes=100",
+      "interval": "4h",
+      "idle_timeout": "8h",
       "outbounds": [
         "日本aws - 001",
         "日本aws - 002",
