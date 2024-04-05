@@ -4,6 +4,7 @@ log:
 
 
 dns:
+  strategy: prefer_ipv4
   servers:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
@@ -24,7 +25,6 @@ inbounds:
 
 route:
   final: 默认
-  auto_detect_interface: true
   rule_set:
     - { tag: MainlandNetwork, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: GoogleOneVPNTun, download_detour: 自动选择, type: remote, format: source, url: https://raw.githubusercontent.com/eric-gitta-moore/sub-diversion-rules/main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }

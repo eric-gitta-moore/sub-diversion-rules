@@ -4,6 +4,7 @@
     "timestamp": true
   },
   "dns": {
+    "strategy": "prefer_ipv4",
     "servers": [
       {
         "tag": "remote",
@@ -45,7 +46,6 @@
   ],
   "route": {
     "final": "默认",
-    "auto_detect_interface": true,
     "rule_set": [
       {
         "tag": "MainlandNetwork",
