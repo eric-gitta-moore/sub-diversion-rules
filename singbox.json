@@ -32,8 +32,7 @@
           "GeoSite@private",
           "MainlandNetwork",
           "GeoSite@cn"
-        ],
-        "disable_cache": true
+        ]
       },
       {
         "server": "local",

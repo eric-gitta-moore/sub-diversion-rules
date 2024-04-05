@@ -12,7 +12,7 @@ dns:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
   rules:
-    - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ], disable_cache: true }
+    - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
     - { server: local, outbound: [ any ] }
 
 
