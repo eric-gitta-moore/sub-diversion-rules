@@ -21,6 +21,8 @@
       {
         "server": "local",
         "rule_set": [
+          "GeoSite@private",
+          "MainlandNetwork",
           "GeoSite@cn"
         ]
       },
@@ -132,12 +134,7 @@
         "rule_set": [
           "GeoSite@private",
           "MainlandNetwork",
-          "GeoSite@cn"
-        ]
-      },
-      {
-        "outbound": "国内",
-        "rule_set": [
+          "GeoSite@cn",
           "GeoIP@private",
           "GeoIP@cn"
         ]
