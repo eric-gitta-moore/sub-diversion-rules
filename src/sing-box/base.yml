@@ -2,6 +2,8 @@ log:
   level: info
   timestamp: true
 
+experimental:
+  clash_api: { external_controller: 127.0.0.1:9090 }
 
 dns:
   strategy: ipv4_only
@@ -11,16 +13,6 @@ dns:
   rules:
     - { server: local, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ], disable_cache: true }
     - { server: local, outbound: [ any ] }
-
-
-inbounds:
-  - type: mixed
-    tag: mixed-in
-    listen: 127.0.0.1
-    listen_port: 2080
-    sniff: true
-    sniff_override_destination: true
-    domain_strategy: prefer_ipv4
 
 
 route:
@@ -44,11 +36,8 @@ route:
     - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
     - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
 
-    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
-
-
-experimental:
-  clash_api: { external_controller: 127.0.0.1:9090 }
+    - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
+    - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
 
 
 outbounds:
@@ -62,6 +51,17 @@ outbounds:
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
+
+
+inbounds:
+  - type: mixed
+    tag: mixed-in
+    listen: 127.0.0.1
+    listen_port: 2080
+    sniff: true
+    sniff_override_destination: true
+    domain_strategy: prefer_ipv4
+
 
 custom_outbounds:
   - tag: G1 ss detour

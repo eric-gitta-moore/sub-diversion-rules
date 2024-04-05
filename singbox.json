@@ -3,6 +3,11 @@
     "level": "info",
     "timestamp": true
   },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090"
+    }
+  },
   "dns": {
     "strategy": "ipv4_only",
     "servers": [
@@ -35,17 +40,6 @@
       }
     ]
   },
-  "inbounds": [
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    }
-  ],
   "route": {
     "final": "默认",
     "auto_detect_interface": true,
@@ -122,17 +116,17 @@
         "rule_set": [
           "GeoSite@private",
           "MainlandNetwork",
-          "GeoSite@cn",
+          "GeoSite@cn"
+        ]
+      },
+      {
+        "outbound": "国内",
+        "rule_set": [
           "GeoIP@private",
           "GeoIP@cn"
         ]
       }
     ]
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090"
-    }
   },
   "outbounds": [
     {
@@ -4094,6 +4088,17 @@
         "enabled": true
       },
       "detour": "前置代理组"
+    }
+  ],
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "domain_strategy": "prefer_ipv4"
     }
   ]
 }
