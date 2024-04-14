@@ -6,6 +6,7 @@ experimental:
   cache_file: { enabled: true }
   clash_api:
     external_controller: 127.0.0.1:9090
+    external_ui: ui
     external_ui_download_url: https://github.com/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip
     external_ui_download_detour: 默认
 
@@ -48,7 +49,7 @@ outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, 中转走落地, DIRECT ] }
   - { tag: 自动选择, type: urltest, url: http://cp.cloudflare.com/, interval: 4h, idle_timeout: 8h }
   - { tag: 手动选择, type: selector }
-  - { tag: 中转走落地, type: selector }
+  - { tag: 中转走 落地, type: selector }
   - { tag: 落地代理, type: selector }
   - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: GoogleOneVPNTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
