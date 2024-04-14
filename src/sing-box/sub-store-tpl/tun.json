@@ -139,6 +139,7 @@
       "outbounds": [
         "自动选择",
         "手动选择",
+        "中转走落地",
         "DIRECT"
       ]
     },
@@ -154,7 +155,11 @@
       "type": "selector"
     },
     {
-      "tag": "前置代理组",
+      "tag": "中转走落地",
+      "type": "selector"
+    },
+    {
+      "tag": "落地代理",
       "type": "selector"
     },
     {
@@ -175,14 +180,6 @@
         "手动选择",
         "DIRECT"
       ],
-      "type": "selector"
-    },
-    {
-      "tag": "中转走落地",
-      "type": "selector"
-    },
-    {
-      "tag": "落地代理",
       "type": "selector"
     },
     {
