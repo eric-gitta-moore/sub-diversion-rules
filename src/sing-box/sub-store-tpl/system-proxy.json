@@ -57,18 +57,18 @@
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
-        "tag": "GoogleOneVPNTun",
+        "tag": "G1VTun",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VTun.json"
       },
       {
-        "tag": "GoogleOneVPNCheckPoint",
+        "tag": "G1VCheckPoint",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VCheckPoint.json"
       },
       {
         "tag": "GeoSite@cn",
@@ -105,15 +105,15 @@
         "protocol": "dns"
       },
       {
-        "outbound": "GoogleOneVPNCheckPoint",
+        "outbound": "G1VCheckPoint",
         "rule_set": [
-          "GoogleOneVPNCheckPoint"
+          "G1VCheckPoint"
         ]
       },
       {
-        "outbound": "GoogleOneVPNTun",
+        "outbound": "G1VTun",
         "rule_set": [
-          "GoogleOneVPNTun"
+          "G1VTun"
         ]
       },
       {

@@ -25,8 +25,8 @@ route:
   auto_detect_interface: true
   rule_set:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
-    - { tag: GoogleOneVPNTun, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
-    - { tag: GoogleOneVPNCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
+    - { tag: G1VTun, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VTun.json }
+    - { tag: G1VCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VCheckPoint.json }
     # 系统规则 begin
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
     - { tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
@@ -38,8 +38,8 @@ route:
   rules:
     - { outbound: dns-out, protocol: dns }
 
-    - { outbound: GoogleOneVPNCheckPoint, rule_set: [ GoogleOneVPNCheckPoint ] }
-    - { outbound: GoogleOneVPNTun, rule_set: [ GoogleOneVPNTun ] }
+    - { outbound: G1VCheckPoint, rule_set: [ G1VCheckPoint ] }
+    - { outbound: G1VTun, rule_set: [ G1VTun ] }
 
     - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
     - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
