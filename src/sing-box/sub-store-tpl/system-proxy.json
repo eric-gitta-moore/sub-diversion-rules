@@ -61,14 +61,14 @@
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VTun.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
       },
       {
         "tag": "G1VCheckPoint",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/G1VCheckPoint.json"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
       },
       {
         "tag": "GeoSite@cn",
