@@ -4,7 +4,10 @@ log:
 
 experimental:
   cache_file: { enabled: true }
-  clash_api: { external_controller: 127.0.0.1:9090 }
+  clash_api:
+    external_controller: 127.0.0.1:9090
+    external_ui_download_url: https://github.com/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip
+    external_ui_download_detour: 默认
 
 dns:
   strategy: ipv4_only
