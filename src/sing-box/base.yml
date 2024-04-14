@@ -51,6 +51,8 @@ outbounds:
   - { tag: 前置代理组, type: selector }
   - { tag: GoogleOneVPNCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: GoogleOneVPNTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
+  - { tag: 中转走落地, type: selector }
+  - { tag: 落地代理, type: selector }
   - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector }
 
   - { tag: DIRECT, type: direct }
