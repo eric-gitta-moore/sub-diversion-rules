@@ -143,20 +143,17 @@
     {
       "tag": "自动选择",
       "type": "urltest",
-      "include-all": true,
       "url": "http://cp.cloudflare.com/",
       "interval": "4h",
       "idle_timeout": "8h"
     },
     {
       "tag": "手动选择",
-      "type": "selector",
-      "include-all": true
+      "type": "selector"
     },
     {
       "tag": "前置代理组",
-      "type": "selector",
-      "include-all-providers": true
+      "type": "selector"
     },
     {
       "tag": "GoogleOneVPNCheckPoint",
@@ -206,20 +203,6 @@
       "sniff": true,
       "sniff_override_destination": true,
       "domain_strategy": "prefer_ipv4"
-    }
-  ],
-  "custom_outbounds": [
-    {
-      "tag": "G1 ss detour",
-      "type": "shadowsocks",
-      "server": "149.104.24.100",
-      "server_port": 10001,
-      "method": "chacha20-ietf-poly1305",
-      "password": "aaf0cc77-ec05-4b5e-8fbb-8919c3aecf8c",
-      "multiplex": {
-        "enabled": true
-      },
-      "detour": "前置代理组"
     }
   ]
 }

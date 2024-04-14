@@ -14,5 +14,10 @@ void async function () {
     }
 
     write({conf: yaml.load(path.join(__dirname, `../base.yml`)), name: `system-proxy`});
-    write({conf: yaml.load(path.join(__dirname, `../tun.yml`)), name: `tun`});
+    write({
+        conf: {
+            ...yaml.load(path.join(__dirname, `../base.yml`)),
+            ...yaml.load(path.join(__dirname, `../tun.yml`))
+        }, name: `tun`
+    });
 }()
