@@ -164,7 +164,7 @@
       "type": "selector"
     },
     {
-      "tag": "GoogleOneVPNCheckPoint",
+      "tag": "G1VCheckPoint",
       "outbounds": [
         "默认",
         "自动选择",
@@ -174,7 +174,7 @@
       "type": "selector"
     },
     {
-      "tag": "GoogleOneVPNTun",
+      "tag": "G1VTun",
       "outbounds": [
         "默认",
         "自动选择",
