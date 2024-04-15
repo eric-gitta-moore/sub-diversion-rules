@@ -33,8 +33,8 @@
       {
         "server": "local",
         "rule_set": [
-          "GeoSite@private",
           "MainlandNetwork",
+          "GeoSite@private",
           "GeoSite@cn"
         ]
       },
@@ -58,25 +58,11 @@
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
-        "tag": "G1VTun",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json"
-      },
-      {
-        "tag": "G1VCheckPoint",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json"
-      },
-      {
-        "tag": "GeoSite@cn",
+        "tag": "GeoSite@zoom",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
       },
       {
         "tag": "GeoSite@private",
@@ -86,11 +72,11 @@
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs"
       },
       {
-        "tag": "GeoIP@cn",
+        "tag": "GeoSite@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
       },
       {
         "tag": "GeoIP@private",
@@ -100,11 +86,11 @@
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
       },
       {
-        "tag": "GeoSite@zoom",
+        "tag": "GeoIP@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
       }
     ],
     "rules": [
@@ -114,27 +100,25 @@
       },
       {
         "outbound": "G1VCheckPoint",
-        "rule_set": [
-          "G1VCheckPoint"
+        "domain_suffix": [
+          ".cloud.cupronickel.goog"
+        ],
+        "domain_keyword": [
+          "-pa.googleapis.com"
         ]
       },
       {
         "outbound": "G1VTun",
-        "rule_set": [
-          "G1VTun"
+        "domain_suffix": [
+          ".g-tun.com"
         ]
       },
       {
         "outbound": "国内",
         "rule_set": [
-          "GeoSite@private",
           "MainlandNetwork",
-          "GeoSite@cn"
-        ]
-      },
-      {
-        "outbound": "国内",
-        "rule_set": [
+          "GeoSite@private",
+          "GeoSite@cn",
           "GeoIP@private",
           "GeoIP@cn"
         ]
