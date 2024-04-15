@@ -114,7 +114,7 @@
         ]
       },
       {
-        "outbound": "国内",
+        "outbound": "DIRECT",
         "rule_set": [
           "MainlandNetwork",
           "GeoSite@private",
@@ -145,7 +145,7 @@
     {
       "tag": "自动选择",
       "type": "urltest",
-      "url": "http://cp.cloudflare.com/",
+      "url": "https://www.google.com/generate_204",
       "interval": "4h",
       "idle_timeout": "8h"
     },
@@ -165,8 +165,6 @@
       "tag": "zoom",
       "outbounds": [
         "默认",
-        "自动选择",
-        "手动选择",
         "DIRECT"
       ],
       "type": "selector"
@@ -174,8 +172,6 @@
     {
       "tag": "G1VCheckPoint",
       "outbounds": [
-        "默认",
-        "自动选择",
         "手动选择",
         "DIRECT"
       ],
@@ -184,20 +180,8 @@
     {
       "tag": "G1VTun",
       "outbounds": [
-        "默认",
-        "自动选择",
         "手动选择",
         "DIRECT"
-      ],
-      "type": "selector"
-    },
-    {
-      "tag": "国内",
-      "outbounds": [
-        "DIRECT",
-        "默认",
-        "自动选择",
-        "手动选择"
       ],
       "type": "selector"
     },

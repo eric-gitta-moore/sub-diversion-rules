@@ -39,21 +39,20 @@ route:
     - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
     - { outbound: G1VTun, domain_suffix: [ ".g-tun.com" ] }
 
-    - { outbound: 国内, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
+    - { outbound: DIRECT, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
 
     - { outbound: zoom, rule_set: [ GeoSite@zoom ] }
 
 
 outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, 落地代理, DIRECT ] }
-  - { tag: 自动选择, type: urltest, url: http://cp.cloudflare.com/, interval: 4h, idle_timeout: 8h }
+  - { tag: 自动选择, type: urltest, url: https://www.google.com/generate_204, interval: 4h, idle_timeout: 8h }
   - { tag: 手动选择, type: selector }
   - { tag: 落地前置, type: selector }
   - { tag: 落地代理, type: selector }
-  - { tag: zoom, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
-  - { tag: G1VCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
-  - { tag: G1VTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
-  - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector }
+  - { tag: zoom, outbounds: [ 默认, DIRECT ], type: selector }
+  - { tag: G1VCheckPoint, outbounds: [ 手动选择, DIRECT ], type: selector }
+  - { tag: G1VTun, outbounds: [ 手动选择, DIRECT ], type: selector }
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
