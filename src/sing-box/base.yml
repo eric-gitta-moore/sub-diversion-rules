@@ -11,7 +11,8 @@ experimental:
     external_ui_download_detour: 默认
 
 dns:
-  strategy: ipv4_only
+  final: remote
+  strategy: prefer_ipv4
   servers:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
@@ -35,7 +36,6 @@ route:
     - { tag: GeoIP@private, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs }
 
     - { tag: GeoSite@zoom, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs }
-    - { tag: GeoSite@category-dev, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/category-dev.srs }
 
   rules:
     - { outbound: dns-out, protocol: dns }
@@ -47,7 +47,6 @@ route:
     - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
 
     - { outbound: zoom, rule_set: [ GeoSite@zoom ] }
-    - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
 
 
 outbounds:
@@ -57,7 +56,6 @@ outbounds:
   - { tag: 落地前置, type: selector }
   - { tag: 落地代理, type: selector }
   - { tag: zoom, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
-  - { tag: Dev, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: G1VCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: G1VTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector }

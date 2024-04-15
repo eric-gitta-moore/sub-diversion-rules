@@ -15,7 +15,8 @@
     }
   },
   "dns": {
-    "strategy": "ipv4_only",
+    "final": "remote",
+    "strategy": "prefer_ipv4",
     "servers": [
       {
         "tag": "remote",
@@ -104,13 +105,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
-      },
-      {
-        "tag": "GeoSite@category-dev",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/category-dev.srs"
       }
     ],
     "rules": [
@@ -150,12 +144,6 @@
         "rule_set": [
           "GeoSite@zoom"
         ]
-      },
-      {
-        "outbound": "Dev",
-        "rule_set": [
-          "GeoSite@category-dev"
-        ]
       }
     ]
   },
@@ -191,16 +179,6 @@
     },
     {
       "tag": "zoom",
-      "outbounds": [
-        "默认",
-        "自动选择",
-        "手动选择",
-        "DIRECT"
-      ],
-      "type": "selector"
-    },
-    {
-      "tag": "Dev",
       "outbounds": [
         "默认",
         "自动选择",
