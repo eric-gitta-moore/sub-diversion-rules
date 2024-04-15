@@ -27,13 +27,15 @@ route:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
     - { tag: G1VTun, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNTun.json }
     - { tag: G1VCheckPoint, download_detour: DIRECT, type: remote, format: source, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/GoogleOneVPNCheckPoint.json }
-    # 系统规则 begin
+
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
     - { tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
 
     - { tag: GeoIP@cn, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs }
     - { tag: GeoIP@private, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs }
-  # 系统规则 end
+
+    - { tag: GeoSite@zoom, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs }
+    - { tag: GeoSite@category-dev, download_detour: DIRECT, type: remote, format: binary, url: https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/category-dev.srs }
 
   rules:
     - { outbound: dns-out, protocol: dns }
@@ -44,6 +46,9 @@ route:
     - { outbound: 国内, rule_set: [ GeoSite@private, MainlandNetwork, GeoSite@cn ] }
     - { outbound: 国内, rule_set: [ GeoIP@private, GeoIP@cn ] }
 
+    - { outbound: zoom, rule_set: [ GeoSite@zoom ] }
+    - { outbound: Dev, rule_set: [ GeoSite@category-dev ] }
+
 
 outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, 落地代理, DIRECT ] }
@@ -51,6 +56,8 @@ outbounds:
   - { tag: 手动选择, type: selector }
   - { tag: 落地前置, type: selector }
   - { tag: 落地代理, type: selector }
+  - { tag: zoom, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
+  - { tag: Dev, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: G1VCheckPoint, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: G1VTun, outbounds: [ 默认, 自动选择, 手动选择, DIRECT ], type: selector }
   - { tag: 国内, outbounds: [ DIRECT, 默认, 自动选择, 手动选择 ], type: selector }

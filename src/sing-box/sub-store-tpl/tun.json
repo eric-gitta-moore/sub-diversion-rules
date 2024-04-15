@@ -97,6 +97,20 @@
         "type": "remote",
         "format": "binary",
         "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
+      },
+      {
+        "tag": "GeoSite@zoom",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
+      },
+      {
+        "tag": "GeoSite@category-dev",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/category-dev.srs"
       }
     ],
     "rules": [
@@ -130,6 +144,18 @@
           "GeoIP@private",
           "GeoIP@cn"
         ]
+      },
+      {
+        "outbound": "zoom",
+        "rule_set": [
+          "GeoSite@zoom"
+        ]
+      },
+      {
+        "outbound": "Dev",
+        "rule_set": [
+          "GeoSite@category-dev"
+        ]
       }
     ]
   },
@@ -161,6 +187,26 @@
     },
     {
       "tag": "落地代理",
+      "type": "selector"
+    },
+    {
+      "tag": "zoom",
+      "outbounds": [
+        "默认",
+        "自动选择",
+        "手动选择",
+        "DIRECT"
+      ],
+      "type": "selector"
+    },
+    {
+      "tag": "Dev",
+      "outbounds": [
+        "默认",
+        "自动选择",
+        "手动选择",
+        "DIRECT"
+      ],
       "type": "selector"
     },
     {
