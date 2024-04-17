@@ -55,42 +55,42 @@
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
         "tag": "GeoSite@zoom",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
       },
       {
         "tag": "GeoSite@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs"
       },
       {
         "tag": "GeoSite@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs"
       },
       {
         "tag": "GeoIP@private",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/private.srs"
       },
       {
         "tag": "GeoIP@cn",
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "binary",
-        "url": "https://gcore.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geoip/cn.srs"
       }
     ],
     "rules": [
