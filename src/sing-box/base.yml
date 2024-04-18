@@ -12,12 +12,12 @@ experimental:
 
 dns:
   final: remote
-  strategy: ipv4_only # 这里 prefer_ipv4 大概率拉不下 rulesets
+  strategy: ipv4_only # 这里 prefer_ipv4 大概率拉不下 rulesets，报错提示 exchange fail
   servers:
     - { tag: remote, address: tcp://8.8.8.8, detour: 默认 }
     - { tag: local, address: 223.5.5.5, detour: DIRECT }
   rules:
-    - { server: local, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn ] }
+    - { server: local, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
     - { server: local, outbound: [ any ] }
 
 
