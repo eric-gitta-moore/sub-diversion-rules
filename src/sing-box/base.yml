@@ -26,7 +26,6 @@ route:
   auto_detect_interface: true
   rule_set:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
-    - { tag: GeoSite@zoom, download_detour: DIRECT, type: remote, format: binary, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs }
 
     - { tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
@@ -37,11 +36,8 @@ route:
     - { outbound: dns-out, protocol: dns }
 
     - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
-    - { outbound: G1VTun, domain_suffix: [ ".g-tun.com" ] }
 
     - { outbound: DIRECT, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
-
-    - { outbound: zoom, rule_set: [ GeoSite@zoom ] }
 
 
 outbounds:
@@ -50,9 +46,7 @@ outbounds:
   - { tag: 手动选择, type: selector }
   - { tag: 落地前置, type: selector }
   - { tag: 落地代理, type: selector }
-  - { tag: zoom, outbounds: [ 默认, DIRECT ], type: selector }
-  - { tag: G1VCheckPoint, outbounds: [ 手动选择, DIRECT ], type: selector }
-  - { tag: G1VTun, outbounds: [ 手动选择, DIRECT ], type: selector }
+  - { tag: G1VCheckPoint, outbounds: [ 默认, 手动选择, DIRECT ], type: selector }
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
