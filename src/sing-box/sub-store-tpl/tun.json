@@ -35,9 +35,7 @@
         "rule_set": [
           "MainlandNetwork",
           "GeoSite@private",
-          "GeoSite@cn",
-          "GeoIP@private",
-          "GeoIP@cn"
+          "GeoSite@cn"
         ]
       },
       {
