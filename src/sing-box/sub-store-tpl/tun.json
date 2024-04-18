@@ -58,13 +58,6 @@
         "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
-        "tag": "GeoSite@zoom",
-        "download_detour": "DIRECT",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/zoom.srs"
-      },
-      {
         "tag": "GeoSite@private",
         "download_detour": "DIRECT",
         "type": "remote",
@@ -108,12 +101,6 @@
         ]
       },
       {
-        "outbound": "G1VTun",
-        "domain_suffix": [
-          ".g-tun.com"
-        ]
-      },
-      {
         "outbound": "DIRECT",
         "rule_set": [
           "MainlandNetwork",
@@ -121,12 +108,6 @@
           "GeoSite@cn",
           "GeoIP@private",
           "GeoIP@cn"
-        ]
-      },
-      {
-        "outbound": "zoom",
-        "rule_set": [
-          "GeoSite@zoom"
         ]
       }
     ]
@@ -162,24 +143,9 @@
       "type": "selector"
     },
     {
-      "tag": "zoom",
-      "outbounds": [
-        "默认",
-        "DIRECT"
-      ],
-      "type": "selector"
-    },
-    {
       "tag": "G1VCheckPoint",
       "outbounds": [
-        "手动选择",
-        "DIRECT"
-      ],
-      "type": "selector"
-    },
-    {
-      "tag": "G1VTun",
-      "outbounds": [
+        "默认",
         "手动选择",
         "DIRECT"
       ],
