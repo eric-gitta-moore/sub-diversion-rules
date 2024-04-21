@@ -52,7 +52,7 @@
         "download_detour": "DIRECT",
         "type": "remote",
         "format": "source",
-        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-diversion-rules@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
         "tag": "GeoSite@private",
