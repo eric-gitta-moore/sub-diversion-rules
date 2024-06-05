@@ -23,6 +23,7 @@ route:
   auto_detect_interface: true
   rule_set:
     - { tag: MainlandNetwork, download_detour: DIRECT, type: remote, format: source, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json }
+    - { tag: AboardNetwork, download_detour: DIRECT, type: remote, format: source, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.json }
 
     - { tag: GeoSite@private, download_detour: DIRECT, type: remote, format: binary, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/private.srs }
     - { tag: GeoSite@cn, download_detour: DIRECT, type: remote, format: binary, url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/meta-rules-dat@sing/geo/geosite/cn.srs }
@@ -34,6 +35,7 @@ route:
 
     - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
 
+    - { outbound: 默认, rule_set: [ AboardNetwork ] }
     - { outbound: DIRECT, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
 
 
