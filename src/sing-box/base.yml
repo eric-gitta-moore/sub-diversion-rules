@@ -36,7 +36,7 @@ route:
     - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
 
     - { outbound: 默认, rule_set: [ AboardNetwork ] }
-    - { outbound: DIRECT, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
+    - { outbound: 国内, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
 
 
 outbounds:
@@ -46,6 +46,7 @@ outbounds:
   - { tag: 落地前置, type: selector }
   - { tag: 落地代理, type: selector }
   - { tag: G1VCheckPoint, outbounds: [ 默认, 手动选择, DIRECT ], type: selector }
+  - { tag: 国内, type: selector, outbounds: [ DIRECT, 默认, 自动选择, 手动选择, 落地代理 ] }
 
   - { tag: DIRECT, type: direct }
   - { tag: dns-out, type: dns }
