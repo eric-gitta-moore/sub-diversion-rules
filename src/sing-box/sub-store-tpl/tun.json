@@ -55,6 +55,13 @@
         "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json"
       },
       {
+        "tag": "AboardNetwork",
+        "download_detour": "DIRECT",
+        "type": "remote",
+        "format": "source",
+        "url": "https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.json"
+      },
+      {
         "tag": "GeoSite@private",
         "download_detour": "DIRECT",
         "type": "remote",
@@ -98,7 +105,13 @@
         ]
       },
       {
-        "outbound": "DIRECT",
+        "outbound": "默认",
+        "rule_set": [
+          "AboardNetwork"
+        ]
+      },
+      {
+        "outbound": "国内",
         "rule_set": [
           "MainlandNetwork",
           "GeoSite@private",
@@ -147,6 +160,17 @@
         "DIRECT"
       ],
       "type": "selector"
+    },
+    {
+      "tag": "国内",
+      "type": "selector",
+      "outbounds": [
+        "DIRECT",
+        "默认",
+        "自动选择",
+        "手动选择",
+        "落地代理"
+      ]
     },
     {
       "tag": "DIRECT",
