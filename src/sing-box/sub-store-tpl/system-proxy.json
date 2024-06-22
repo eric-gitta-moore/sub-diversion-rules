@@ -142,15 +142,18 @@
     },
     {
       "tag": "手动选择",
-      "type": "selector"
+      "type": "selector",
+      "outbounds": []
     },
     {
       "tag": "落地前置",
-      "type": "selector"
+      "type": "selector",
+      "outbounds": []
     },
     {
       "tag": "落地代理",
-      "type": "selector"
+      "type": "selector",
+      "outbounds": []
     },
     {
       "tag": "G1VCheckPoint",

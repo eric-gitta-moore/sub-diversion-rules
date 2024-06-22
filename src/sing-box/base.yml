@@ -42,9 +42,9 @@ route:
 outbounds:
   - { tag: 默认, type: selector, outbounds: [ 自动选择, 手动选择, 落地代理, DIRECT ] }
   - { tag: 自动选择, type: urltest, url: https://www.google.com/generate_204, interval: 4h, idle_timeout: 8h }
-  - { tag: 手动选择, type: selector }
-  - { tag: 落地前置, type: selector }
-  - { tag: 落地代理, type: selector }
+  - { tag: 手动选择, type: selector, outbounds: [] }
+  - { tag: 落地前置, type: selector, outbounds: [] }
+  - { tag: 落地代理, type: selector, outbounds: [] }
   - { tag: G1VCheckPoint, outbounds: [ 默认, 手动选择, DIRECT ], type: selector }
   - { tag: 国内, type: selector, outbounds: [ DIRECT, 默认, 自动选择, 手动选择, 落地代理 ] }
 
