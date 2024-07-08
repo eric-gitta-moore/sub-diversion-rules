@@ -32,7 +32,7 @@ route:
 
   rules:
     - { outbound: dns-out, protocol: dns }
-    - { outbound: direct, process_name: [ "sunshine.exe", "sunshinesvc.exe", "SunloginClient.exe", "ToDesk.exe", "RayLink.exe" ] }
+    - { outbound: DIRECT, process_name: [ "sunshine.exe", "sunshinesvc.exe", "SunloginClient.exe", "ToDesk.exe", "RayLink.exe" ] }
 
     - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
 

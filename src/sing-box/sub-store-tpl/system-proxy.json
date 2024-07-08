@@ -96,7 +96,7 @@
         "protocol": "dns"
       },
       {
-        "outbound": "direct",
+        "outbound": "DIRECT",
         "process_name": [
           "sunshine.exe",
           "sunshinesvc.exe",
