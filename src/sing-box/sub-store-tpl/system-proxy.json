@@ -96,6 +96,12 @@
         "protocol": "dns"
       },
       {
+        "outbound": "direct",
+        "process_name": [
+          "moonlight.exe"
+        ]
+      },
+      {
         "outbound": "G1VCheckPoint",
         "domain_suffix": [
           ".cloud.cupronickel.goog"
