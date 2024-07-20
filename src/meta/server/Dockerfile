@@ -9,7 +9,7 @@ RUN npm config set registry https://registry.npmmirror.com &&  \
 
 FROM node:20-alpine as prod
 WORKDIR /worksapce
-COPY --from=builder /workspace/dist .
-COPY ./assets .
+COPY --from=builder /workspace/dist ./dist
+COPY ./assets ./assets
 
 ENTRYPOINT ["node", "./dist/main.js"]
