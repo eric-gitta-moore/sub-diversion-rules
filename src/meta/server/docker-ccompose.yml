@@ -1,5 +1,5 @@
 services:
   meta:
     image: jamescurtisfoxmail/meta-server
-    port:
+    ports:
       - 8899:3000
