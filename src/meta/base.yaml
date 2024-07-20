@@ -40,16 +40,22 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
     proxy: DIRECT
     behavior: classical
-  
+
 rules:
   - GEOSITE,private,DIRECT
-  - GEOIP,private,国内
+  - GEOIP,private,DIRECT,no-resolve
 
-  - RULE-SET,AboardNetwork,漏网之鱼
-  - RULE-SET,MainlandNetwork,国内
+  - RULE-SET,AboardNetwork,出国,no-resolve
+  - RULE-SET,MainlandNetwork,DIRECT,no-resolve
 
-  - GEOSITE,cn,国内
-  - GEOIP,cn,国内
+  - GEOSITE,cn,DIRECT
+  - GEOIP,cn,DIRECT,no-resolve
 
   - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
-  - MATCH,漏网之鱼
+  - MATCH,出国
+
+
+proxy-groups:
+    - { name: 出国, type: select, proxies: [] }
+    - { name: 自动选择, type: url-test, proxies: [], url: 'https://support.google.com/', interval: 86400 }
+    - { name: 手动选择, type: select, proxies: [] }
