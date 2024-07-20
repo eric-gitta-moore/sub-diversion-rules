@@ -19,16 +19,9 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
-      - geolocation-!cn
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
-    domain:
-      - "+.google.com"
-      - "+.facebook.com"
-      - "+.youtube.com"
 
 sniffer:
   enable: true
