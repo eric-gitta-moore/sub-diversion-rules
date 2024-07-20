@@ -1,4 +1,4 @@
-service:
+services:
   meta:
     image: jamescurtisfoxmail/meta-server
     port:
