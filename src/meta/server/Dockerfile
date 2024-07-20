@@ -1,4 +1,4 @@
-FROM node:20 as builder
+FROM node:20-alpine as builder
 
 WORKDIR /workspace
 COPY . .
@@ -7,7 +7,7 @@ RUN npm config set registry https://registry.npmmirror.com &&  \
     pnpm i && \
     pnpm run build
 
-FROM node:20 as prod
+FROM node:20-alpine as prod
 WORKDIR /worksapce
 COPY --from=builder /workspace/dist .
 COPY ./assets .
