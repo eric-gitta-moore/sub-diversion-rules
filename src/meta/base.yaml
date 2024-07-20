@@ -1,6 +1,6 @@
 dns:
   enable: true
-  prefer-h3: true
+  ipv6: false
   listen: 0.0.0.0:53
   enhanced-mode: redir-host
   default-nameserver:
@@ -15,9 +15,7 @@ dns:
   fallback:
     - tls://8.8.4.4
     - tls://1.1.1.1
-  #    - https://cloudflare-dns.com/dns-query
-  #    - https://dns.google/dns-query
-  #    - https://doh.opendns.com/dns-query
+    - https://dns.google/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -26,6 +24,7 @@ dns:
       - geolocation-!cn
     ipcidr:
       - 240.0.0.0/4
+      - 0.0.0.0/32
     domain:
       - "+.google.com"
       - "+.facebook.com"
@@ -33,43 +32,31 @@ dns:
 
 sniffer:
   enable: true
-  sniff:
-    HTTP:
-      ports: [80, 8080-8880]
-    TLS:
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
 
+rule-providers:
+  MainlandNetwork:
+    type: http
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json
+    proxy: DIRECT
+    behavior: classical
+  AboardNetwork:
+    type: http
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.json
+    proxy: DIRECT
+    behavior: classical
+  
 rules:
   - GEOSITE,private,DIRECT
+  - GEOIP,private,国内
+
   - RULE-SET,AboardNetwork,漏网之鱼
-  - RULE-SET,CN,国内
+  - RULE-SET,MainlandNetwork,国内
 
-#  - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
-
-  - GEOSITE,apple,Apple
-
-  - GEOSITE,category-dev-cn,国内
-  - GEOSITE,category-scholar-cn,国内
-  - GEOSITE,category-games@cn,国内
-  - GEOSITE,google@cn,国内
-  - GEOSITE,tld-cn,国内
   - GEOSITE,cn,国内
-
-  - RULE-SET,LLM,LLM
-  - GEOSITE,zoom,Zoom
-
-  - GEOSITE,google,Google
-  - GEOSITE,meta,漏网之鱼
-  - GEOSITE,category-social-media-!cn,漏网之鱼
-  - GEOSITE,category-porn,漏网之鱼
-  - GEOSITE,category-communication,漏网之鱼
-  - GEOSITE,tld-!cn,漏网之鱼
-  - GEOSITE,gfw,漏网之鱼
-  - GEOSITE,geolocation-!cn,漏网之鱼
-
-  - GEOIP,google,Google
   - GEOIP,cn,国内
 
+  - AND,(DST-PORT,443),(NETWORK,UDP),REJECT # quic
   - MATCH,漏网之鱼
