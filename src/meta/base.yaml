@@ -56,6 +56,20 @@ rules:
 
 
 proxy-groups:
-    - { name: 出国, type: select, proxies: [] }
-    - { name: 自动选择, type: url-test, proxies: [], url: 'https://support.google.com/', interval: 86400 }
-    - { name: 手动选择, type: select, proxies: [] }
+    - { name: 出国, type: select, proxies: [自动选择, 手动选择, DIRECT] }
+    - { name: 自动选择, type: url-test, use: [provider1], url: https://support.google.com, interval: 86400, timeout: 3000 }
+    - { name: 手动选择, type: select, use: [provider1] }
+
+
+
+proxy-providers:
+  provider1:
+    type: http
+    url: http://test.com
+    interval: 86400
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: https://support.google.com
+      interval: 86400
+      timeout: 3000
