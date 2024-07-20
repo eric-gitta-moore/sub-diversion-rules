@@ -32,12 +32,12 @@ sniffer:
 rule-providers:
   MainlandNetwork:
     type: http
-    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.json
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/MainlandNetwork.yaml
     proxy: DIRECT
     behavior: classical
   AboardNetwork:
     type: http
-    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.json
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
     proxy: DIRECT
     behavior: classical
   
