@@ -106,15 +106,6 @@
         ]
       },
       {
-        "outbound": "G1VCheckPoint",
-        "domain_suffix": [
-          ".cloud.cupronickel.goog"
-        ],
-        "domain_keyword": [
-          "-pa.googleapis.com"
-        ]
-      },
-      {
         "outbound": "默认",
         "rule_set": [
           "AboardNetwork"

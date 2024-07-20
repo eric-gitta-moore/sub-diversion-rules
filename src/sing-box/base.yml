@@ -34,7 +34,7 @@ route:
     - { outbound: dns-out, protocol: dns }
     - { outbound: DIRECT, process_name: [ "sunshine.exe", "sunshinesvc.exe", "SunloginClient.exe", "ToDesk.exe", "RayLink.exe" ] }
 
-    - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
+    # - { outbound: G1VCheckPoint, domain_suffix: [ ".cloud.cupronickel.goog" ], domain_keyword: [ "-pa.googleapis.com" ] }
 
     - { outbound: 默认, rule_set: [ AboardNetwork ] }
     - { outbound: 国内, rule_set: [ MainlandNetwork, GeoSite@private, GeoSite@cn, GeoIP@private, GeoIP@cn ] }
