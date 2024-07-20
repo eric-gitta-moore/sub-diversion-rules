@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {},
   "devDependencies": {
+    "@types/node": "^20.14.11",
     "prettier": "^3.2.5"
   },
   "dependencies": {
