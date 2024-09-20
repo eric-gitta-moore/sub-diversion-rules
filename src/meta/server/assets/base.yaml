@@ -23,6 +23,15 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
 
+  nameserver-policy:
+    'rule-set:cn':
+      - 223.5.5.5#公司网络
+  proxy-server-nameserver:
+    - 223.5.5.5 # aliyun
+    - 119.29.29.29 # tencent
+    - 101.226.4.6 # 360
+
+
 sniffer:
   enable: true
   force-dns-mapping: true
