@@ -51,7 +51,7 @@ rule-providers:
     behavior: classical
   CompanyNetwork:
     type: http
-    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/CompanyNetwork.yaml
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/CompanyNetwork1.yaml
     proxy: DIRECT
     behavior: classical
 
