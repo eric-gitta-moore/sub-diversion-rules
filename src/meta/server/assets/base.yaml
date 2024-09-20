@@ -40,11 +40,17 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
     proxy: DIRECT
     behavior: classical
+  CompanyNetwork:
+    type: http
+    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/CompanyNetwork.yaml
+    proxy: DIRECT
+    behavior: classical
 
 rules:
   - GEOSITE,private,DIRECT
   - GEOIP,private,DIRECT,no-resolve
 
+  - RULE-SET,CompanyNetwork,公司网络,no-resolve
   - RULE-SET,AboardNetwork,出国,no-resolve
   - RULE-SET,MainlandNetwork,DIRECT,no-resolve
 
@@ -59,6 +65,7 @@ proxy-groups:
   - { name: 出国, type: select, proxies: [ 自动选择, 手动选择, DIRECT ] }
   - { name: 自动选择, type: url-test, use: [ provider1 ], url: https://support.google.com, interval: 86400, timeout: 3000 }
   - { name: 手动选择, type: select, use: [ provider1 ] }
+  - { name: 公司网络, type: select, proxies: [ DIRECT, 手机VPN ] }
 
 
 
@@ -73,3 +80,10 @@ proxy-providers:
       url: https://support.google.com
       interval: 86400
       timeout: 3000
+
+proxies: 
+  - name: 手机VPN
+    type: socks5
+    server: 127.0.0.1
+    port: 1080
+    ip-version: ipv4
