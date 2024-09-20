@@ -96,3 +96,12 @@ proxies:
     server: 127.0.0.1
     port: 1080
     ip-version: ipv4
+
+
+listeners:
+  - name: company-in
+    type: mixed
+    port: 7892
+    listen: 0.0.0.0
+    udp: true
+    proxy: 公司网络
