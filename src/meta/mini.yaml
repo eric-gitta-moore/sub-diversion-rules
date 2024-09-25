@@ -1,3 +1,7 @@
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+
 rules:
   - MATCH,default
 mixed-port: 7890
@@ -6,15 +10,7 @@ proxies:
     type: socks5
     server: 192.168.10.79
     port: 1080
-    ip-version: ipv4
 
 # tun:
-#   stack: system
-#   device: Mihomo
-#   auto-route: true
-#   auto-detect-interface: true
-#   dns-hijack:
-#   - any:53
 #   strict-route: true
-#   mtu: 1500
 #   enable: true
