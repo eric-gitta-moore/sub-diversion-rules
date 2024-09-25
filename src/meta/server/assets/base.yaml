@@ -1,47 +1,11 @@
 dns:
   enable: true
-  ipv6: false
-  listen: 0.0.0.0:53
+  # listen: 0.0.0.0:53
   enhanced-mode: fake-ip
-  # enhanced-mode: redir-host
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - '*.lan'
-
-  default-nameserver:
-    - 223.5.5.5 # aliyun
-    - 119.29.29.29 # tencent
-    - 101.226.4.6 # 360
-  nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.360.cn/dns-query
-    - https://doh.pub/dns-query
   fallback:
     - tls://8.8.4.4
     - tls://1.1.1.1
     - https://dns.google/dns-query
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-
-  nameserver-policy:
-    'rule-set:CompanyNetwork':
-      - 223.5.5.5#公司网络
-  proxy-server-nameserver:
-    - 223.5.5.5 # aliyun
-    - 119.29.29.29 # tencent
-    - 101.226.4.6 # 360
-
-
-sniffer:
-  enable: false
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: true
 
 rule-providers:
   MainlandNetwork:
@@ -77,9 +41,8 @@ rules:
 
 proxy-groups:
   - { name: 出国, type: select, proxies: [ 自动选择, 手动选择, DIRECT ] }
-  - { name: 自动选择, type: url-test, use: [ provider1 ], url: https://support.google.com, interval: 86400, timeout: 3000 }
+  - { name: 自动选择, type: url-test, use: [ provider1 ], url: https://support.google.com }
   - { name: 手动选择, type: select, use: [ provider1 ] }
-  - { name: 公司网络, type: select, proxies: [ DIRECT, 手机VPN ] }
 
 
 
@@ -92,21 +55,3 @@ proxy-providers:
     health-check:
       enable: true
       url: https://support.google.com
-      interval: 86400
-      timeout: 3000
-
-proxies: 
-  - name: 手机VPN
-    type: socks5
-    server: 127.0.0.1
-    port: 1080
-    ip-version: ipv4
-
-
-listeners:
-  - name: company-in
-    type: mixed
-    port: 7892
-    listen: 0.0.0.0
-    udp: true
-    proxy: 公司网络
