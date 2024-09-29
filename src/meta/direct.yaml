@@ -1,0 +1,8 @@
+rules:
+  - MATCH,DIRECT
+mixed-port: 7891
+proxies: 
+  - name: default
+    type: socks5
+    server: 192.168.10.79
+    port: 1080
