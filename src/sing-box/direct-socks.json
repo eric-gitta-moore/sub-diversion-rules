@@ -1,4 +1,7 @@
 {
+  "log": {
+    "level": "info"
+  },
   "dns": {
     "rules": [],
     "strategy": "ipv4_only",
@@ -19,9 +22,6 @@
       "type": "mixed"
     }
   ],
-  "log": {
-    "level": "info"
-  },
   "outbounds": [
     {
       "tag": "direct",
