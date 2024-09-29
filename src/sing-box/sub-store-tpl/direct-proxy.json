@@ -14,5 +14,9 @@
       "protocol": "freedom",
       "tag": "direct"
     }
-  ]
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": []
+  }
 }
