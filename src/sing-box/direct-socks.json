@@ -1,0 +1,34 @@
+{
+  "dns": {
+    "rules": [],
+    "servers": [
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "domain_strategy": "ipv4_only",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "tag": "mixed-in",
+      "type": "mixed"
+    }
+  ],
+  "log": {
+    "level": "info"
+  },
+  "outbounds": [
+    {
+      "tag": "direct",
+      "type": "direct"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": []
+  }
+}
