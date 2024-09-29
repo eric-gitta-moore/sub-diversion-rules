@@ -15,6 +15,14 @@
   },
   "inbounds": [
     {
+      "listen": "0.0.0.0",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53,
+      "tag": "dns-in",
+      "type": "direct"
+    },
+    {
       "domain_strategy": "ipv4_only",
       "listen": "0.0.0.0",
       "listen_port": 2080,
@@ -26,10 +34,21 @@
     {
       "tag": "direct",
       "type": "direct"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "rules": []
+    "rules": [
+      {
+        "inbound": [
+          "dns-in"
+        ],
+        "outbound": "dns-out"
+      }
+    ]
   }
 }
