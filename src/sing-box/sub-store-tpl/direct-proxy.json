@@ -1,7 +1,12 @@
 {
+  "log": {
+    "loglevel": "info",
+    "dnsLog": true
+  },
   "inbounds": [
     {
-      "port": 1080,
+      "tag": "socks-in",
+      "port": 10808,
       "listen": "0.0.0.0",
       "protocol": "socks",
       "settings": {
@@ -11,10 +16,18 @@
   ],
   "outbounds": [
     {
+      "tag": "direct",
       "protocol": "freedom",
-      "tag": "direct"
+      "settings": {
+        "domainStrategy": "AsIs"
+      }
     }
   ],
+  "dns": {
+    "servers": [
+      "localhost"
+    ]
+  },
   "routing": {
     "domainStrategy": "AsIs",
     "rules": []
