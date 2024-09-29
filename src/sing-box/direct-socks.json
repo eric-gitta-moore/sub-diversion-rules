@@ -1,6 +1,7 @@
 {
   "dns": {
     "rules": [],
+    "strategy": "ipv4_only",
     "servers": [
       {
         "address": "local",
