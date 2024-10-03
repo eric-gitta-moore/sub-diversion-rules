@@ -18,17 +18,11 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/AboardNetwork.yaml
     proxy: DIRECT
     behavior: classical
-  CompanyNetwork:
-    type: http
-    url: https://fastly.jsdelivr.net/gh/eric-gitta-moore/sub-rules-provider@main/rule/james-curtis/Clash/Providers/CompanyNetwork.yaml
-    proxy: DIRECT
-    behavior: classical
 
 rules:
   - GEOSITE,private,DIRECT
   - GEOIP,private,DIRECT,no-resolve
 
-  - RULE-SET,CompanyNetwork,公司网络,no-resolve
   - RULE-SET,AboardNetwork,出国,no-resolve
   - RULE-SET,MainlandNetwork,DIRECT,no-resolve
 
