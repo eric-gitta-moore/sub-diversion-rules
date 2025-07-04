@@ -1,16 +1,21 @@
+external-controller: '0.0.0.0:9091'
+log-level: debug
 dns:
   enable: true
+  ipv6: false
   enhanced-mode: fake-ip
 
 rules:
   - MATCH,default
+
 mixed-port: 7891
+
 proxies: 
   - name: default
     type: socks5
-    server: 192.168.10.79
-    port: 1080
+    server: 192.168.1.4
+    port: 7777
 
-# tun:
-#   strict-route: true
-#   enable: true
+tun:
+  enable: true
+  strict-route: true
